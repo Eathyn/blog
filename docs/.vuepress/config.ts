@@ -40,7 +40,7 @@ export default defineUserConfig({
         children: [
           {
             text: 'CSS',
-            link: '/front_end/css/',
+            link: '/front_end/css/box_model/index.md',
           },
           {
             text: 'JavaScript',
@@ -59,8 +59,16 @@ export default defineUserConfig({
             link: '/front_end/vue_router/getting_started/index.md',
           },
           {
+            text: 'Vuex',
+            link: '/front_end/vuex/what_is_vuex/index.md',
+          },
+          {
             text: 'TypeScript',
             link: '/front_end/typescript/learning_typescript/chapter_01.md',
+          },
+          {
+            text: 'Mini Program',
+            link: '/front_end/mini_program/navigation/index.md',
           },
           {
             text: 'Attention',
@@ -125,6 +133,33 @@ export default defineUserConfig({
       },
     ],
     sidebar: {
+      '/front_end/css': [
+        {
+          text: 'CSS',
+          link: '/front_end/css',
+          children: [
+            '/front_end/css/box_model/index.md',
+            '/front_end/css/box_types/index.md',
+            '/front_end/css/margin/index.md',
+            '/front_end/css/selectors/index.md',
+            '/front_end/css/specificity/index.md',
+            '/front_end/css/units/index.md',
+            '/front_end/css/positioning/index.md',
+            '/front_end/css/layout/common_layouts/index.md',
+            '/front_end/css/layout/flexbox/index.md',
+            '/front_end/css/centering/index.md',
+            '/front_end/css/transition/index.md',
+            '/front_end/css/transform/index.md',
+            '/front_end/css/animation/index.md',
+            '/front_end/css/bfc/index.md',
+            '/front_end/css/repaint_reflow/index.md',
+            '/front_end/css/decrease_font_size/index.md',
+            '/front_end/css/hide_element/index.md',
+            '/front_end/css/shape/index.md',
+            '/front_end/css/text_overflow/index.md',
+          ],
+        },
+      ],
       '/front_end/javascript': [
         {
           text: 'JavaScript',
@@ -134,6 +169,8 @@ export default defineUserConfig({
             '/front_end/javascript/class/index.md',
             '/front_end/javascript/apis/index.md',
             '/front_end/javascript/array_like_object/index.md',
+            '/front_end/javascript/variable/store/index.md',
+            '/front_end/javascript/scope/index.md',
             '/front_end/javascript/var_let_const/index.md',
             '/front_end/javascript/shallow_and_deep_copy/index.md',
             '/front_end/javascript/data_types/index.md',
@@ -151,6 +188,14 @@ export default defineUserConfig({
             '/front_end/javascript/module/dynamic_import/index.md',
             '/front_end/javascript/map_set/set_weakset/index.md',
             '/front_end/javascript/map_set/map_weakmap/index.md',
+            '/front_end/javascript/axios/index.md',
+            '/front_end/javascript/xml_http_request/index.md',
+            '/front_end/javascript/not_a_number/index.md',
+            '/front_end/javascript/preload_prefetch/index.md',
+            '/front_end/javascript/prototype/index.md',
+            '/front_end/javascript/proxy/index.md',
+            '/front_end/javascript/tricks/index.md',
+            '/front_end/javascript/type_checking/index.md',
           ],
         },
       ],
@@ -173,6 +218,7 @@ export default defineUserConfig({
             '/front_end/vue/guide/introduction/index.md',
             '/front_end/vue/guide/create_application/index.md',
             '/front_end/vue/guide/template_syntax/index.md',
+            '/front_end/vue/guide/reactivity_fundamentals/index.md',
           ],
         },
         {
@@ -206,6 +252,17 @@ export default defineUserConfig({
           ],
         },
       ],
+      '/front_end/vuex': [
+        {
+          text: 'Vuex',
+          link: '/front_end/vuex',
+          children: [
+            '/front_end/vuex/what_is_vuex/index.md',
+            '/front_end/vuex/getting_started/index.md',
+            '/front_end/vuex/modules/index.md',
+          ],
+        },
+      ],
       '/front_end/typescript': [
         {
           text: 'Learning TypeScript',
@@ -218,6 +275,7 @@ export default defineUserConfig({
             '/front_end/typescript/learning_typescript/chapter_05.md',
             '/front_end/typescript/learning_typescript/chapter_06.md',
             '/front_end/typescript/learning_typescript/chapter_07.md',
+            '/front_end/typescript/learning_typescript/chapter_08.md',
           ],
         },
         {
@@ -228,12 +286,35 @@ export default defineUserConfig({
           ],
         },
       ],
+      '/front_end/mini_program': [
+        {
+          text: 'Mini Program',
+          children: [
+            '/front_end/mini_program/navigation/index.md',
+            '/front_end/mini_program/component_communication/index.md',
+            '/front_end/mini_program/lifecycle_hooks/index.md',
+            '/front_end/mini_program/event/bind_handler/index.md',
+            '/front_end/mini_program/event/dataset_vs_detail/index.md',
+            '/front_end/mini_program/event/mut_bind/index.md',
+            '/front_end/mini_program/behaviors/index.md',
+            '/front_end/mini_program/observer/index.md',
+            '/front_end/mini_program/relations/index.md',
+            '/front_end/mini_program/pure_data/index.md',
+            '/front_end/mini_program/get_app_data/index.md',
+            '/front_end/mini_program/apis/index.md',
+          ],
+        },
+      ],
       '/front_end/attention': [
         {
           text: 'Attention',
           children: [
             '/front_end/attention/config_project/index.md',
             '/front_end/attention/webstorm_file_template/index.md',
+            '/front_end/attention/login/index.md',
+            '/front_end/attention/logout/index.md',
+            '/front_end/attention/cross_origin/index.md',
+            '/front_end/attention/generate_routes/index.md',
           ],
         }
       ],
