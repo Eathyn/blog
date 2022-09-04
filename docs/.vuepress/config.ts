@@ -1,11 +1,12 @@
 import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from 'vuepress'
-import { localTheme } from './index'
+// import { localTheme } from './index'
 
 export default defineUserConfig({
   lang: 'en-US',
   title: 'Eathyn\'s Blog',
   description: 'Learning Vuepress',
+  base: '/blog/',
   head: [
     [
       'link',
@@ -20,13 +21,13 @@ export default defineUserConfig({
       lineNumbers: false,
     }
   },
-  theme: localTheme({
+  theme: defaultTheme({
     colorMode: 'dark',
     colorModeSwitch: true,
     // logo: '/images/cat-1.png',
     // logoDark: '/images/cat-2.png',
     repo: 'https://github.com/Eathyn',
-    sidebarDepth: 3,
+    sidebarDepth: 4,
     editLink: false,
     lastUpdated: false,
     navbar: [
