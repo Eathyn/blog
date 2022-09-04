@@ -81,7 +81,7 @@ export default defineUserConfig({
         children: [
           {
             text: 'C Language',
-            link: '/cs/c_language/',
+            link: '/cs/c_language/a_modern_approach/10/index.md',
           },
         ],
       },
@@ -90,7 +90,7 @@ export default defineUserConfig({
         children: [
           {
             text: 'English',
-            link: '/',
+            link: '/language/english/illustration_of_grammar/01_主语和动词.md',
           },
         ]
       },
@@ -360,6 +360,48 @@ export default defineUserConfig({
             '/interview/vue_router/which_history_mode_does_router_have/index.md',
           ], 
         },
+      ],
+      '/language/english': [
+        {
+          text: 'English',
+          children: [
+            {
+              text: '图解零基础英语语法',
+              link: '/language/english/illustration_of_grammar',
+              children: [
+                '/language/english/illustration_of_grammar/01_主语和动词.md',
+                '/language/english/illustration_of_grammar/02_be动词.md',
+                '/language/english/illustration_of_grammar/03_一般动词.md',
+                '/language/english/illustration_of_grammar/04_代词的基础.md',
+                '/language/english/illustration_of_grammar/05_否定句的基础.md',
+                '/language/english/illustration_of_grammar/06_疑问句的基础.md',
+                '/language/english/illustration_of_grammar/07_疑问句.md',
+                '/language/english/illustration_of_grammar/08_复数形式.md',
+                '/language/english/illustration_of_grammar/09_祈使句.md',
+                '/language/english/illustration_of_grammar/10_代词.md',
+                '/language/english/illustration_of_grammar/11_现在进行时.md',
+              ]
+            },
+          ],
+        },
+      ],
+      '/cs/c_language': [
+        {
+          text: 'C Language',
+          children: [
+            {
+              text: 'C语言程序设计-现代方法',
+              link: '/cs/c_language/a_modern_approach/10/index.md',
+              children: [
+                '/cs/c_language/a_modern_approach/10/index.md',
+                '/cs/c_language/a_modern_approach/11/index.md',
+                '/cs/c_language/a_modern_approach/12/index.md',
+                '/cs/c_language/a_modern_approach/13/index.md',
+                '/cs/c_language/a_modern_approach/14/index.md',
+              ],
+            }
+          ]
+        }
       ],
     },
   }),
