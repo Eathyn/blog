@@ -77,6 +77,15 @@ export default defineUserConfig({
         ],
       },
       {
+        text: 'Back End',
+        children: [
+          {
+            text: 'Node.js',
+            link: '/back_end/node/npm/lock_node_version/index.md',
+          },
+        ]
+      },
+      {
         text: 'Computer Science',
         children: [
           {
@@ -317,6 +326,15 @@ export default defineUserConfig({
             '/front_end/attention/generate_routes/index.md',
           ],
         }
+      ],
+      '/back_end/node': [
+        {
+          text: 'Node.js',
+          children: [
+            '/back_end/node/npm/lock_node_version/index.md',
+            '/back_end/node/npm/lock_package_manager/index.md',
+          ],
+        },
       ],
       '/interview/javascript': [
         {
