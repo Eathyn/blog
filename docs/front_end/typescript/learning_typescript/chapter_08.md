@@ -156,3 +156,193 @@ class Custom {
 }
 ```
 
+## Classes as Types
+
+```ts
+class Person {
+  name = ''
+
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
+let p1 = new Person('eathyn')
+// TS2741: Property 'name' is missing in type '{}' but required in type 'Person'.
+p1 = {}
+
+let p2: Person = new Person('eaven')
+// TS2741: Property 'name' is missing in type '{}' but required in type 'Person'.
+p2 = {}
+```
+
+## Classes and Interfaces
+
+- An instance of a class which implements one or more interfaces should be assignable to each of those interfaces.
+
+```ts
+interface Person {
+  name: string;
+  getInfo(): void;
+}
+
+// ok
+class Student implements Person {
+  name: string
+  
+  constructor(name: string) {
+    this.name = name
+  }
+  
+  getInfo() {
+    console.log(`name: ${this.name}`)
+  }
+}
+
+// ok 
+class Child implements Person {
+  name: string
+  age: number
+  
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+  
+  getInfo() {
+    console.log(`name: ${this.name} - age: ${this.age}`)
+  }
+}
+```
+
+### Implementing Multiple Interfaces
+
+- A class can implement multiple interfaces.
+- All properties and methods must be implemented in the class.
+
+```ts
+interface One {
+  a: number;
+}
+
+interface Two {
+  fn(): void
+}
+
+class Custom implements One, Two {
+  a: number = 1
+  fn() {
+    console.log('hello')
+  }
+}
+```
+
+- TypeScript will throw error if a class implements multiple interfaces that has conflicting properties or methods.
+
+```ts
+interface One {
+  a: number;
+}
+
+interface Two {
+  a: string;
+}
+
+class Custom implements One, Two {
+  // TS2416: Property 'a' in type 'Custom' is not assignable to the same property in base type 'Two'.
+  a: number = 1;
+  
+  // TS2416: Property 'a' in type 'Custom' is not assignable to the same property in base type 'One'.
+  a: string = 'hello'
+}
+```
+
+## Extending a Class
+
+- Derived class has all properties and methods of base class.
+
+```ts
+class Person {
+  name: string = 'eathyn'
+  getName() {
+    return this.name
+  }
+}
+
+class Student extends Person {
+  grade: number = 4
+  getGrade() {
+    return this.grade
+  }
+}
+
+const s = new Student()
+console.log(s.name) // property of base class
+console.log(s.grade)
+console.log(s.getName()) // method of base class
+console.log(s.getGrade())
+```
+
+### Extension Assignability
+
+- An instance of a derived class can be assigned to a variable with base class type annotation.
+
+```ts
+class Person {
+  name: string
+  age: number
+  
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+}
+
+class Student extends Person {
+  grade: number
+  
+  constructor(name: string, age: number, grade: number) {
+    super(name, age)
+    this.grade = grade
+  }
+}
+
+let student: Person
+
+// ok
+student = new Student('eathyn', 25, 4)
+
+// TS2339: Property 'grade' does not exist on type 'Person'.
+console.log(student.grade)
+```
+
+- If all properties and methods of a base class already exist on its derived class with same type, instances of that base class can be assigned to a variable with derived class type annotation.
+
+```ts
+class BaseClass {
+  a: number = 1
+}
+
+class DerivedClassOne extends BaseClass {
+  a: number = 2
+}
+
+class DerivedClassTwo extends BaseClass {
+  a: number = 3
+  b?: number = 4
+}
+
+class DerivedClassThree extends BaseClass {
+  c: number = 5
+}
+
+let instance1: DerivedClassOne
+instance1 = new BaseClass() // ok
+
+let instance2: DerivedClassTwo
+instance2 = new BaseClass() // ok
+
+let instance3: DerivedClassThree
+// TS2741: Property 'c' is missing in type 'BaseClass' but required in type 'DerivedClassThree'.
+instance3 = new BaseClass()
+```
