@@ -323,7 +323,7 @@ export default defineUserConfig({
             '/front_end/attention/login/index.md',
             '/front_end/attention/logout/index.md',
             '/front_end/attention/cross_origin/index.md',
-            '/front_end/attention/generate_routes/index.md',
+            '/front_end/attention/permission/index.md',
           ],
         }
       ],

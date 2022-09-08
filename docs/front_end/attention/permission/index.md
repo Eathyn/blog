@@ -1,12 +1,14 @@
-# Generate Routes
+# Permission
 
-## Explanation
+## Generate Routes
+
+### Explanation
 
 1. 创建路由时仅挂载无需权限的路由
 2. 向后端获取用户的角色，然后根据用户角色过滤出这个角色可以访问的路由
 3. 使用 `router.addRoute` 动态地添加路由
 
-## Code
+### Code
 
 :::: code-group
 
@@ -157,6 +159,75 @@ function hasPermission(roles, route) {
 :::
 
 ::::
+
+## Custom Directive
+
+- 封装 vue.js 自定义指令实现元素的权限管理
+
+### Explanation
+
+- 从 vuex 中获取用户的角色，然后与自定义指令中传入的角色进行对比，从而判断是否显示该元素
+
+### Code
+
+_src/directive/permission/permission.js_
+
+```js
+import store from '@/store'
+
+function checkPermission(el, binding) {
+  const { value } = binding
+  // 获取用户角色
+  const roles = store.getters && store.getters.roles
+
+  if (value && value instanceof Array) {
+    if (value.length > 0) {
+      const permissionRoles = value
+
+      // 判断用户角色是否属于自定义指令传入的值
+      const hasPermission = roles.some(role => {
+        return permissionRoles.includes(role)
+      })
+
+      // 如果没有权限则将该元素删除
+      if (!hasPermission) {
+        el.parentNode && el.parentNode.removeChild(el)
+      }
+    }
+  } else {
+    throw new Error(`need roles! Like v-permission="['admin','editor']"`)
+  }
+}
+
+export default {
+  // 当绑定自定义指令的元素插入到父元素时触发
+  inserted(el, binding) {
+    checkPermission(el, binding)
+  },
+  // 所在的组件的虚拟节点更新时触发
+  update(el, binding) {
+    checkPermission(el, binding)
+  }
+}
+```
+
+_src/directive/permission/index.js_
+
+```js
+import permission from './permission'
+
+const install = function(Vue) {
+  Vue.directive('permission', permission)
+}
+
+if (window.Vue) {
+  window['permission'] = permission
+  Vue.use(install); // eslint-disable-line
+}
+
+permission.install = install
+export default permission
+```
 
 ## Refs
 
