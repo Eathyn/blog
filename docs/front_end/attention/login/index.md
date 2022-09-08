@@ -4,10 +4,9 @@
 
 - 表单校验通过后跳转到主页
 
-## 结合全局路由守卫和 `token` 执行后续操作
+## 动态生成路由表
 
 - 跳转到主页时会触发全局路由守卫 `beforeEach`
-- 将 `token` 保存在本地 `Cookie` 中，这样下次打开页面或者刷新页面的时候不需要重新登录
 
 ```js
 router.beforeEach(async(to, from, next) => {
@@ -45,4 +44,47 @@ router.beforeEach(async(to, from, next) => {
     }
   }
 })
+```
+
+## 保存 `token`
+
+- 将 `token` 保存在 `vuex` 中
+- 将 `token` 通过 `js-Cookie` 库保存在本地 `Cookie` 中，这样下次打开页面或者刷新页面的时候不需要重新登录
+
+_store/modules/user.js_
+
+```js
+const actions = {
+  login({ commit }, userInfo) {
+    const { username, password } = userInfo
+    return new Promise((resolve, reject) => {
+      login({ username: username.trim(), password: password }).then(response => {
+        const { data } = response
+        commit('SET_TOKEN', data.token)
+        setToken(data.token)
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+}
+
+const mutations = {
+  SET_TOKEN: (state, token) => {
+    state.token = token
+  },
+}
+```
+
+_utils/auth.js_
+
+```js
+import Cookies from 'js-cookie'
+
+const TokenKey = 'Admin-Token'
+
+export function setToken(token) {
+  return Cookies.set(TokenKey, token)
+}
 ```
