@@ -1,7 +1,8 @@
-# 互斥事件 mutually exclusive event
+# 互斥事件 
 
 ## 概念
 
+- mutually exclusive event
 - 一个 mut-bind 触发后，如果事件冒泡到其他节点上，其他节点上的 mut-bind 绑定函数不会被触发
 - bind 绑定函数和 catch 绑定函数依旧会被触发
 

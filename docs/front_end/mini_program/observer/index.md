@@ -1,6 +1,6 @@
 # Observers
 
-## Def
+## Definition
 
 - 数据被执行 `setData` 时可以触发监听操作
 - `Component` 才有 `observers` 属性，`Page` 没有

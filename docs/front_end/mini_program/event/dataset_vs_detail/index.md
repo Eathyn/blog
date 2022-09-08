@@ -1,4 +1,4 @@
-# dataset vs. detail
+# `dataset` vs. `detail`
 
 ## dataset
 
