@@ -346,3 +346,192 @@ let instance3: DerivedClassThree
 // TS2741: Property 'c' is missing in type 'BaseClass' but required in type 'DerivedClassThree'.
 instance3 = new BaseClass()
 ```
+
+### Overridden Methods
+
+- Overridden methods in subclassed must be assignable to methods of base class.
+
+```ts
+class BaseClass {
+  fn(a: number) {
+    return a * 2
+  }
+}
+
+class SubClassOne extends BaseClass {
+  // ok
+  fn(a: number) {
+    return a * 2
+  }
+}
+
+class SubClassTwo extends BaseClass {
+  // TS2416: Property 'fn' in type 'SubClassTwo' is not assignable to the same property in base type 'BaseClass'.
+  // Type '(a: number, b: number) => number' is not assignable to type '(a: number) => number'.
+  fn(a: number, b: number) {
+    return a + b
+  }
+}
+
+class SubClassThree extends BaseClass {
+  // TS2416: Property 'fn' in type 'SubClassThree' is not assignable to the same property in base type 'BaseClass'.
+  // Type '(a: number) => string' is not assignable to type '(a: number) => number'.
+  // Type 'string' is not assignable to type 'number'.
+  fn(a: number) {
+    return `${a}`
+  }
+}
+```
+
+### Overridden Properties
+
+- Overridden Property types in subclass must be assignable to property types in base class.
+
+```ts
+class BaseClass {
+  a?: number
+}
+
+class SubClassOne extends BaseClass {
+  a: number = 1
+}
+
+class SubClassTwo extends BaseClass {
+  // TS2416: Property 'a' in type 'SubClassTwo' is not assignable to the same property in base type 'BaseClass'.
+  // Type 'string' is not assignable to type 'number'.
+  a: string = 'A'
+}
+```
+
+- Overridden properties are usually used to be narrowed to some more specific type in subclass.
+
+```ts
+class BaseClass {
+  // type: number | undefined
+  a?: number
+}
+
+class SubClass {
+  a: number
+  
+  constructor(a: number) {
+    this.a = a
+  }
+}
+```
+
+## Abstract Classes
+
+- A class that doesn't implement some methods.
+- Adding `abstract` keyword before a class or a method to indicates that is an abstract class.
+- TypeScript will throw error if abstract methods aren't implemented in subclass.
+
+```ts
+abstract class Person {
+  name: string
+  age: number
+
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+  
+  abstract getInfo(): string
+}
+
+class Student extends Person {
+  grade: number
+  
+  constructor(name: string, age: number, grade: number) {
+    super(name, age)
+    this.grade = grade
+  }
+  
+  // must implement the method
+  getInfo(): string {
+    return `${this.name} - ${this.age} - ${this.grade}`
+  }
+}
+```
+
+- Cannot create an instance of an abstract class.
+
+```ts
+abstract class AbstractClass {}
+
+// TS2511: Cannot create an instance of an abstract class.
+const obj = new AbstractClass()
+```
+
+## Member Visibility
+
+- `public`: allowed to be accessed by anybody, anywhere
+- `protected`: allowed to be accessed by the class itself and its subclass
+- `private`: allowed to be accessed by the class itself
+
+```ts
+class BaseClass {
+  public a: number
+  protected b: number
+  private c: number
+  
+  constructor(a: number, b: number, c: number) {
+    this.a = a
+    this.b = b
+    // private member is accessible in the class itself
+    this.c = c
+  }
+}
+
+class SubClass extends BaseClass {
+  constructor(a: number, b: number, c: number) {
+    super(a, b, c)
+  }
+  
+  getB() {
+    // protected member is accessible in the class itself and subclasses
+    return this.b
+  }
+  getC() {
+    // TS2341: Property 'c' is private and only accessible within class 'BaseClass'.
+    return this.c
+  }
+}
+```
+
+- A visibility keyword is positioned before the `readonly` keyword.
+
+```ts
+class Base {
+  private readonly a: number = 1
+}
+```
+
+### Static Field Modifiers
+
+- static members are belong to a class rather than an instance.
+
+```ts
+class Base {
+  static a: number = 1
+  static greet() {
+    return 'hello'
+  }
+}
+
+console.log(Base.a)
+console.log(Base.greet())
+```
+
+- A visibility keyword comes first, then `static`, then `readonly`.
+
+```ts
+class Base {
+  private static readonly a: number = 1
+  static getA() {
+    return this.a
+  }
+}
+
+console.log(Base.getA())
+```
