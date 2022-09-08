@@ -92,6 +92,10 @@ export default defineUserConfig({
             text: 'C Language',
             link: '/cs/c_language/a_modern_approach/10/index.md',
           },
+          {
+            text: 'Network',
+            link: '/cs/network/http/message/index.md',
+          },
         ],
       },
       {
@@ -420,6 +424,26 @@ export default defineUserConfig({
               ],
             }
           ]
+        }
+      ],
+      '/cs/network': [
+        {
+          text: 'Computer Networking',
+          children: [
+            {
+              text: 'For Front-End',
+              link: '/cs/network/http/message/index.md',
+              children: [
+                '/cs/network/http/message/index.md',
+                '/cs/network/http/headers/index.md',
+                '/cs/network/http/response_status_code/index.md',
+                '/cs/network/http/cache/index.md',
+                '/cs/network/http/origin/index.md',
+                '/cs/network/http/cors/index.md',
+                '/cs/network/https/index.md',
+              ],
+            },
+          ],
         }
       ],
     },
