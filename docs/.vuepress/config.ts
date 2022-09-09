@@ -229,6 +229,7 @@ export default defineUserConfig({
             '/front_end/browser/events/basics/index.md',
             '/front_end/browser/events/capture_and_bubble/index.md',
             '/front_end/browser/events/delegation/index.md',
+            '/front_end/browser/load/index.md',
           ],
         }
       ],
