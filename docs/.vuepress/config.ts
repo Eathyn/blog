@@ -144,6 +144,15 @@ export default defineUserConfig({
           },
         ],
       },
+      {
+        text: 'Other',
+        children: [
+          {
+            text: 'Work',
+            link: '/other/work/soft_skills/chapter_02.md',
+          },
+        ],
+      },
     ],
     sidebar: {
       '/front_end/css': [
@@ -447,6 +456,20 @@ export default defineUserConfig({
             },
           ],
         }
+      ],
+      '/other/work': [
+        {
+          text: 'Work',
+          children: [
+            {
+              text: '软技能: 代码之外的生存指南',
+              link: 'other/work/',
+              children: [
+                '/other/work/soft_skills/chapter_02.md',
+              ],
+            },
+          ],
+        },
       ],
     },
   }),
