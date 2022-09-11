@@ -151,6 +151,10 @@ export default defineUserConfig({
         text: 'Other',
         children: [
           {
+            text: 'Learning',
+            link: '/other/learning/schedule/index.md',
+          },
+          {
             text: 'Work',
             link: '/other/work/soft_skills/chapter_02.md',
           },
@@ -472,6 +476,14 @@ export default defineUserConfig({
                 '/other/work/soft_skills/chapter_02.md',
               ],
             },
+          ],
+        },
+      ],
+      '/other/learning': [
+        {
+          text: 'Learning',
+          children: [
+            '/other/learning/schedule/index.md',
           ],
         },
       ],
