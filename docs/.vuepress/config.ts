@@ -460,6 +460,8 @@ export default defineUserConfig({
                 '/cs/network/http/origin/index.md',
                 '/cs/network/http/cors/index.md',
                 '/cs/network/https/index.md',
+                '/cs/network/tcp/three_handshakes_four_waves/index.md',
+                '/cs/network/authentication/cookie/index.md',
               ],
             },
           ],
