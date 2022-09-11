@@ -19,7 +19,10 @@ export default defineUserConfig({
   markdown: {
     code: {
       lineNumbers: false,
-    }
+    },
+    headers: {
+      level: [1, 2, 3, 4, 5, 6],
+    },
   },
   theme: defaultTheme({
     colorMode: 'dark',
@@ -27,7 +30,7 @@ export default defineUserConfig({
     // logo: '/images/cat-1.png',
     // logoDark: '/images/cat-2.png',
     repo: 'https://github.com/Eathyn',
-    sidebarDepth: 4,
+    sidebarDepth: 6,
     editLink: false,
     lastUpdated: false,
     navbar: [
