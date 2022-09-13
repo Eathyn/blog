@@ -464,6 +464,7 @@ export default defineUserConfig({
                 '/cs/network/tcp/three_handshakes_four_waves/index.md',
                 '/cs/network/authentication/cookie/index.md',
                 '/cs/network/authentication/session/index.md',
+                '/cs/network/authentication/jwt/index.md',
               ],
             },
           ],
