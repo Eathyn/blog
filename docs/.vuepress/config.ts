@@ -308,6 +308,7 @@ export default defineUserConfig({
             '/front_end/typescript/learning_typescript/chapter_07.md',
             '/front_end/typescript/learning_typescript/chapter_08.md',
             '/front_end/typescript/learning_typescript/chapter_09.md',
+            '/front_end/typescript/learning_typescript/chapter_10.md',
           ],
         },
         {
