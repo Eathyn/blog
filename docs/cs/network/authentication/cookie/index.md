@@ -18,5 +18,7 @@
 
 ## Refs
 
+- [History of Authentication](https://www.cnblogs.com/moyand/p/9047978.html)
 - [Cookie](https://juejin.cn/post/6844904034181070861#heading-3)
 - [Cookie Practice](https://www.section.io/engineering-education/what-are-cookies-nodejs/)
+- [Repo](https://github.com/Eathyn/authentication/tree/cookie)
