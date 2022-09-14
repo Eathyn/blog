@@ -330,3 +330,114 @@ function handleResult(result: Result<string>) {
   }
 }
 ```
+
+## Generic Modifiers
+
+### Generic Defaults
+
+- Generics support default type argument.
+
+```ts
+interface Test<T = string> {
+  value: T
+}
+
+// ok
+let a: Test<number> = { value: 1 }
+
+// ok: type infer
+let b: Test = { value: 'hello' }
+
+// TS2322: Type 'number' is not assignable to type 'string'.
+let c: Test = { value: 1 }
+```
+
+- Type parameters can default to earlier type parameters in the same declaration.
+
+```ts
+interface KeyValuePair<Key, Value = Key> {
+  key: Key
+  value: Value
+}
+
+// ok
+let allExplicit: KeyValuePair<number, string> = {
+  key: 1,
+  value: 'hello',
+}
+
+// ok
+let oneDefault: KeyValuePair<number> = {
+  key: 1,
+  value: 2,
+}
+
+let missing: KeyValuePair<string> = {
+  key: 'hello',
+  // Type parameters can default to earlier type parameters in the same declaration too.
+  value: 1,
+}
+```
+
+- All default type parameters must come last in their declaration list.
+
+```ts
+// ok
+function fn1<T, U = string>() {}
+
+// TS2706: Required type parameters may not follow optional type parameters.
+function fn2<T = string, U>() {}
+```
+
+## Constrained Generic Types
+
+- We should constrain generic types because some functions are only meant to work with a limited set of types.
+- TypeScript allows for a type parameter to declare itself as needing to extend a type: meaning it’s only allowed to alias types that are assignable to that type.
+- The syntax to constrain a type parameter is to place the `extends` keyword after the type parameter’s name, followed by a type to constrain it to.
+
+```ts
+interface WithLength {
+  length: number
+}
+
+function logWithLength<T extends WithLength>(input: T) {
+  console.log(input.length)
+  return input
+}
+
+// ok
+logWithLength("hello")
+
+// ok
+logWithLength([1, 2, 3])
+
+// TS2345: Argument of type 'Date' is not assignable to parameter of type 'WithLength'.
+// Property 'length' is missing in type 'Date' but required in type 'WithLength'.
+logWithLength(new Date())
+```
+
+### keyof and Constrained Type Parameters
+
+- Using `extends` and `keyof` together allows a type parameter to be constrained to the keys of a previous type parameter.
+
+```ts
+function get<T, Key extends keyof T>(container: T, key: Key) {
+  return container[key]
+}
+
+const container = {
+  a: 1,
+  b: {
+    c: 2,
+  },
+}
+
+// ok
+get(container, 'a')
+
+// ok
+get(container, 'b')
+
+// TS2345: Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
+get(container, 'c')
+```
