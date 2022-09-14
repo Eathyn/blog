@@ -153,3 +153,180 @@ let result1 = getInside(o1.inside)
 // type of 'result1': boolean
 let result2 = getInside(o2.inside)
 ```
+
+## Generic Classes
+
+- Classes can also declare any number of type parameters to be later used on members.
+
+```ts
+class MyClass<T, U> {
+  key: T
+  value: U
+
+  constructor(key: T, value: U) {
+    this.key = key
+    this.value = value
+  }
+
+  getKey(): T {
+    return this.key
+  }
+}
+
+// type of 'instance1': MyClass<number, string>
+const instance1 = new MyClass(1, 'hello')
+
+// typeof 'instance2': MyClass<boolean, bigint>
+const instance2 = new MyClass(true, 100n)
+```
+
+### Extending Generic Classes
+
+- TypeScript will not attempt to infer type arguments for the base class from usage.
+- Any type arguments without defaults will need to be specified using an explicit type annotation.
+
+```ts
+class Base<T> {
+  a: T
+
+  constructor(a: T) {
+    this.a = a
+  }
+}
+
+class DerivedOne extends Base<number> {
+  constructor(a: number) {
+    super(a)
+  }
+}
+
+class DerivedTwo extends Base<string> {
+  constructor(b: string) {
+    super(b)
+  }
+}
+
+const instance1 = new DerivedOne(1)
+// type of result1: number
+const result1 = instance1.a
+
+const instance2 = new DerivedTwo('hello')
+// type of result2: string
+const result2 = instance2.a
+```
+
+### Implementing Generic Interfaces
+
+- Generic classes may also implement generic interfaces by providing them any necessary type parameters.
+
+```ts
+interface MyInterface<T> {
+  a: T
+}
+
+class MyClass implements MyInterface<number> {
+  // 'a' must be provided
+  a: number
+  b: string
+
+  // TS2416: Property 'a' in type 'MyClass' is not assignable to the same property in base type 'MyInterface<number>'.
+  // Type 'string' is not assignable to type 'number'.
+  // a: string
+
+  constructor(a: number, b: string) {
+    this.a = a
+    this.b = b
+  }
+}
+```
+
+### Method Generics
+
+- Class methods may declare their own generic types separate from their class instance.
+
+```ts
+class CreatePairFactory<Key> {
+  key: Key
+
+  constructor(key: Key) {
+    this.key = key
+  }
+
+  createPair<Value>(value: Value) {
+    return {
+      key: this.key,
+      value,
+    }
+  }
+}
+
+const factory = new CreatePairFactory('hello')
+
+// {key: string, value: number}
+const numberPair = factory.createPair(1)
+
+// {key: string, value: boolean}
+const booleanPair = factory.createPair(false)
+```
+
+### Static Class Generics
+
+- Static members cannot reference class type parameters.
+
+```ts
+class MyClass<T> {
+  a: T
+
+  constructor(a: T) {
+    this.a = a
+  }
+
+  static staticMethod() {
+    // TS2302: Static members cannot reference class type parameters.
+    let b: T
+  }
+}
+```
+
+## Generic Type Aliases
+
+```ts
+type Nullish<T> = T | null | undefined
+```
+
+```ts
+type CreatesValue<Input, Output> = (input: Input) => Output
+let creator: CreatesValue<string, number>
+
+// ok
+creator = text => text.length
+
+// TS2322: Type 'string' is not assignable to type 'number'.
+creator = text => text.toUpperCase()
+```
+
+### Generic Discriminated Unions
+
+- Put together, generic types and discriminated types provide a wonderful way to model reusable types.
+
+```ts
+interface FailureResult {
+  error: Error
+  succeeded: false
+}
+
+interface SuccessfulResult<Data> {
+  data: Data
+  succeeded: true
+}
+
+type Result<Data> = FailureResult | SuccessfulResult<Data>
+
+function handleResult(result: Result<string>) {
+  if (result.succeeded) {
+    console.log(result.data)
+  } else {
+    console.log(result.error)
+  }
+}
+```
