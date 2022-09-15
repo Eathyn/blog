@@ -441,3 +441,73 @@ get(container, 'b')
 // TS2345: Argument of type '"c"' is not assignable to parameter of type '"a" | "b"'.
 get(container, 'c')
 ```
+
+## Promise
+
+### Creating Promises
+
+Skip: Demo not working...
+
+### Async Functions
+
+- TypeScript will infer the return type of an `async` function to always be a `Promise` for whatever value is returned.
+
+```ts
+// return type: Promise<number>
+async function lengthAfterSecond(text: string) {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  return text.length
+}
+```
+
+- Any manually declared return type on an `async` function therefore must always be a `Promise` type.
+
+```ts
+// ok
+async function fn1(): Promise<string> {
+  return 'hello'
+}
+
+// TS1064: The return type of an async function or method must be the global Promise  type.
+async function fn2(): string {
+  return 'hello'
+}
+```
+
+## Using Generics Right
+
+- Although generics can give us a lot of flexibility in describing types in code, they can become rather complex quite quickly.
+- TypeScript best practice is generally to use generics only when necessary, and to be clear about what they’re used for when they are.
+
+### The Golden Rule of Generics
+
+- One quick test that can help show whether a type parameter is necessary for a function is it should be used at least twice.
+
+```ts
+// necessary
+function fn1<T>(input: T): T {
+  return input
+}
+
+// unnecessary
+function fn2<T extends string>(input: T) {
+  return input
+}
+
+// fix
+function fn3(input: string) {
+  return input
+}
+```
+
+### Generic Naming Conventions
+
+- When the intent of a generic isn’t clear from a single-letter T, it’s best to use descriptive generic type names that indicate what the type is used for
+
+```ts
+// good
+function labelBox1<Label, Value>(label: Label, value: Value) {}
+
+// bad
+function labelBox2<L, V>(label: L, value: V) {}
+```
