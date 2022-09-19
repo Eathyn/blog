@@ -47,7 +47,11 @@
 
 - Webpack
 - Rollup
-- Testing
+
+#### Testing
+
+#### Other
+
 - Chrome Developer Tool
 - CI/CD
 
