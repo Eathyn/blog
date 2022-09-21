@@ -1,5 +1,7 @@
 # Declaration Files
 
+- TypeScript projects need a way to be told the type shapes of environment-specific features such as global variables and APIs. A project running in, say, Node.js might have access to built-in Node modules not available in browsers—and vice versa.
+- TypeScript allows declaring type shapes separately from their implementation.
 - Type declarations are typically written in files whose names end with the `.d.ts` extension, known as declaration files.
 
 ## Declaration Files
@@ -50,8 +52,7 @@ const person: Person = {
 
 ## Declaring Runtime Values
 
-- Although definition files may not create runtime values such as functions or variables, they are able to declare that those constructs exist with the `declare` keyword.
-- Doing so tells the type system that some external influence—such as a `<script>` tag in a web page—has created the value under that name with a particular type.
+- Although definition files may not create runtime values such as functions or variables, they are able to declare that those constructs exist with the `declare` keyword. Doing so tells the type system that some external influence—such as a `<script>` tag in a web page—has created the value under that name with a particular type.
 - Declaring a variable with `declare` uses the same syntax as a normal variable declaration, except an initial value is not allowed.
 
 _test.d.ts_
@@ -121,8 +122,73 @@ function f2(): string
 
 ### Global Values
 
-Skip: demo not working...
+- Because TypeScript files that have no import or export statements are treated as scripts rather than modules, constructs—including types—declared in them are available globally.
+
+_globals.d.ts_
+
+```ts
+declare var version: number
+```
+
+_index.ts_
+
+```ts
+function log() {
+  global.version = 1
+  console.log(global.version) // 1
+  console.log(version) // 1
+}
+
+log()
+```
+
+_command to compile TS code_
+
+```bash
+npx ts-node --files .\index.ts
+```
 
 ### Global Interface Merging
 
-Skip: don't understand
+- 
+
+_types_a.ts.d_
+
+```ts
+interface Person {
+  name: string;
+}
+```
+
+_types_b.ts.d_
+
+```ts
+interface Person {
+  grade: number;
+}
+```
+
+_index.ts_
+
+```ts
+// ok
+let person1: Person = {
+  name: 'eathyn',
+  age: 25,
+}
+
+// TS2741: Property 'age' is missing in type '{ name: string; }' but required in type 'Person'.
+let person2: Person = {
+  name: 'eaven',
+}
+```
+
+_command_
+
+```bash
+npx ts-node --files .\src\index.ts
+```
+
+## Refs
+
+- [Global Values](https://bobbyhadz.com/blog/typescript-declare-global-variable)
