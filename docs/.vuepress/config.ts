@@ -398,6 +398,7 @@ export default defineUserConfig({
                 '/language/english/illustration_of_grammar/13_过去进行时.md',
                 '/language/english/illustration_of_grammar/14_一般将来时.md',
                 '/language/english/illustration_of_grammar/15_助动词.md',
+                '/language/english/illustration_of_grammar/16_have-to_must.md',
               ]
             },
           ],
