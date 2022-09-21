@@ -82,4 +82,106 @@ function handleIncrement() {
 
 ## Reactive Variables with `ref()`
 
+- When holding object types, `ref` automatically converts its `.value` with `reactive()`
+
+```vue
+<template>
+  <!-- count: 0 -->
+  <div>count: {{ objRef.count }}</div>
+
+  <!-- Error -->
+  <div>count: {{ objRef.value.count }}</div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const objRef = ref({ count: 0 })
+
+console.log(objRef.value.count) // 0
+</script>
+```
+
 - The `.value` property of a ref is reactive.
+
+```vue
+<template>
+  <div>count: {{ count }}</div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+
+setTimeout(() => {
+  // reactive
+  count.value = 1
+}, 2000)
+</script>
+```
+
+- A `ref` containing an object value can reactively replace the entire object.
+
+```vue
+<template>
+  <div>count: {{ objRef.count }}</div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+let objRef = ref({ count: 1 })
+
+setTimeout(() => {
+  // reactive
+  objRef.value = { count: 2 }
+}, 2000)
+</script>
+```
+
+### Ref Unwrapping in Templates
+
+- When refs are accessed as **top-level** properties in the template, they are automatically unwrapped.
+
+```vue
+<template>
+  <div>count: {{ count }}</div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+</script>
+```
+
+- If a property is not a top-level property in the template, it is not automatically unwrapped.
+
+```vue
+<template>
+  <!-- count: [object Object]1 -->
+  <div>count: {{ obj.count + 1 }}</div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const obj = { count: ref(0) }
+</script>
+```
+
+- A ref will also be unwrapped if it is the final evaluated value of a text interpolation.
+
+```vue
+<template>
+  <!-- count: 0 -->
+  <div>count: {{ obj.count }}</div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const obj = { count: ref(0) }
+</script>
+```
