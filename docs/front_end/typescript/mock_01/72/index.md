@@ -6,7 +6,7 @@
 
 ## 库自带的类型声明文件
 
-- 有些库会自己携带型声明文件，例如 `axios`
+- 有些库会自己携带类型声明文件，例如 `axios`
 
 _axios' package.json_
 
@@ -24,7 +24,7 @@ _index.d.ts_
 
 ## DefinitelyTyped
 
-- [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) 是一个提供常见包的类型声明文件的仓库，当一些包自生没有提供 TS 类型声明文件时，就可以从这个仓库中下载该包的 TS 类型声明文件
+- [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) 是一个提供常见包的类型声明文件的仓库，当一些包自身没有提供 TS 类型声明文件时，就可以从这个仓库中下载该包的 TS 类型声明文件
 - [Type Search](https://www.typescriptlang.org/dt/search) 可以快速查找 `DefinitelyTyped` 中是否有某个包的 TS 类型声明文件
 
 ### 例子
@@ -33,8 +33,16 @@ _index.d.ts_
 - 使用 `import xxx from xxx` 会报错，[参考](https://github.com/microsoft/TypeScript/issues/27293#issuecomment-549047461)
 
 ```ts
-import _ = require('lodash')
-_.add(1, 2)
+// ok
+import * as _ from 'lodash'
+
+// ok
+// import _ = require('lodash')
+
+// error
+// import _ from 'lodash'
+
+console.log(_.add(1, 2))
 ```
 
 ![Type Lodash](./images/type_lodash.png)
