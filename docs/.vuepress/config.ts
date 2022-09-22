@@ -333,6 +333,16 @@ export default defineUserConfig({
 
           ],
         },
+        {
+          text: 'TypeScript Mock 01',
+          link: '/front_end/typescript/typescript_mock_01',
+          children: [
+            '/front_end/typescript/mock_01/69/index.md',
+            '/front_end/typescript/mock_01/70/index.md',
+            '/front_end/typescript/mock_01/71/index.md',
+            '/front_end/typescript/mock_01/72/index.md',
+          ],
+        }
       ],
       '/front_end/mini_program': [
         {
