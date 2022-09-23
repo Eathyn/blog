@@ -341,6 +341,9 @@ export default defineUserConfig({
             '/front_end/typescript/mock_01/70/index.md',
             '/front_end/typescript/mock_01/71/index.md',
             '/front_end/typescript/mock_01/72/index.md',
+            '/front_end/typescript/mock_01/73/index.md',
+            '/front_end/typescript/mock_01/74/index.md',
+            '/front_end/typescript/mock_01/75/index.md',
           ],
         }
       ],
