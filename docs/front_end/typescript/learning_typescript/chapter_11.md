@@ -150,8 +150,6 @@ npx ts-node --files .\index.ts
 
 ### Global Interface Merging
 
-- 
-
 _types_a.ts.d_
 
 ```ts
@@ -188,6 +186,102 @@ _command_
 ```bash
 npx ts-node --files .\src\index.ts
 ```
+
+## Built-In Declarations
+
+- Global objects such as `Array` are provided by whatever runtime(s) your code is meant to run in: Deno, Node, a web browser, etc.
+
+### Library Declarations
+
+- Built-in global objects exist in all JavaScript runtimes are declared in files with names like `lib.[target].d.ts`. `target` is the minimum support version of JavaScript targeted by your project.
+- Lib files are distributed as part of the TypeScript npm package.
+- IDEs use their own packaged TypeScript versions to type check code.
+
+#### Library targets
+
+- Successive lib files for newer versions of JavaScript build on each other using interface merging.
+- TypeScript projects will include the lib files for all version targets of JavaScript up through their minimum target. For example, a project with a target of "es2016" would include `lib.es5.d.ts`, `lib.es2015.d.ts` and `lib.es2016.d.ts`.
+
+### DOM Declarations
+
+Q : TypeScript includes DOM types by default in projects that don't override the `lib` compiler option.
+
+## Module Declarations
+
+Skip : Demo not working
+
+### Wildcard Module Declarations
+
+Skip : run last demo first
+
+
+## Package Types
+
+- Projects written in TypeScript still generally distribute packages containing compiled `.js` outputs. They typically use `.d.ts` files to declare the backing TypeScript type system shapes behind those JavaScript files.
+
+### declaration
+
+- If `declaration` in `tsconfig.json` is `true`, `.d.ts` and `.js` files will be generated after compile `.ts` file.
+
+_index.ts_
+
+```ts
+function add(n1: number, n2: number) {
+  return n1 + n2
+}
+```
+
+_index.d.ts_
+
+```ts
+declare function add(n1: number, n2: number): number;
+```
+
+_index.js_
+
+```js
+"use strict";
+function add(n1, n2) {
+    return n1 + n2;
+}
+```
+
+### Dependency Package Types
+
+- TypeScript is able to detect and utilize `.d.ts` files bounded inside a project's `node_modules` dependencies. Those files will inform the type system about the type shapes.
+
+### Exposing Package Types
+
+- Package's `package.json` file has `type` and `main` fields. `type` field points to the root declaration file.
+
+_axios's package.json_
+
+```json
+{
+  "name": "axios",
+  "main": "index.js",
+  "type": "index.d.ts"
+}
+```
+
+- The default value of `main` field in package's `package.json` is './index.js'. The default value of `type` field in package's `package.json` is './index.d.ts'.
+
+## DefinitelyTyped
+
+- Not all projects are written in TypeScript. Some unfortunate developers are still writing their projects in plain old JavaScript without a type checker to aid them.
+- The TypeScript team and community created a giant repository called `DefinitelyTyped` to house community-authored definitions for packages.
+- DT packages are published on npm under the `@types` scope with the same name as the package. For example, `@types/lodash` provides type definitions for the `lodash` package.
+
+![Lodash Definitely Typed](./images/chapter_11/lodash_dt.png)
+
+- If the project is meant to be distributed as a npm package, it should use `dependencies` so consumers of the package also bring in the type definitions used within. If the project is a standalone application, it should use `devDependencies` to convey that the types are just a development-time tool.
+
+### Type Availability
+
+- If you’d like to get types for a package that doesn’t yet have types available, your three most common options would be:
+  - Send a pull request to DefinitelyTyped to create its `@types/` package
+  - Use the `declare module` syntax to write the types within your project
+  - Disable `noImplicitAny`
 
 ## Refs
 
