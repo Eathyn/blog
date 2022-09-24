@@ -156,6 +156,15 @@ export default defineUserConfig({
             text: 'Work',
             link: '/other/work/soft_skills/chapter_02.md',
           },
+          {
+            text: 'Psychology',
+            children: [
+              {
+                text: 'Introduction',
+                link: '/other/psychology/introduction/心理学导论/12_人格.md',
+              },
+            ]
+          },
         ],
       },
     ],
@@ -479,6 +488,14 @@ export default defineUserConfig({
           text: 'Learning',
           children: [
             '/other/learning/schedule/index.md',
+          ],
+        },
+      ],
+      '/other/psychology/introduction': [
+        {
+          text: '心理学导论',
+          children: [
+            '/other/psychology/introduction/心理学导论/12_人格.md',
           ],
         },
       ],
