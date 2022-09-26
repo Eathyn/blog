@@ -53,3 +53,159 @@ tsc --init
 ### include
 
 - The `include` option is an array of strings that describes what directories and/or files to include in TypeScript compilation.
+
+_TypeScript compiler will include and compile **src** directory_
+
+```json
+{
+  "include": ["src"]
+}
+```
+
+- Glob wildcards are allowed in `include`.
+
+### exclude
+
+- TSConfig file can omit paths from `include` by specifying them in a top-level `exclude`.
+
+_example: TS compiler won't compile `.ts` files in `src/ignore` folder_
+
+![Exclude Keyword](./images/chapter_13/exclude.png)
+
+- By default, `exclude` contains `["node_modules", "bower_components", "jspm_packages"]` to avoid running the TypeScript compiler on compiled third-party library files.
+
+- Q : `exclude` only acts to remove files from the starting list in `include`. TypeScript will run on any file imported by any included file, even if the imported file is explicitly listed in `exclude`.
+
+## Alternative Extensions
+
+### JSX Syntax
+
+TODO: read after learning React JSX
+
+### resolveJsonModule
+
+- If `resolveJsonModule` is `true`, JSON files can be imported from as if they were `.ts` files exporting `const` objects.
+
+_tsconfig.json_
+
+```json
+{
+  "compilerOptions": {
+    "resolveJsonModule": true
+  }
+}
+```
+
+_data.json_
+
+```json
+{
+  "name": "eathyn",
+  "age": 25
+}
+```
+
+_index.ts_
+
+```ts
+import { name, age } from './data.json'
+
+console.log(name)
+console.log(age)
+```
+
+- Default imports may be used if `resolveJsonModule` and `esModuleInterop` both are `true`
+
+_tsconfig.json_
+
+```json
+{
+  "resolveJsonModule": true,
+  "esModuleInterop": true
+}
+```
+
+_data.json_
+
+```json
+{
+  "name": "eathyn",
+  "age": 25
+}
+```
+
+_index.ts_
+
+```ts
+import data from './data.json'
+console.log(data)
+```
+
+- If the JSON file contains literal types except `Object`, we will have to use the `* as import` syntax.
+
+_data.json_
+
+```json
+[1, 2, 3]
+```
+
+_index.ts_
+
+```ts
+import * as numbers from './data.json'
+
+// { '0': [Getter], '1': [Getter], '2': [Getter], default: [ 1, 2, 3 ] }
+console.log(numbers)
+```
+
+## Emit
+
+### outDir
+
+- By default, TypeScript places output files alongside their corresponding source files.
+
+```markdown
+Before Compilation:
+- src
+  - test
+    - index.ts
+
+After Compilation:
+- src
+  - test
+    - index.ts
+    - index.js
+```
+
+- Outputting to other directory by setting `outDir`.
+
+_tsconfig.json_
+
+```json
+{
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
+```
+
+```markdown
+Before Compilation:
+- src
+  - test-1
+    - index.ts
+  - test-2
+    - index.ts
+
+After Compilation:
+- dist
+  - test-1
+    - index.ts
+  - test-2
+    - index.ts
+- src
+  - test-1
+    - index.ts
+  - test-2
+    - index.ts
+```
