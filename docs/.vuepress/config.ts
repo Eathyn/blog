@@ -256,6 +256,10 @@ export default defineUserConfig({
             '/front_end/vue/guide/create_application/index.md',
             '/front_end/vue/guide/template_syntax/index.md',
             '/front_end/vue/guide/reactivity_fundamentals/index.md',
+            '/front_end/vue/guide/computed_properties/index.md',
+            '/front_end/vue/guide/conditional_rendering/index.md',
+            '/front_end/vue/guide/list_rendering/index.md',
+
             '/front_end/vue/guide/custom_directive/index.md',
             '/front_end/vue/mvvm/index.md',
             '/front_end/vue/spa_mpa/index.md',

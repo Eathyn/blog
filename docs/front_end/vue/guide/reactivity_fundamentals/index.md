@@ -185,3 +185,61 @@ import { ref } from 'vue'
 const obj = { count: ref(0) }
 </script>
 ```
+
+### Ref Unwrapping in Reactive Objects
+
+- The `ref` is automatically unwrapped when it is accessed as a property of a `reactive`.
+
+```vue
+<script setup>
+import { reactive, ref } from 'vue'
+
+const count = ref(0)
+const obj = reactive({ count })
+
+console.log(obj.count) // The `ref` is automatically unwrapped
+obj.count = 1
+console.log(obj.count) // The `ref` is automatically unwrapped
+</script>
+```
+
+- The `ref` isn't automatically unwrapped when it is accessed as a property of a `shallowReactive`.
+
+```vue
+<script setup>
+import { ref, shallowReactive } from 'vue'
+
+const count = ref(0)
+const state = shallowReactive({ count })
+
+console.log(state.count) // Ref<0>
+console.log(state.count.value) // 0
+
+state.count.value = 1
+console.log(state.count.value) // 1
+</script>
+```
+
+### Ref Unwrapping in Arrays and Collections
+
+- The `ref` isn't automatically unwrapped when it is accessed as a property of an element of a reactive array or a native collection type like `Map`.
+
+```vue
+<script setup>
+import { ref, reactive } from 'vue'
+
+const count = ref(0)
+const reactiveArray = reactive([count])
+const reactiveCollection = reactive(new Map([
+  ['key', count]
+]))
+
+// The `ref` isn't automatically unwrapped
+console.log(reactiveArray[0]) // Ref<0>
+console.log(reactiveArray[0].value) // 0
+
+// The `ref` isn't automatically unwrapped
+console.log(reactiveCollection.get('key')) // Ref<0>
+console.log(reactiveCollection.get('key').value) // 0
+</script>
+```
