@@ -1,82 +1,76 @@
 # Selectors
 
-## Universal Selector
+## Classify
+
+- Universal Selector
+- Type Selector
+- Class Selector
+- ID Selector
+- Attribute Selector
+- Selector List
+- Descendant Combinator
+- Child Combinator
+- General Sibling Combinator
+- Adjacent Sibling Combinator
+- Pseudo Classes
+- Pseudo Elements
+
+## Pseudo Classes vs Pseudo Elements
+
+- CSS introduces the concepts of pseudo-elements and pseudo-classes to permit formatting based on information that lies outside the document tree.
+- pseudo element: create a new element **logically**
 
 ```html
-<div>hello</div>
+<p>hello <br>world</p>
 ```
 
 ```css
-* {
+p::first-line {
 	color: red;
 }
 ```
 
-## Type Selector
+_it is equal to create a new element wrapping the first line_
 
 ```html
-<div>hello</div>
+<p><em>hello</em> <br>world</p>
 ```
 
 ```css
-div {
+p > em {
 	color: red;
 }
 ```
 
-## Class Selector
+- pseudo class: create a new class **logically**
 
 ```html
-<div class="item">hello</div>
+<ol>
+  <li>one</li>
+  <li>two</li>
+</ol>
 ```
 
 ```css
-.item {
+li:first-child {
 	color: red;
 }
 ```
 
-## ID Selector
+_it is equal to create a new class for the first `li` element_
 
 ```html
-<div id="item">hello</div>
+<ol>
+  <li class="first-child">one</li>
+  <li>two</li>
+</ol>
 ```
 
 ```css
-#item {
+li.first-child {
 	color: red;
 }
 ```
-
-## Attribute Selector
-
-```html
-<div id="item">hello</div>
-```
-
-```css
-[id] {
-	color: red;
-}
-```
-
-## Selector List
-
-## Descendant Combinator
-
-## Child Combinator
-
-## General Sibling Combinator
-
-## Adjacent Sibling Combinator
-
-## Pseudo Classes
-
-## Pseudo Elements
-
-## Attentions
-
-### Pseudo Classes vs Pseudo Elements
 
 ## Refs
 
