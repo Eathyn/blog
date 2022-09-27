@@ -197,9 +197,10 @@ import { reactive, ref } from 'vue'
 const count = ref(0)
 const obj = reactive({ count })
 
-console.log(obj.count) // The `ref` is automatically unwrapped
+// The `ref` is automatically unwrapped
+console.log(obj.count) 
 obj.count = 1
-console.log(obj.count) // The `ref` is automatically unwrapped
+console.log(obj.count)
 </script>
 ```
 
