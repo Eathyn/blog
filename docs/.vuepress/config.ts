@@ -263,8 +263,6 @@ export default defineUserConfig({
             '/front_end/vue/guide/custom_directive/index.md',
             '/front_end/vue/mvvm/index.md',
             '/front_end/vue/spa_mpa/index.md',
-            '/front_end/vue/v-if_vs_v-show/index.md',
-            '/front_end/vue/v-if_vs_v-for/index.md',
             '/front_end/vue/two_way_binding/index.md',
             '/front_end/vue/next_tick/index.md',
             '/front_end/vue/data_option/index.md',
@@ -273,15 +271,16 @@ export default defineUserConfig({
             '/front_end/vue/dynamically_add_prop/index.md',
             '/front_end/vue/mixins/index.md',
             '/front_end/vue/observable/index.md',
-            '/front_end/vue/key/index.md',
             '/front_end/vue/keep-alive/index.md',
             '/front_end/vue/render_mechanism/index.md',
           ],
         },
         {
-          text: 'Vue API',
+          text: 'Vue APIs',
           link: '/front_end/vue/api',
-          children: [],
+          children: [
+            '/front_end/vue/apis/key/index.md',
+          ],
         },
       ],
       '/front_end/vue_router': [
