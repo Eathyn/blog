@@ -31,6 +31,7 @@ export default defineUserConfig({
     sidebarDepth: 6,
     editLink: false,
     lastUpdated: false,
+    contributors: false,
     navbar: [
       {
         text: 'Home',
