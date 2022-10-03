@@ -53,6 +53,10 @@ export default defineUserConfig({
             link: '/front_end/javascript/asynchronous/index.md',
           },
           {
+            text: 'TypeScript',
+            link: '/front_end/typescript/learning_typescript/chapter_01.md',
+          },
+          {
             text: 'Browser',
             link: '/front_end/browser/events/basics/index.md',
           },
@@ -67,10 +71,6 @@ export default defineUserConfig({
           {
             text: 'Vuex',
             link: '/front_end/vuex/what_is_vuex/index.md',
-          },
-          {
-            text: 'TypeScript',
-            link: '/front_end/typescript/learning_typescript/chapter_01.md',
           },
           {
             text: 'React Core',
