@@ -274,6 +274,8 @@ export default defineUserConfig({
             '/front_end/vue/guide/computed_properties/index.md',
             '/front_end/vue/guide/conditional_rendering/index.md',
             '/front_end/vue/guide/list_rendering/index.md',
+            '/front_end/vue/guide/event_handling/index.md',
+            '/front_end/vue/guide/form_input_bindings/index.md',
 
             /* TypeScript */
             '/front_end/vue/guide/typescript/overview/index.md',
@@ -284,7 +286,6 @@ export default defineUserConfig({
             '/front_end/vue/two_way_binding/index.md',
             '/front_end/vue/next_tick/index.md',
             '/front_end/vue/data_option/index.md',
-            '/front_end/vue/lifecycle_hooks/index.md',
             '/front_end/vue/communication_methods/index.md',
             '/front_end/vue/dynamically_add_prop/index.md',
             '/front_end/vue/mixins/index.md',
@@ -298,6 +299,7 @@ export default defineUserConfig({
           link: '/front_end/vue/api',
           children: [
             '/front_end/vue/apis/key/index.md',
+            '/front_end/vue/apis/lifecycle_hooks/index.md',
           ],
         },
       ],
