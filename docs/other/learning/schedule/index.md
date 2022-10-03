@@ -10,6 +10,8 @@
 
 #### JavaScript
 
+#### TypeScript
+
 #### Browser
 
 ### Frameworks
@@ -35,8 +37,6 @@
 
 ### Tools
 
-#### TypeScript
-
 #### Package Manager
 
 - npm
@@ -48,12 +48,15 @@
 - Webpack
 - Rollup
 
-#### Testing
-
-#### Other
+#### Performance
 
 - Chrome Developer Tool
-- CI/CD
+
+#### Testing
+
+#### CI / CD
+
+- GitHub Actions
 
 ### Mini Program
 
