@@ -380,6 +380,7 @@ export default defineUserConfig({
             '/front_end/mini_program/pure_data/index.md',
             '/front_end/mini_program/get_app_data/index.md',
             '/front_end/mini_program/apis/index.md',
+            '/front_end/mini_program/wxs/index.md',
           ],
         },
       ],
