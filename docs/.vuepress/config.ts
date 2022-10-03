@@ -431,6 +431,7 @@ export default defineUserConfig({
                 '/language/english/illustration_of_grammar/15_助动词.md',
                 '/language/english/illustration_of_grammar/16_have-to_must.md',
                 '/language/english/illustration_of_grammar/17_不定式.md',
+                '/language/english/illustration_of_grammar/18_动名词.md',
               ]
             },
           ],
