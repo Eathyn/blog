@@ -1,9 +1,9 @@
 # Hide Element
 
-## `display : none`
+## `display: none`
 
 - Hidden elements do not take up space
-- Elements is deleted from DOM tree
+- Elements are deleted from accessibility tree
 
 ```html
 <div class="item">hello</div>
@@ -18,10 +18,10 @@
 
 ![display: none](./images/display.png)
 
-## `visibility : hidden`
+## `visibility: hidden`
 
 - Hidden elements take up space
-- Elements is not deleted from DOM tree
+- Elements are not deleted from accessibility tree
 - Events can not trigger event handler
 
 ```html
@@ -37,10 +37,10 @@
 
 ![visibility](./images/visibility.png)
 
-## `opacity : 0`
+## `opacity: 0`
 
 - Hidden elements take up space
-- Elements is not deleted from DOM tree
+- Elements are not deleted from accessibility tree
 - Events can trigger event handler
 
 ```html
@@ -66,7 +66,7 @@ item.addEventListener('click', () => {
 ## width + height + overflow
 
 - Hidden elements do not take up space
-- Elements is not deleted from DOM tree
+- Elements are not deleted from accessibility tree
 - Events can not trigger event handler
 
 ```html
