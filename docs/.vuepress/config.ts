@@ -187,7 +187,6 @@ export default defineUserConfig({
       '/front_end/css': [
         {
           text: 'CSS',
-          link: '/front_end/css',
           children: [
             '/front_end/css/box_model/index.md',
             '/front_end/css/box_types/index.md',
@@ -214,7 +213,6 @@ export default defineUserConfig({
       '/front_end/javascript': [
         {
           text: 'JavaScript',
-          link: '/front_end/javascript',
           children: [
             '/front_end/javascript/asynchronous/index.md',
             '/front_end/javascript/class/index.md',
@@ -253,7 +251,6 @@ export default defineUserConfig({
       '/front_end/browser': [
         {
           text: 'Browser',
-          link: '/front_end/browser',
           children: [
             '/front_end/browser/events/basics/index.md',
             '/front_end/browser/events/capture_and_bubble/index.md',
@@ -306,7 +303,6 @@ export default defineUserConfig({
       '/front_end/vue_router': [
         {
           text: 'Vue Router',
-          link: '/front_end/vue_router',
           children: [
             '/front_end/vue_router/guide/getting_started/index.md',
             '/front_end/vue_router/guide/dynamic_route_matching/index.md',
@@ -332,7 +328,6 @@ export default defineUserConfig({
       '/front_end/vuex': [
         {
           text: 'Vuex',
-          link: '/front_end/vuex',
           children: [
             '/front_end/vuex/what_is_vuex/index.md',
             '/front_end/vuex/getting_started/index.md',
@@ -343,7 +338,6 @@ export default defineUserConfig({
       '/front_end/typescript': [
         {
           text: 'Learning TypeScript',
-          link: '/front_end/typescript/learning_typescript',
           children: [
             '/front_end/typescript/learning_typescript/chapter_01.md',
             '/front_end/typescript/learning_typescript/chapter_02.md',
