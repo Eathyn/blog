@@ -73,6 +73,10 @@ export default defineUserConfig({
             link: '/front_end/typescript/learning_typescript/chapter_01.md',
           },
           {
+            text: 'React Core',
+            link: '/front_end/react/core/docs/learn/installation/index.md',
+          },
+          {
             text: 'Mini Program',
             link: '/front_end/mini_program/navigation/index.md',
           },
@@ -375,6 +379,15 @@ export default defineUserConfig({
             '/front_end/typescript/mock_01/73/index.md',
             '/front_end/typescript/mock_01/74/index.md',
             '/front_end/typescript/mock_01/75/index.md',
+          ],
+        }
+      ],
+      '/front_end/react/core/docs/learn': [
+        {
+          text: 'React Docs Learn',
+          children: [
+            '/front_end/react/core/docs/learn/installation/index.md',
+            '/front_end/react/core/docs/learn/quick_start/index.md',
           ],
         }
       ],
