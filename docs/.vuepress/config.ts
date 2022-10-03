@@ -41,6 +41,10 @@ export default defineUserConfig({
         text: 'Front End',
         children: [
           {
+            text: 'HTML',
+            link: '/front_end/html/svg/mdn_tutorial/getting_started/index.md',
+          },
+          {
             text: 'CSS',
             link: '/front_end/css/box_model/index.md',
           },
@@ -170,6 +174,16 @@ export default defineUserConfig({
       },
     ],
     sidebar: {
+      '/front_end/html': [
+        {
+          text: 'SVG',
+          children: [
+            '/front_end/html/svg/mdn_tutorial/getting_started/index.md',
+            '/front_end/html/svg/mdn_tutorial/positions/index.md',
+            '/front_end/html/svg/mdn_tutorial/basic_shapes/index.md',
+          ],
+        },
+      ],
       '/front_end/css': [
         {
           text: 'CSS',
