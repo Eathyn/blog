@@ -248,11 +248,11 @@ export default defineUserConfig({
           ],
         }
       ],
-      '/front_end/vue': [
+      '/front_end/vue/guide': [
         {
           text: 'Vue Guide',
-          link: '/front_end/vue/guide',
           children: [
+            /* Essentials */
             '/front_end/vue/guide/introduction/index.md',
             '/front_end/vue/guide/create_application/index.md',
             '/front_end/vue/guide/template_syntax/index.md',
@@ -260,6 +260,9 @@ export default defineUserConfig({
             '/front_end/vue/guide/computed_properties/index.md',
             '/front_end/vue/guide/conditional_rendering/index.md',
             '/front_end/vue/guide/list_rendering/index.md',
+
+            /* TypeScript */
+            '/front_end/vue/guide/typescript/overview/index.md',
 
             '/front_end/vue/guide/custom_directive/index.md',
             '/front_end/vue/mvvm/index.md',
