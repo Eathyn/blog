@@ -99,6 +99,10 @@ export default defineUserConfig({
             link: '/cs/c_language/a_modern_approach/10/index.md',
           },
           {
+            text: 'Data Structures and Algorithms',
+            link: '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/01_why_data_structures_matter/index.md',
+          },
+          {
             text: 'Network',
             link: '/cs/network/http/message/index.md',
           },
@@ -463,6 +467,14 @@ export default defineUserConfig({
               ],
             }
           ]
+        }
+      ],
+      '/cs/data_structures_and_algorithms': [
+        {
+          text: 'A Common-Sense Guide to Data Structures and Algorithms',
+          children: [
+            '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/01_why_data_structures_matter/index.md',
+          ],
         }
       ],
       '/cs/network': [
