@@ -284,6 +284,7 @@ export default defineUserConfig({
 
             /* TypeScript */
             '/front_end/vue/guide/typescript/overview/index.md',
+            '/front_end/vue/guide/typescript/ts_with_composition_api/index.md',
 
             '/front_end/vue/guide/custom_directive/index.md',
             '/front_end/vue/mvvm/index.md',
