@@ -10,8 +10,6 @@
 
 ## Features
 
-[To be continued...](https://javascript.info/modules-intro#core-module-features)
-
 ### strict mode
 
 - Modules always work in strict mode.

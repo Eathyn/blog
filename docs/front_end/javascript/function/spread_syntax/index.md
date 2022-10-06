@@ -1,4 +1,4 @@
-# 展开语法 Spread Syntax
+# Spread Syntaxs
 
 ## 定义
 

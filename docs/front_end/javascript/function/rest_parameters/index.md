@@ -1,4 +1,4 @@
-# 剩余形参 Rest Parameters
+# Rest Parameters
 
 ## 定义
 

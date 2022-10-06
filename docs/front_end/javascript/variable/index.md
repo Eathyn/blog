@@ -1,6 +1,18 @@
-# `var` vs `let` vs `const`
+# Variable
 
-## var
+## Store
+
+- 基本数据类型存储在栈中，复制后不会相互影响
+
+![primitives](./images/primitives.png)
+
+- 对象类型存储在堆中，栈中保存的是指向堆内存的地址，复制后会相互影响
+
+![object](./images/object.png)
+
+## `var`, `let` and `const`
+
+### var
 
 - variables declared in global environment will be properties of global object (eg: window in browser, global in Node).
 
@@ -40,7 +52,7 @@ var a = 2
 console.log(a) // 2
 ```
 
-## let
+### let
 
 - variable will create code block.
 
@@ -51,7 +63,7 @@ console.log(a) // 2
 console.log(a) // error: a is not defined
 ```
 
-## const
+### const
 
 - The variable must be assigned a value.
 
@@ -75,7 +87,7 @@ b = {} // Assignment to constant variable.
 b.c = 2 // work
 ```
 
-## Summary
+### Summary
 
 |                     | var | let | const |
 |---------------------|-----|-----|-------|
@@ -85,3 +97,6 @@ b.c = 2 // work
 | declare repeatedly  | yes | no  | no    |
 | change value        | yes | yes | no    |
 
+## Refs
+
+- [Variable Store](https://www.freecodecamp.org/news/primitive-vs-reference-data-types-in-javascript/)

@@ -1,10 +1,10 @@
 # Arrow Function
 
-## Rule 1
+## `this` / `arguments` / `super`
 
-`this` / `arguments` / `super` 取决于最接近箭头函数的词法上下文
+- `this` / `arguments` / `super` 取决于最接近箭头函数的词法上下文
 
-- this
+_this_
 
 ```js
 const f1 = () => {
@@ -21,7 +21,7 @@ const obj = {
 console.log(obj.f2()()) // true
 ```
 
-- arguments
+_arguments_
 
 ```js
 const obj = {
@@ -35,9 +35,9 @@ const obj = {
 obj.f1(1, 2, 3)() // Arguments [1, 2, 3]
 ```
 
-## Rule 2
+## `new.target`
 
-无法访问 `new.target`
+- 无法访问 `new.target`
 
 ```js
 function f1() {
@@ -55,9 +55,9 @@ f2() // Uncaught SyntaxError: new.target expression is not allowed here
 new f2() // Uncaught SyntaxError: new.target expression is not allowed here
 ```
 
-## Rule 3
+## `call` / `apply` / `bind`
 
-`call` / `apply` / `bind` 对箭头函数无效
+- `call` / `apply` / `bind` 对箭头函数无效
 
 ```js
 const fn = () => {
@@ -71,9 +71,9 @@ fn.apply(obj) // globalThis
 fn.bind(obj)() // globalThis
 ```
 
-## Rule 4
+## constructor
 
-箭头函数不能作为构造函数
+- 箭头函数不能作为构造函数
 
 ```js
 const Person = (name, age) => {
@@ -84,9 +84,9 @@ const Person = (name, age) => {
 const p1 = new Person('eathyn', 25) // Uncaught TypeError: Person is not a constructor
 ```
 
-## Rule 5
+## `prototype`
 
-箭头函数没有 `prototype` 属性
+- 箭头函数没有 `prototype` 属性
 
 ```js
 const f1 = function() {}
@@ -96,7 +96,7 @@ console.log(f1.prototype) // {constructor: ƒ}
 console.log(f2.prototype) // undefined
 ```
 
-## Rule 6
+## `yield`
 
 箭头函数不能使用 `yield`
 

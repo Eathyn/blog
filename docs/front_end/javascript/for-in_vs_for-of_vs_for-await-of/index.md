@@ -1,4 +1,4 @@
-# `for..in` VS `for..of` VS `for await..fo`
+# `for..in` VS `for..of` VS `for await..of`
 
 ## for...in
 

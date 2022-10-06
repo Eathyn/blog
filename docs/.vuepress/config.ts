@@ -42,7 +42,16 @@ export default defineUserConfig({
         children: [
           {
             text: 'HTML',
-            link: '/front_end/html/svg/mdn_tutorial/getting_started/index.md',
+            children: [
+              {
+                text: 'Other',
+                link: '/front_end/html/other/defer_vs_async/index.md',
+              },
+              {
+                text: 'SVG',
+                link: '/front_end/html/svg/mdn_tutorial/getting_started/index.md',
+              },
+            ],
           },
           {
             text: 'CSS',
@@ -182,7 +191,15 @@ export default defineUserConfig({
       },
     ],
     sidebar: {
-      '/front_end/html': [
+      '/front_end/html/other': [
+        {
+          text: 'Other',
+          children: [
+            '/front_end/html/other/defer_vs_async/index.md',
+          ]
+        }
+      ],
+      '/front_end/html/svg': [
         {
           text: 'SVG',
           children: [
@@ -222,21 +239,19 @@ export default defineUserConfig({
         {
           text: 'JavaScript',
           children: [
-            '/front_end/javascript/asynchronous/index.md',
-            '/front_end/javascript/class/index.md',
-            '/front_end/javascript/apis/index.md',
-            '/front_end/javascript/array_like_object/index.md',
-            '/front_end/javascript/variable/store/index.md',
-            '/front_end/javascript/scope/index.md',
-            '/front_end/javascript/var_let_const/index.md',
-            '/front_end/javascript/shallow_and_deep_copy/index.md',
             '/front_end/javascript/data_types/index.md',
-            '/front_end/javascript/defer_vs_async/index.md',
-            '/front_end/javascript/for-in_vs_for-of_vs_for-await-of/index.md',
+            '/front_end/javascript/array_like_object/index.md',
+            '/front_end/javascript/variable/index.md',
+            '/front_end/javascript/shallow_and_deep_copy/index.md',
+            '/front_end/javascript/asynchronous/index.md',
+            '/front_end/javascript/prototype/index.md',
+            '/front_end/javascript/class/index.md',
+            '/front_end/javascript/scope/index.md',
             '/front_end/javascript/function/lexical_environment/index.md',
-            '/front_end/javascript/function/this/index.md',
+            '/front_end/javascript/for-in_vs_for-of_vs_for-await-of/index.md',
             '/front_end/javascript/function/call_apply_bind/index.md',
             '/front_end/javascript/function/arrow_function/index.md',
+            '/front_end/javascript/function/this/index.md',
             '/front_end/javascript/function/implement_new/index.md',
             '/front_end/javascript/function/rest_parameters/index.md',
             '/front_end/javascript/function/spread_syntax/index.md',
@@ -249,10 +264,10 @@ export default defineUserConfig({
             '/front_end/javascript/xml_http_request/index.md',
             '/front_end/javascript/not_a_number/index.md',
             '/front_end/javascript/preload_prefetch/index.md',
-            '/front_end/javascript/prototype/index.md',
             '/front_end/javascript/proxy/index.md',
             '/front_end/javascript/tricks/index.md',
             '/front_end/javascript/type_checking/index.md',
+            '/front_end/javascript/apis/index.md',
           ],
         },
       ],
@@ -460,6 +475,7 @@ export default defineUserConfig({
                 '/language/english/illustration_of_grammar/16_have-to_must.md',
                 '/language/english/illustration_of_grammar/17_不定式.md',
                 '/language/english/illustration_of_grammar/18_动名词.md',
+                '/language/english/illustration_of_grammar/19_连词.md',
               ]
             },
           ],
