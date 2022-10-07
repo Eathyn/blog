@@ -94,6 +94,33 @@ async function request() {
 }
 ```
 
+## Encapsulating GET and POST request
+
+```js
+const oneSecond = 1000
+const baseURL = 'base-url'
+
+function get(url, params, timeout = 10 * oneSecond) {
+  return axios({
+    method: 'GET',
+    baseURL,
+    url,
+    params,
+    timeout,
+  })
+}
+
+function post(url, data, timeout = 10 * oneSecond) {
+  return axios({
+    method: 'POST',
+    baseURL,
+    url,
+    data,
+    timeout,
+  })
+}
+```
+
 ## Refs
 
 - [axios docs](https://axios-http.com/)
