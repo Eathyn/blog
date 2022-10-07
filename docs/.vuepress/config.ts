@@ -87,7 +87,7 @@ export default defineUserConfig({
           },
           {
             text: 'Mini Program',
-            link: '/front_end/mini_program/navigation/index.md',
+            link: '/front_end/mini_program/skills/index.md',
           },
           {
             text: 'Attention',
@@ -411,6 +411,7 @@ export default defineUserConfig({
         {
           text: 'Mini Program',
           children: [
+            '/front_end/mini_program/skills/index.md',
             '/front_end/mini_program/navigation/index.md',
             '/front_end/mini_program/component_communication/index.md',
             '/front_end/mini_program/lifecycle_hooks/index.md',
