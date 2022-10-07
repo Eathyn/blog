@@ -196,6 +196,7 @@ export default defineUserConfig({
           text: 'Other',
           children: [
             '/front_end/html/other/defer_vs_async/index.md',
+            '/front_end/html/other/preload_prefetch/index.md',
           ]
         }
       ],
@@ -240,6 +241,7 @@ export default defineUserConfig({
           text: 'JavaScript',
           children: [
             '/front_end/javascript/data_types/index.md',
+            '/front_end/javascript/type_checking/index.md',
             '/front_end/javascript/array_like_object/index.md',
             '/front_end/javascript/variable/index.md',
             '/front_end/javascript/shallow_and_deep_copy/index.md',
@@ -263,10 +265,8 @@ export default defineUserConfig({
             '/front_end/javascript/axios/index.md',
             '/front_end/javascript/xml_http_request/index.md',
             '/front_end/javascript/not_a_number/index.md',
-            '/front_end/javascript/preload_prefetch/index.md',
             '/front_end/javascript/proxy/index.md',
             '/front_end/javascript/tricks/index.md',
-            '/front_end/javascript/type_checking/index.md',
             '/front_end/javascript/apis/index.md',
           ],
         },
