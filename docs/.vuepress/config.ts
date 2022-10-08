@@ -508,6 +508,7 @@ export default defineUserConfig({
           text: 'A Common-Sense Guide to Data Structures and Algorithms',
           children: [
             '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/01_why_data_structures_matter/index.md',
+            '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/02_why_algorithms_matter/index.md',
           ],
         }
       ],

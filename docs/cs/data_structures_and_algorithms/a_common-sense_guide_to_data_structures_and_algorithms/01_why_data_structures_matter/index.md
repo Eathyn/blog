@@ -16,3 +16,4 @@
 - The computer will first need to search the set to see whether the value we want to insert is
   already there.
 - The best-case scenario of set's inserting: `N + 1`; The worst-case scenario of set's inserting: `2N + 1`
+- Insertions for arrays are more efficient than insertions for sets.
