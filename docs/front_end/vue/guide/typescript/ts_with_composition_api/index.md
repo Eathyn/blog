@@ -148,6 +148,96 @@ function handleUpdate() {
 </script>
 ```
 
+## Typing `ref()`
+
+- Using `Ref` type to specify complex types for a ref's inner value.
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+
+const year: Ref<string | number> = ref('2022')
+
+// ok
+year.value = 2019
+</script>
+```
+
+- Passing a generic argument when calling `ref()`
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+// type of year: Ref<string | number>
+const year = ref<string | number>('2022')
+</script>
+```
+
+- If you specify a generic type argument but omit the initial value, the resulting type will be a union type that includes `undefined`.
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+// type of 'year': Ref<number | undefined>
+const year = ref<number>()
+</script>
+```
+
+## Typing `reactive()`
+
+- Using interfaces to type a `reactive`
+
+```vue
+<script setup lang="ts">
+import { reactive } from 'vue'
+
+interface Person {
+  name: string,
+  age: number,
+}
+
+// ok
+const person1: Person = reactive({
+  name: 'eathyn',
+  age: 25,
+})
+
+// TS2741: Property 'age' is missing in type '{ name: string; }' but required in type 'Person'.
+const person2: Person = reactive({
+  name: 'eaven',
+})
+</script>
+```
+
+- (Q) It's not recommended to use the generic argument of `reactive()` because the returned type, which handles nested ref unwrapping, is different from the generic argument type.
+
+## Typing `computed()`
+
+- `computed()` infers its type based on the getter's return value.
+
+```vue
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+
+const count = ref<number>(0)
+// type of 'doubleCount': ComputedRef<number>
+const doubleCount = computed(() => count.value * 2)
+</script>
+```
+
+- Specifying an explicit type via a generic argument.
+
+```vue
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+
+const count = ref<number>(0)
+// type of 'doubleCount': ComputedRef<number>
+const doubleCount = computed<number>(() => count.value * 2)
+</script>
+```
+
 ## Refs
 
 - [TypeScript with Composition API](https://vuejs.org/guide/typescript/composition-api.html)
