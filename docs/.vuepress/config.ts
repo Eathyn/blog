@@ -455,7 +455,7 @@ export default defineUserConfig({
           ],
         }
       ],
-      '/back_end/node': [
+      '/back_end/node/npm': [
         {
           text: 'Node.js',
           children: [
