@@ -102,7 +102,11 @@ export default defineUserConfig({
             text: 'Node.js',
             link: '/back_end/node/npm/lock_node_version/index.md',
           },
-        ]
+          {
+            text: 'Node.js Docs Learn',
+            link: '/back_end/node/docs_learn/getting_started/01_introduction_to_node.js.md',
+          },
+        ],
       },
       {
         text: 'Computer Science',
@@ -457,6 +461,23 @@ export default defineUserConfig({
           children: [
             '/back_end/node/npm/lock_node_version/index.md',
             '/back_end/node/npm/lock_package_manager/index.md',
+          ],
+        },
+      ],
+      '/back_end/node/docs_learn': [
+        {
+          text: 'Node.js Docs Learn',
+          children: [
+            '/back_end/node/docs_learn/getting_started/01_introduction_to_node.js.md',
+            '/back_end/node/docs_learn/getting_started/02_how_to_install_node.js.md',
+            '/back_end/node/docs_learn/getting_started/03_differences_between_node.js_and_the_browser.md',
+            '/back_end/node/docs_learn/getting_started/04_the_v8_javascript_engine.md',
+            '/back_end/node/docs_learn/getting_started/05_an_introduction_to_the_npm_package_manager.md',
+            '/back_end/node/docs_learn/getting_started/07_es6_and_beyond.md',
+            '/back_end/node/docs_learn/getting_started/08_the_difference_between_development_and_production.md',
+            '/back_end/node/docs_learn/asynchronous_flow_control/overview_of_blocking_vs_non-blocking.md',
+            '/back_end/node/docs_learn/asynchronous_flow_control/javascript_asynchronous_programming_and_callbacks.md',
+            '/back_end/node/docs_learn/asynchronous_flow_control/understanding_process_nexttick.md',
           ],
         },
       ],
