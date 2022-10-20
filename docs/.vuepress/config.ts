@@ -404,6 +404,16 @@ export default defineUserConfig({
           children: [
             '/front_end/react/core/docs/learn/installation/index.md',
             '/front_end/react/core/docs/learn/quick_start/index.md',
+            {
+              text: 'Describing the UI',
+              children: [
+                '/front_end/react/core/docs/learn/describing_the_ui/your_first_component.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/importing_and_exporting_components.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/writing_markup_with_jsx.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/javascript_in_jsx_with_curly_braces.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/passing_props_to_a_component.md',
+              ]
+            }
           ],
         }
       ],
