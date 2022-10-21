@@ -416,6 +416,9 @@ export default defineUserConfig({
                 '/front_end/react/core/docs/learn/describing_the_ui/writing_markup_with_jsx.md',
                 '/front_end/react/core/docs/learn/describing_the_ui/javascript_in_jsx_with_curly_braces.md',
                 '/front_end/react/core/docs/learn/describing_the_ui/passing_props_to_a_component.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/conditional_rendering.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/rendering_list.md',
+                '/front_end/react/core/docs/learn/describing_the_ui/keeping_components_pure.md',
               ]
             }
           ],
