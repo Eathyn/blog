@@ -20,10 +20,10 @@ npm install
 ### Installing a single package
 
 ```bash
-npm install <package-name>
+npm install `<package-name>`
 ```
 
-- Furthermore, since npm 5, this command adds <package-name> to the `package.json` file dependencies. Before version 5, you needed to add the flag `--save`.
+- Furthermore, since npm 5, this command adds `<package-name>` to the `package.json` file dependencies. Before version 5, you needed to add the flag `--save`.
 
 - More flags:
   - `--save-dev` installs and adds the entry to the package.json file _devDependencies_
