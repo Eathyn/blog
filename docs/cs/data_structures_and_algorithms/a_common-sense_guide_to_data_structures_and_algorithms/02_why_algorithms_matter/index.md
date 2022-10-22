@@ -58,3 +58,15 @@ function binarySearch(orderedArray, searchValue) {
   return -1
 }
 ```
+
+## Binary Search vs. Linear Search
+
+- Each time we double the data, the binary search algorithm adds just one more step.
+
+### Pop Quiz
+
+- However, insertion within an ordered array still remains slower than within a regular array, as the regular array’s insertion doesn’t require a search at all.
+
+## Wrapping Up
+
+- In situations where you don’t anticipate the need to search the data much, only adding data, standard arrays may be a better choice because their insertion is faster.
