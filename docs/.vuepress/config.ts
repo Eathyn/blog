@@ -201,6 +201,7 @@ export default defineUserConfig({
           children: [
             '/front_end/html/other/defer_vs_async/index.md',
             '/front_end/html/other/preload_prefetch/index.md',
+            '/front_end/html/other/form/submit_event.md',
           ]
         }
       ],
