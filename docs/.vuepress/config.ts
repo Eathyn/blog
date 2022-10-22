@@ -514,6 +514,9 @@ export default defineUserConfig({
                 '/language/english/illustration_of_grammar/19_连词.md',
                 '/language/english/illustration_of_grammar/打好基础，精益求精-5.md',
                 '/language/english/illustration_of_grammar/20_there_is.md',
+                '/language/english/illustration_of_grammar/21_svp_svoo_svoc.md',
+                '/language/english/illustration_of_grammar/打好基础，精益求精-6.md',
+                '/language/english/illustration_of_grammar/22_比较.md',
               ]
             },
           ],

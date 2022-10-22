@@ -70,3 +70,11 @@ Yes, there was. / No, there wasn't.
 ```markdown
 There will be an exam next week.
 ```
+
+## 复习测验
+
+- 询问数量使用: `how many + 复数名词 + are there...?`
+
+```markdown
+How many teachers are there in your school?
+```
