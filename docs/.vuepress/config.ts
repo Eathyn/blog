@@ -283,6 +283,8 @@ export default defineUserConfig({
             '/front_end/browser/events/capture_and_bubble/index.md',
             '/front_end/browser/events/delegation/index.md',
             '/front_end/browser/load/index.md',
+            '/front_end/browser/scroll/detect_reach_bottom/index.md',
+            '/front_end/browser/problem_of_set-interval/index.md',
           ],
         }
       ],
