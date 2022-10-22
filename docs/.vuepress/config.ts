@@ -422,8 +422,13 @@ export default defineUserConfig({
                 '/front_end/react/core/docs/learn/describing_the_ui/conditional_rendering.md',
                 '/front_end/react/core/docs/learn/describing_the_ui/rendering_list.md',
                 '/front_end/react/core/docs/learn/describing_the_ui/keeping_components_pure.md',
-                '/front_end/react/core/docs/learn/adding_interactivity/index.md',
+              ]
+            },
+            {
+              text: 'Adding Interactivity',
+              children: [
                 '/front_end/react/core/docs/learn/adding_interactivity/responding_to_events.md',
+                '/front_end/react/core/docs/learn/adding_interactivity/state_a_component\'s_memory.md',
               ]
             }
           ],
