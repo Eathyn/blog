@@ -37,6 +37,56 @@ function App() {
 
 - The only argument to `useState` is the initial value of your state variable.
 
+## Giving a component multiple state variables
+
+- If you find that you often change two state variables together, it might be better to combine them into a single one.
+
+### How does React know which state to return?
+
+Skip: Difficult
+
+## State is isolated and private
+
+- State is local to a component instance on the screen. In other words, if you render the same component twice, each copy will have completely isolated state! Changing one of them will not affect the other.
+
+_App.js_
+
+```js
+import { Button } from './Button'
+
+function App() {
+  return (
+    <>
+      <Button />
+      <Button />
+    </>
+  )
+}
+```
+
+_Button.js_
+
+```js
+import { useState } from 'react'
+
+export function Button() {
+  const [count, setCount] = useState(0)
+
+  function handleClick() {
+    setCount(count + 1)
+  }
+
+  return (
+    <div>
+      <button onClick={handleClick}>increment</button>
+      <div>count: {count}</div>
+    </div>
+  )
+}
+```
+
+- Unlike props, state is fully private to the component declaring it. The parent component can’t change it.
+
 ## Refs
 
 - [State: A Component's Memory](https://beta.reactjs.org/learn/state-a-components-memory)
