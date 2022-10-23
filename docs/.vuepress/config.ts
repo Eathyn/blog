@@ -559,6 +559,7 @@ export default defineUserConfig({
             '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/02_why_algorithms_matter/index.md',
             '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/03_big_o_notation/index.md',
             '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/04_speeding_up_your_code_with_big_o/index.md',
+            '/cs/data_structures_and_algorithms/a_common-sense_guide_to_data_structures_and_algorithms/05_optimizing_code_with_and_without_big_o/index.md',
           ],
         }
       ],
