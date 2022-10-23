@@ -429,6 +429,7 @@ export default defineUserConfig({
               children: [
                 '/front_end/react/core/docs/learn/adding_interactivity/responding_to_events.md',
                 '/front_end/react/core/docs/learn/adding_interactivity/state_a_component\'s_memory.md',
+                '/front_end/react/core/docs/learn/adding_interactivity/render_and_commit.md',
               ]
             }
           ],
