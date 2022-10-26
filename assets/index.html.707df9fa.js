@@ -1,0 +1,13 @@
+import{_ as a,r as e,o as t,c as o,b as n,d as p,a as c,e as r}from"./app.0a43b3c6.js";const i={},l=c(`<h1 id="getting-started" tabindex="-1"><a class="header-anchor" href="#getting-started" aria-hidden="true">#</a> Getting Started</h1><h2 id="the-simplest-store" tabindex="-1"><a class="header-anchor" href="#the-simplest-store" aria-hidden="true">#</a> The Simplest Store</h2><p><em>src/main.js</em></p><div class="language-javascript ext-js"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue&#39;</span>
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">&#39;./store/index.js&#39;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&#39;./App.vue&#39;</span>
+
+<span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">&#39;#app&#39;</span><span class="token punctuation">)</span>
+</code></pre></div><p><em>src/store/index.js</em></p><div class="language-javascript ext-js"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vuex&#39;</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> store
+</code></pre></div><h2 id="refs" tabindex="-1"><a class="header-anchor" href="#refs" aria-hidden="true">#</a> Refs</h2>`,7),u={href:"https://vuex.vuejs.org/guide/",target:"_blank",rel:"noopener noreferrer"},d=r("Getting Started");function k(h,m){const s=e("ExternalLinkIcon");return t(),o("div",null,[l,n("ul",null,[n("li",null,[n("a",u,[d,p(s)])])])])}const g=a(i,[["render",k],["__file","index.html.vue"]]);export{g as default};

@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-b4a8184a","path":"/front_end/html/other/form/submit_event.html","title":"Submit Event","lang":"en-US","frontmatter":{},"excerpt":"","headers":[{"level":1,"title":"Submit Event","slug":"submit-event","link":"#submit-event","children":[]}],"git":{},"filePathRelative":"front_end/html/other/form/submit_event.md"}');export{t as data};

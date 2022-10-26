@@ -1,0 +1,24 @@
+import{_ as a,o as e,c as d,a as r}from"./app.0a43b3c6.js";const n={},h=r(`<h1 id="\u6253\u597D\u57FA\u7840-\u7CBE\u76CA\u6C42\u7CBE-3" tabindex="-1"><a class="header-anchor" href="#\u6253\u597D\u57FA\u7840-\u7CBE\u76CA\u6C42\u7CBE-3" aria-hidden="true">#</a> \u6253\u597D\u57FA\u7840\uFF0C\u7CBE\u76CA\u6C42\u7CBE - 3</h1><h2 id="in" tabindex="-1"><a class="header-anchor" href="#in" aria-hidden="true">#</a> in</h2><h3 id="\u5728-\u91CC-\u5185" tabindex="-1"><a class="header-anchor" href="#\u5728-\u91CC-\u5185" aria-hidden="true">#</a> \u5728...\u91CC/\u5185</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>in the box
+in the kitchen
+in China
+</code></pre></div><h3 id="\u5728\u67D0\u5E74-\u6708-\u5B63\u8282" tabindex="-1"><a class="header-anchor" href="#\u5728\u67D0\u5E74-\u6708-\u5B63\u8282" aria-hidden="true">#</a> \u5728\u67D0\u5E74/\u6708/\u5B63\u8282</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>in 2012
+in June
+in winter
+</code></pre></div><h2 id="on" tabindex="-1"><a class="header-anchor" href="#on" aria-hidden="true">#</a> on</h2><h3 id="\u5728-\u4E0A\u9762-\u8868\u9762\u4E0A" tabindex="-1"><a class="header-anchor" href="#\u5728-\u4E0A\u9762-\u8868\u9762\u4E0A" aria-hidden="true">#</a> \u5728...\u4E0A\u9762/\u8868\u9762\u4E0A</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>on the table
+on the wall
+</code></pre></div><h3 id="\u5728-\u65E5\u671F-\u661F\u671F" tabindex="-1"><a class="header-anchor" href="#\u5728-\u65E5\u671F-\u661F\u671F" aria-hidden="true">#</a> \u5728...\u65E5\u671F/\u661F\u671F</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>on May 5
+on Monday
+</code></pre></div><h2 id="at" tabindex="-1"><a class="header-anchor" href="#at" aria-hidden="true">#</a> at</h2><h3 id="\u5728\u67D0\u4E2A\u5730\u70B9\u4E0A" tabindex="-1"><a class="header-anchor" href="#\u5728\u67D0\u4E2A\u5730\u70B9\u4E0A" aria-hidden="true">#</a> \u5728\u67D0\u4E2A\u5730\u70B9\u4E0A</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>at school
+at the bus stop
+</code></pre></div><h3 id="\u5728\u67D0\u4E2A\u65F6\u523B" tabindex="-1"><a class="header-anchor" href="#\u5728\u67D0\u4E2A\u65F6\u523B" aria-hidden="true">#</a> \u5728\u67D0\u4E2A\u65F6\u523B</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>at six
+at 10:30
+</code></pre></div><h2 id="before-\u5728-\u4E4B\u524D" tabindex="-1"><a class="header-anchor" href="#before-\u5728-\u4E4B\u524D" aria-hidden="true">#</a> before \u5728...\u4E4B\u524D</h2><div class="language-markdown ext-md"><pre class="language-markdown"><code>before dinner
+</code></pre></div><h2 id="after-\u5728-\u4E4B\u540E" tabindex="-1"><a class="header-anchor" href="#after-\u5728-\u4E4B\u540E" aria-hidden="true">#</a> after \u5728...\u4E4B\u540E</h2><div class="language-markdown ext-md"><pre class="language-markdown"><code>after school
+</code></pre></div><h2 id="from-\u6765\u81EA" tabindex="-1"><a class="header-anchor" href="#from-\u6765\u81EA" aria-hidden="true">#</a> from \u6765\u81EA...</h2><div class="language-markdown ext-md"><pre class="language-markdown"><code>a letter from him
+</code></pre></div><h2 id="to-\u5F80" tabindex="-1"><a class="header-anchor" href="#to-\u5F80" aria-hidden="true">#</a> to \u5F80...</h2><div class="language-markdown ext-md"><pre class="language-markdown"><code>go to school
+</code></pre></div><h2 id="with-\u548C-\u4E00\u8D77" tabindex="-1"><a class="header-anchor" href="#with-\u548C-\u4E00\u8D77" aria-hidden="true">#</a> with \u548C...\u4E00\u8D77</h2><div class="language-markdown ext-md"><pre class="language-markdown"><code>go with him
+</code></pre></div><h2 id="for" tabindex="-1"><a class="header-anchor" href="#for" aria-hidden="true">#</a> for</h2><h3 id="\u4E3A\u4E86" tabindex="-1"><a class="header-anchor" href="#\u4E3A\u4E86" aria-hidden="true">#</a> \u4E3A\u4E86...</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>buy a present for him
+</code></pre></div><h3 id="\u5BF9\u4E8E-\u800C\u8A00" tabindex="-1"><a class="header-anchor" href="#\u5BF9\u4E8E-\u800C\u8A00" aria-hidden="true">#</a> \u5BF9\u4E8E...\u800C\u8A00</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>good for you
+</code></pre></div><h3 id="\u8868\u8FBE\u65F6\u95F4\u957F\u77ED" tabindex="-1"><a class="header-anchor" href="#\u8868\u8FBE\u65F6\u95F4\u957F\u77ED" aria-hidden="true">#</a> \u8868\u8FBE\u65F6\u95F4\u957F\u77ED</h3><div class="language-markdown ext-md"><pre class="language-markdown"><code>walk for ten minutes
+stay there for two weeks
+</code></pre></div>`,33),i=[h];function o(s,c){return e(),d("div",null,i)}const l=a(n,[["render",o],["__file","\u6253\u597D\u57FA\u7840\uFF0C\u7CBE\u76CA\u6C42\u7CBE-3.html.vue"]]);export{l as default};

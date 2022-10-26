@@ -1,0 +1,20 @@
+import{_ as n,o as a,c as s,a as t}from"./app.0a43b3c6.js";const p={},o=t(`<h1 id="\u7ED1\u5B9A\u4E8B\u4EF6" tabindex="-1"><a class="header-anchor" href="#\u7ED1\u5B9A\u4E8B\u4EF6" aria-hidden="true">#</a> \u7ED1\u5B9A\u4E8B\u4EF6</h1><ul><li>\u4E8B\u4EF6\u7ED1\u5B9A\u51FD\u6570\u53EF\u4EE5\u662F\u4E00\u4E2A\u6570\u636E\u7ED1\u5B9A</li><li>\u9875\u9762\u7684 this.data.handlerName \u5FC5\u987B\u662F\u4E00\u4E2A\u5B57\u7B26\u4E32\uFF0C\u6307\u5B9A\u4E8B\u4EF6\u5904\u7406\u51FD\u6570\u540D\uFF1B\u5982\u679C\u5B83\u662F\u4E2A\u7A7A\u5B57\u7B26\u4E32\uFF0C\u5219\u8FD9\u4E2A\u7ED1\u5B9A\u4F1A\u5931\u6548</li></ul><div class="language-html ext-html"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">bind:</span>tap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleTapOne<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>button 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">bind:</span>tap</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{{ handleTapTwo }}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>button 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-javascript ext-js"><pre class="language-javascript"><code><span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">handleTapTwo</span><span class="token operator">:</span> <span class="token string">&#39;funcA&#39;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  
+  <span class="token function">handleTapOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;one&#39;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function">funcA</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;A&#39;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token function">funcB</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;B&#39;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div>`,4),c=[o];function e(u,l){return a(),s("div",null,c)}const k=n(p,[["render",e],["__file","index.html.vue"]]);export{k as default};

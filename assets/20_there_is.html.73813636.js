@@ -1,0 +1,17 @@
+import{_ as e,o as a,c as r,a as d}from"./app.0a43b3c6.js";const o={},n=d(`<h1 id="there-is" tabindex="-1"><a class="header-anchor" href="#there-is" aria-hidden="true">#</a> There is ...</h1><h2 id="_75-\u6709" tabindex="-1"><a class="header-anchor" href="#_75-\u6709" aria-hidden="true">#</a> 75 &quot;\u6709...&quot;</h2><ul><li>\u590D\u6570\u7528 &quot;there are&quot;, \u5355\u6570\u7528 &quot;there is&quot;</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There is a desk.
+There are two desks.
+</code></pre></div><ul><li>\u8868\u8FBE\u8FC7\u53BB\u5F0F\u65F6 be \u52A8\u8BCD\u8981\u7528\u8FC7\u53BB\u5F0F</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There was a desk.
+</code></pre></div><ul><li><code>There be</code> \u540E\u9762\u4E0D\u4F1A\u63A5\u6709 <code>the</code>, <code>my</code>, <code>your</code> \u7684\u540D\u8BCD</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There is your bag on the desk. // error
+Your bag is on the desk. // right
+</code></pre></div><h2 id="_76-\u6CA1\u6709" tabindex="-1"><a class="header-anchor" href="#_76-\u6CA1\u6709" aria-hidden="true">#</a> 76 &quot;\u6CA1\u6709...&quot;</h2><ul><li>\u5426\u5B9A\u53E5\u91CC\u7ECF\u5E38\u4F7F\u7528 <code>any</code></li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There are not any books.
+</code></pre></div><ul><li>not any + n. = no + n.</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There are no books.
+</code></pre></div><ul><li>\u6539\u4E3A\u5426\u5B9A\u53E5</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There are some flowers. -&gt; There are not any flowers.
+</code></pre></div><h2 id="_77-\u6709-\u5417" tabindex="-1"><a class="header-anchor" href="#_77-\u6709-\u5417" aria-hidden="true">#</a> 77 \u6709...\u5417</h2><ul><li><code>are there</code> \u4E2D\u7ECF\u5E38\u4F7F\u7528 <code>any</code></li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>Is there a hospital near here?
+Ara there any comics in the library?
+</code></pre></div><ul><li>\u4F7F\u7528 <code>yes/no, there be</code> \u56DE\u7B54</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>Is there a hospital near here?
+Yes, there is. / No, there isn&#39;t.
+</code></pre></div><ul><li>\u56DE\u7B54\u4E5F\u8981\u9075\u5B88\u65F6\u6001</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>Was there a hospital here?
+Yes, there was. / No, there wasn&#39;t.
+</code></pre></div><ul><li><code>there will be</code> \u8868\u793A\u672A\u6765\u6709...</li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>There will be an exam next week.
+</code></pre></div><h2 id="\u590D\u4E60\u6D4B\u9A8C" tabindex="-1"><a class="header-anchor" href="#\u590D\u4E60\u6D4B\u9A8C" aria-hidden="true">#</a> \u590D\u4E60\u6D4B\u9A8C</h2><ul><li>\u8BE2\u95EE\u6570\u91CF\u4F7F\u7528: <code>how many + \u590D\u6570\u540D\u8BCD + are there...?</code></li></ul><div class="language-markdown ext-md"><pre class="language-markdown"><code>How many teachers are there in your school?
+</code></pre></div>`,27),l=[n];function s(c,i){return a(),r("div",null,l)}const h=e(o,[["render",s],["__file","20_there_is.html.vue"]]);export{h as default};
