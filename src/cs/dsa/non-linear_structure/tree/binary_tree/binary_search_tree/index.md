@@ -96,7 +96,7 @@ flowchart TB
 
 线性结构的树指的是节点值从上到下是有序的。如图所示：
 
-![线性树](./image/binary_search/linear_tree.png)
+![线性树](./_image/linear_tree.png)
 
 线性结构的树在查找方面的时间复杂度是 `O(N)`。
 
