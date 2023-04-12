@@ -17,7 +17,7 @@ export default hopeTheme({
 
   iconAssets: "iconfont",
 
-  favicon: '/svgviewer-output.svg',
+  favicon: '/favicon.svg',
 
   logo: "/avatar.gif",
 
