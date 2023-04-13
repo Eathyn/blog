@@ -1,3 +1,9 @@
+---
+date: 2023-02-15
+category: 小程序
+tag: behaviors
+---
+
 # behaviors
 
 ## 使用原因
