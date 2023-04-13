@@ -1,1 +1,0 @@
-import{_ as t,W as n,X as r,Y as e,Z as o}from"./framework-c8ebc670.js";const s={},a=e("h1",{id:"insertion-sort",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#insertion-sort","aria-hidden":"true"},"#"),o(" Insertion Sort")],-1),c=[a];function i(_,d){return n(),r("div",null,c)}const l=t(s,[["render",i],["__file","index.html.vue"]]);export{l as default};

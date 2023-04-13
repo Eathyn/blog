@@ -1,1 +1,0 @@
-import{_ as a,W as r,X as t,Y as e,Z as c}from"./framework-c8ebc670.js";const n={},s=e("h1",{id:"binary-search",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#binary-search","aria-hidden":"true"},"#"),c(" Binary Search")],-1),o=[s];function i(_,d){return r(),t("div",null,o)}const l=a(n,[["render",i],["__file","index.html.vue"]]);export{l as default};
