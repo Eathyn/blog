@@ -173,6 +173,7 @@ const frontEnd = {
     'observer/',
     'skills/',
     'pure_data/',
+    'behaviors/',
   ],
 }
 

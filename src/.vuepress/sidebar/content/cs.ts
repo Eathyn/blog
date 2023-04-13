@@ -113,6 +113,8 @@ const network = [
   'http/response_status_code/',
   'http/origin/',
   'http/cache/',
+  'https/',
+  'tcp/three_handshakes_four_waves/',
 ]
 
 /* ----------------------------- others ------------------------------- */
