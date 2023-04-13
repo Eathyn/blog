@@ -1,3 +1,9 @@
+---
+date: 2021-03-16
+category: Vue
+tag: SPA vs MPA
+---
+
 # SPA vs MPA
 
 ## Definition

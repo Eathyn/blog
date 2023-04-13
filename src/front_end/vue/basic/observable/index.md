@@ -1,3 +1,11 @@
+---
+date: 2021-03-22
+category: Vue
+tag:
+- basic
+- Vue.observable
+---
+
 # `Vue.observable`
 
 ## Why do we need `Vue.observable`

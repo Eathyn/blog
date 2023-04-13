@@ -1,3 +1,11 @@
+---
+date: 2021-03-20
+category: Vue
+tag: 
+- basic
+- MVVM
+---
+
 # MVVM
 
 ## Definition

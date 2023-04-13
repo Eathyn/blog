@@ -1,3 +1,9 @@
+---
+date: 2021-03-17
+category: Vue
+tag: two-way bindings
+---
+
 # Two-Way Bindings
 
 ## What is two-way bindings

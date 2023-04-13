@@ -1,3 +1,11 @@
+---
+date: 2021-04-18
+category: Vue
+tag:
+- basic
+- reactivity
+---
+
 # Reactivity Fundamentals
 
 ## Definition (extra)

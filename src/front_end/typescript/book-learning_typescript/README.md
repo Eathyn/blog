@@ -1,3 +1,11 @@
+---
+date: 2022-10-01
+category: TypeScript
+tag:
+- Book - Learning TypeScript
+- README
+---
+
 # README
 
 Notes from the book **Learning TypeScript** | [website](https://www.learningtypescript.com/)
