@@ -1,3 +1,9 @@
+---
+date: 2021-02-18
+category: network
+tag: cache
+---
+
 # Cache
 
 ## 原因

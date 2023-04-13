@@ -1,3 +1,11 @@
+---
+date: 2021-02-15
+category: network
+tag: 
+- http
+- message
+---
+
 # HTTP Message
 
 - two types of HTTP messages: request and response

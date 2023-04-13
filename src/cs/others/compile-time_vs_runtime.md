@@ -1,3 +1,8 @@
+---
+date: 2022-09-21
+category: CS others
+---
+
 # 编译时 vs 运行时
 
 ## Content

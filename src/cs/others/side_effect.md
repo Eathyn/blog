@@ -1,3 +1,8 @@
+---
+date: 2022-09-21
+category: CS others
+---
+
 # 副作用 Side Effect
 
 ## Content

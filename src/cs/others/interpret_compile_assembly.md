@@ -1,3 +1,8 @@
+---
+date: 2022-09-21
+category: CS others
+---
+
 # 解释 vs 编译 vs 汇编
 
 ## Content

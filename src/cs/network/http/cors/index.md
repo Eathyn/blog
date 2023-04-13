@@ -1,3 +1,9 @@
+---
+date: 2021-03-13
+category: network
+tag: CORS
+---
+
 # CORS
 
 - CORS: Cross-Origin Resource Sharing
@@ -9,10 +15,10 @@
 
 ## 配置
 
-- 服务器设置 HTTP 头部
-    - `Access-Control-Allow-Origin`
-    - `Access-Control-Allow-Methods`
-    - `Access-Control-Allow-Headers`
+服务器设置 HTTP 头部：
+- `Access-Control-Allow-Origin`
+- `Access-Control-Allow-Methods`
+- `Access-Control-Allow-Headers`
 
 ## 简单请求 (simple request)
 
