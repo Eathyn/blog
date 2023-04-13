@@ -4,22 +4,14 @@ const searchAlgorithm = {
   text: 'Search Algorithm',
   collapsible: true,
   prefix: 'search_algorithm/',
-  children: [
-    'binary_search/',
-    'linear_search/',
-  ],
+  children: [],
 }
 
 const sortingAlgorithm = {
   text: 'Sorting Algorithm',
   collapsible: true,
   prefix: 'sorting_algorithm/',
-  children: [
-    'bubble_sort/',
-    'insertion_sort/',
-    'selection_sort/',
-    'quick_sort/',
-  ],
+  children: [],
 }
 
 const linearStructure = {
@@ -33,8 +25,6 @@ const linearStructure = {
       prefix: 'linked_list/',
       children: [
         'single_linked_list/',
-        'doubly_linked_list/',
-        'circular_linked_list/',
       ],
     },
     {
