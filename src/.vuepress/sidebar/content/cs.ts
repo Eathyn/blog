@@ -117,9 +117,11 @@ const network = [
   'authentication/cookie/',
   'authentication/session/',
   'authentication/jwt/',
-  'http/origin/',
-  'http/response_status_code/',
+  'http/headers/',
   'http/message/',
+  'http/versions/',
+  'http/response_status_code/',
+  'http/origin/',
   'http/cache/',
 ]
 

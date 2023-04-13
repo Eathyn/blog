@@ -9,6 +9,7 @@ const solution: string[] = [
   'login/',
   'logout/',
   'cross_origin/',
+  'icon/',
 ]
 
 export default solution
