@@ -137,7 +137,33 @@ flowchart TB
 
 ### 实现
 
-> Book: A Common-Sense Guide to DSA: 
+> Book: A Common-Sense Guide to DSA: p298 - p299
+
+> [complete code](https://github.com/Eathyn/BOOK-a-common_sense-guide-to-DSA/blob/main/16_heap/heap.js#L28)
+
+```js
+function insert(value) {
+  this.data.push(value)
+
+  // 堆中只有一个根节点，不需要进行交换操作
+  if (this.data.length === 1) {
+    return
+  }
+  
+  let newNodeIndex = this.data.length - 1
+  let parentIndex = this.parentIndex(newNodeIndex)
+
+  // 如果新节点比它的父节点大，则交换值
+  while (this.data[newNodeIndex] > this.data[parentIndex]) {
+    // 交换新节点和它的父节点的值
+    [this.data[newNodeIndex], this.data[parentIndex]] = [this.data[parentIndex], this.data[newNodeIndex]]
+
+    // 更新新节点和父节点索引，用于下一次比较
+    newNodeIndex = parentIndex
+    parentIndex = this.parentIndex(newNodeIndex)
+  }
+}
+```
 
 ## 二叉堆的删除操作
 
@@ -157,7 +183,45 @@ flowchart TB
 
 ### 实现
 
-> Book: A Common-Sense Guide to DSA: 
+> Book: A Common-Sense Guide to DSA: p299 - p300
+
+> [complete code](https://github.com/Eathyn/BOOK-a-common_sense-guide-to-DSA/blob/main/16_heap/heap.js#L50)
+
+```js
+function deleteOperation() {
+  // 堆没有节点时不进行后续操作
+  if (this.data.length === 0) {
+    return
+  }
+
+  // 堆的最后一个节点代替根节点作为新的根节点
+  this.data[0] = this.data.pop()
+  let currentNodeIndex = 0
+
+  // 新的根节点与值较大的子节点替换
+  while (this.hasGreaterChild(currentNodeIndex)) {
+    const childIndex = this.calculateLargerChildIndex(currentNodeIndex)
+    [this.data[currentNodeIndex], this.data[childIndex]] = [this.data[childIndex], this.data[currentNodeIndex]]
+    // 交换后需要更新 currentNodeIndex
+    currentNodeIndex = childIndex
+  }
+}
+
+// 判断节点的左或右子节点是否大于它
+function hasGreaterChild(index) {
+  const currentNode = this.data[index]
+  const leftChild = this.leftChildIndex(index)
+  const rightChild = this.rightChildIndex(index)
+  return currentNode < leftChild || currentNode < rightChild
+}
+
+// 获取较大的子节点
+function calculateLargerChildIndex(index) {
+  const leftChild = this.data[this.leftChildIndex(index)]
+  const rightChild = this.data[this.rightChildIndex(index)]
+  return leftChild >= rightChild ? this.leftChildIndex(index) : this.rightChildIndex(index)
+}
+```
 
 ## 使用数组实现堆
 
