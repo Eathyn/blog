@@ -235,7 +235,7 @@ function calculateLargerChildIndex(index) {
 
 > Book: A Common-Sense Guide to DSA: p297, p298
 
-使用数组实现的堆不像树的数据结构一样通过内存地址找到左右子节点，但是可以通过以下的规则确定左右子节点：
+使用数组实现的堆不像树的数据结构一样通过内存地址找到左右子节点，但是可以通过以下的规则确定左右子节点和父节点：
 
 - 左子节点：`index * 2 + 1`
 - 右子节点：`index * 2 + 2`
