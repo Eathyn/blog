@@ -5,6 +5,14 @@ const tool = {
     'steps_to_participate_open_sources/',
     'tag/',
     'diff/',
+    {
+      text: 'Workflow',
+      prefix: 'workflow/',
+      collapsable: true,
+      children: [
+        'gitflow/',
+      ],
+    }
   ],
   node: [
     'lock_node_version/',
