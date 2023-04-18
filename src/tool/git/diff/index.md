@@ -53,3 +53,9 @@ index 3b18e51..2c0b785 100644
 - [3] 使用 `---` 标记 a/bar.txt；使用 `+++` 标记 b/bar.txt。
 - [4] `-1`：a/bar.txt 从第一行开始修改，修改了一行；`+1`：b/bar.txt 从第一行开始修改，修改了一行。
 - [5] 显示具体修改了哪些数据。
+
+## Refs
+
+- [beginner](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
+- [beginner](https://www.freecodecamp.org/news/git-diff-command/)
+
