@@ -21,6 +21,14 @@ tag:
 > Book: A Common-Sense Guide to DSA: p281
 
 - 插入操作的时间复杂度为 `O(N)`，因为需要移动元素。
+- 删除操作的时间复杂度为 `O(logN)`，参考队列的章节。
+
+## 使用堆实现优先队列的优点
+
+> Book: A Common-Sense Guide to DSA: p302
+
+- 插入操作的时间复杂度为 `O(logN)`， 参考算法原理和实现。
+- 删除操作的时间复杂度为 `O(logN)`， 参考算法原理和实现。
 
 ## 关于二叉堆
 
