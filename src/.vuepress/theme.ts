@@ -70,7 +70,7 @@ export default hopeTheme({
       attrs: false,
       chart: false,
       codetabs: false,
-      container: false,
+      container: true,
       delay: 800,
       demo: false,
       echarts: false,
