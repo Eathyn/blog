@@ -8,7 +8,7 @@ const tool = {
     {
       text: 'Workflow',
       prefix: 'workflow/',
-      collapsable: true,
+      collapsible: true,
       children: [
         'gitflow/',
       ],
