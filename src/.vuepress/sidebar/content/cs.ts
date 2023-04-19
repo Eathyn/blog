@@ -82,6 +82,7 @@ const nonLinearStructure = {
             'priority_queue/',
           ],
         },
+        'tire/',
       ],
     },
     {
