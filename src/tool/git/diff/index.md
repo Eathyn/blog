@@ -54,8 +54,28 @@ index 3b18e51..2c0b785 100644
 - [4] `-1`：a/bar.txt 从第一行开始修改，修改了一行；`+1`：b/bar.txt 从第一行开始修改，修改了一行。
 - [5] 显示具体修改了哪些数据。
 
+## Delta
+
+- 使用 [delta](https://github.com/dandavison/delta) 工具可以让 diff 命令的输出更加直观。
+
+- 在 `.gitconfig` 文件配置：
+
+```.gitconfig
+[core]
+  pager = G:/delta-0.15.0-x86_64-pc-windows-msvc/delta.exe
+[interactive]
+  diffFilter = G:/delta-0.15.0-x86_64-pc-windows-msvc/delta.exe --color-only
+[include]
+	path = G:/delta/themes.gitconfig
+[delta]
+	features = mantis-shrimp
+	side-by-side = true
+[safe]
+	directory = G:/blog
+```
+
 ## Refs
 
 - [beginner](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
 - [beginner](https://www.freecodecamp.org/news/git-diff-command/)
-
+- [Delta](https://github.com/dandavison/delta)
