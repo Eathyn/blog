@@ -12,7 +12,8 @@ const tool = {
       children: [
         'gitflow/',
       ],
-    }
+    },
+    'reset/',
   ],
   node: [
     'lock_node_version/',
