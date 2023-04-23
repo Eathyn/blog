@@ -19,11 +19,11 @@ HEAD 指向当前分支的最后一个 commit。
 
 ### The Index
 
-Index 就是暂存区（staged area）。对在工作目录（working directory）的文件使用使用 `git add` 之后，这些文件就会添加到暂存区。
+Index 就是暂存区（staged area）。对在工作目录（working directory）的文件使用 `git add` 之后，这些文件就会添加到暂存区。
 
 ### The Working Directory
 
-工作目录（working directory）是编辑文件的地方
+工作目录（working directory）是编辑文件的地方。
 
 ## 切换分支时的内部运行
 
@@ -31,7 +31,7 @@ Index 就是暂存区（staged area）。对在工作目录（working directory�
 
 1. HEAD 指向切换的分支。
 2. 在 Index 中填充这个分支的所有 commit。
-3. 把 Index 中的内容复制到工作区。
+3. 把 Index 中的内容复制到工作目录。
 
 ## 命令解释
 
@@ -112,7 +112,7 @@ git reset --hard <commit>
 - 本地仓库（HEAD）、暂存区（Index）和工作目录（Working Directory）重置。
 
 ::: danger
-使用 `git reset --hard` 后无法通过 `git log` 查找到丢失的 commit，但是可以使用 `git reflog` 查看 HEAD 的变更情况，进而回滚到之前的 commit。
+使用 `git reset --hard` 后无法通过 `git log` 查找到丢失的 commit，但是可以使用 `git reflog` 查看 HEAD 的变更情况，从而回滚到之前的 commit。
 :::
 
 ### 图示

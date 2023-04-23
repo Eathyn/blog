@@ -5,17 +5,15 @@ category: Git
 
 # Diff
 
-## --stage 参数
+## --staged 参数
 
-> [git diff --stage](https://www.learnenough.com/git-tutorial/getting_started/viewing_the_diff)
-
-对比 last commit 和 **unstaged** changes。命令如下：
+对比 HEAD（本地仓库）和工作目录（Working Diretory）。命令如下：
 
 ```git
 git diff
 ```
 
-对比 last commit 和 **staged** changes。命令如下：
+对比 HEAD（本地仓库）和 Index（暂存区）。命令如下：
 
 ```git 
 git diff --staged

@@ -9,19 +9,20 @@ tag:
 
 # Binary Search Tree
 
-## Other Data Structure
+## 其他的数据结构
 
 - ordered array
-  - search: O(n) binary search
-  - insertion: O(n) worst case
-  - deletion: O(n) worst case
+  - search: O(logN) binary search
+  - insertion: O(N) worst case
+  - deletion: O(N) worst case
+
 - hash table
   - search: O(1)
   - insertion: O(1)
   - deletion: O(1)
   - but hash table is unordered
 
-## Concept
+## 概念
 
 - 平衡树（balanced tree）：所有子树的节点数都相同。如图所示：
 
@@ -38,11 +39,11 @@ flowchart TB
   C --> G
 ```
 
-- 不平衡树（imbalanced tree）：有子树的节点数不相同。如图所示：
+- 不平衡树（unbalanced tree）：有子树的节点数不相同。如图所示：
 
 ```mermaid
 ---
-title: imbalanced tree
+title: unbalanced tree
 ---
 flowchart TB
   A --> B
@@ -51,12 +52,12 @@ flowchart TB
   C --> G
 ```
 
-- 二叉树（binary tree）：每个节点只有 0 / 1 / 2 个子节点。
+- 二叉树（binary tree）：每个节点最多有两个子节点，即每个节点可以有 0 / 1 / 2 个子节点。
 
 - 二叉搜索树（binary search tree）：
-  - 每个节点最多只有 1 个左子节点和 1 个右子节点。
-  - 左子节点的值小于节点值，右子节点的值大于节点值。
-  - 节点值大于所有属于左子树的后代节点值，节点值小于所有属于右子树的后代节点值。
+  - 每个节点最多有两个子节点（二叉树的特性）。
+  - 左子节点的值小于它的父节点值，右子节点的值大于它的父节点值。
+  - 当前节点值大于所有属于左子树的后代节点值，当前节点值小于所有属于右子树的后代节点值（由上一条特性推导得出）。
 
 ```mermaid
 ---
@@ -83,7 +84,7 @@ flowchart TB
 
 - 使用二分查找确定位置，时间复杂度为：O(logN)。
 - 如果在数组的开头插入数据，那么后面的数据都需要向后移动一位，时间复杂度为：O(N)。
-- 总和：O(logN) + O(N) = O(N)。
+- 总和：O(logN + N) => O(N)。
 
 二叉搜索树插入操作的时间复杂度：
 
