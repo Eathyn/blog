@@ -24,37 +24,7 @@ tag:
 
 ## 概念
 
-- 平衡树（balanced tree）：所有子树的节点数都相同。如图所示：
-
-```mermaid
----
-title: balanced tree
----
-flowchart TB
-  A --> B
-  A --> C
-  B --> D
-  B --> E
-  C --> F
-  C --> G
-```
-
-- 不平衡树（unbalanced tree）：有子树的节点数不相同。如图所示：
-
-```mermaid
----
-title: unbalanced tree
----
-flowchart TB
-  A --> B
-  A --> C
-  C --> F
-  C --> G
-```
-
-- 二叉树（binary tree）：每个节点最多有两个子节点，即每个节点可以有 0 / 1 / 2 个子节点。
-
-- 二叉搜索树（binary search tree）：
+二叉搜索树（binary search tree）：
   - 每个节点最多有两个子节点（二叉树的特性）。
   - 左子节点的值小于它的父节点值，右子节点的值大于它的父节点值。
   - 当前节点值大于所有属于左子树的后代节点值，当前节点值小于所有属于右子树的后代节点值（由上一条特性推导得出）。
@@ -74,38 +44,98 @@ flowchart TB
 
 ## 查找
 
-- 当平衡树有 `N` 个节点时，它有 `logN` 层。因为二叉搜索树每次查找都向下移动一层，因此它的时间复杂度和层数一样，是 `O(logN)`。
+### 算法
 
-- 在查找方面，二叉搜索树和有序数组的时间复杂度都是 `O(logN)`。
+1. 设置 currentNode 指向一个当前树的根节点。
+2. 比较 currentNode 的值和要查找的值。
+3. 如果相等，则说明找到了；如果 currentNode 的值大于要查找的值，则接下来从左子树继续查找；如果 currentNode 的值小于要查找的值，则接下来从右子树继续查找。
+4. 重复步骤一到三，直到找到或到达叶子节点。
+
+### 实现
+
+```js
+function search(searchValue, node) {
+  // base case
+  if (node === null || node.value === searchValue) {
+    return node
+  }
+
+  // 根据二叉查找树的特性，排除掉右子树，只查找左子树
+  if (searchValue < node.value) {
+    // 记得使用 return
+    return search(searchValue, node.leftNode)
+  }
+
+  // 根据二叉查找树的特性，排除掉左子树，只查找右子树
+  if (searchValue > node.value) {
+    return search(searchValue, node.rightNode)
+  }
+}
+```
+
+### 复杂度
+
+- 因为二叉搜索树每次查找都向下移动一层，因此它的时间复杂度与树的层数相关联。
+
+- 最差的情况是变成退化树，此时 `N` 个结点会形成有 `N` 层的树。所以时间复杂度是 `O(N)`。
+
+- 平均的情况是变成平衡树，此时 `N` 个结点会形成有 `logN` 层的树，所以时间复杂度是 `O(logN)`。
+
+:::tip
+有序数组的搜索操作采用二分查找时，事件复杂度为 `log(N)`。
+:::
 
 ## 插入
 
+### 算法
+
+1. currentNode 指向根节点。
+2. 如果插入的值等于 currentNode 的值，则提示节点已存在；如果插入的值比 currentNode 的值小，则 currentNode 指向左子树；反之 currentNode 指向右子树。
+3. 直到找到一个空位置并插入到这个位置。
+
+### 实现
+
+```js
+function insert(value, node) {
+  if (value === node.value) {
+    throw new Error('the node is exist')
+  }
+
+  if (value < node.value) {
+    if (node.leftNode === null) {
+      node.leftNode = new TreeNode(value)
+    } else {
+      insert(value, node.leftNode)
+    }
+  }
+
+  if (value > node.value) {
+    if (node.rightNode === null) {
+      node.rightNode = new TreeNode(value)
+    } else {
+      insert(value, node.rightNode)
+    }
+  }
+}
+```
+
+### 复杂度
+
+原理与查找操作的时间复杂度一样：
+- 如果树是退化树，则插入操作的时间复杂度为 `O(N)`。
+- 如果树是平衡树，则插入操作的时间复杂度为 `O(logN)`。
+
+:::tip
 有序数组插入操作的时间复杂度：
 
 - 使用二分查找确定位置，时间复杂度为：O(logN)。
 - 如果在数组的开头插入数据，那么后面的数据都需要向后移动一位，时间复杂度为：O(N)。
 - 总和：O(logN + N) => O(N)。
-
-二叉搜索树插入操作的时间复杂度：
-
-- 确定位置：时间复杂度为：O(logN)。
-- 不需要移动其他节点的位置，因此总时间复杂度为 O(logN)。
-
-## 线性结构的树
-
-> Book: A Common-Sense Guide to DSA: p259 - p260
-
-线性结构的树指的是节点值从上到下是有序的。如图所示：
-
-![线性树](./_image/linear_tree.png)
-
-线性结构的树在查找方面的时间复杂度是 `O(N)`。
+:::
 
 ## 删除
 
 > A Common-Sense Guide to DSA: p260 - 271
-
-二叉查找树的删除操作的时间复杂度是 `O(logN)`。
 
 ### 算法
 
@@ -115,7 +145,7 @@ flowchart TB
   - 后续节点没有右子节点：后续节点替换待删除节点
   - 后续节点有右子节点：后续节点替换待删除节点，并且后续节点的右子节点作为后续节点的原父节点的右子节点。
 
-### 代码
+### 实现
 
 ```js
 // delete operation in binary search tree
@@ -159,6 +189,13 @@ function lift(node, nodeToDelete) {
   }
 }
 ```
+
+### 复杂度
+
+原理与查找操作的时间复杂度一样：
+
+- 如果树是退化树，则插入操作的时间复杂度为 O(N)。
+- 如果树是平衡树，则插入操作的时间复杂度为 O(logN)。
 
 ## 遍历
 
