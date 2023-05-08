@@ -69,14 +69,10 @@ const nonLinearStructure = {
       collapsible: true,
       prefix: 'tree/',
       children: [
-        {
-          text: 'Binary Tree',
-          collapsible: true,
-          prefix: 'binary_tree/',
-          children: [
-            'binary_search_tree/',
-          ],
-        },
+        'tree/',
+        'binary_tree/',
+        'binary_search_tree/',
+        'tire/',
         {
           text: 'Heap',
           collapsible: true,
@@ -85,7 +81,6 @@ const nonLinearStructure = {
             'priority_queue/',
           ],
         },
-        'tire/',
       ],
     },
     {
