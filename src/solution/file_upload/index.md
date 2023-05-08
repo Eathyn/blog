@@ -24,7 +24,9 @@ input 元素的 accept 属性可以限制用户上传文件的类型。
 
 ## 文件切片
 
-使用 `Blob.prototype.slice` 将文件切片。
+- 文件切片后可以利用 HTTP 的可并发性同时上传多个切片，这种方式相对于不切片直接上传一个大文件要快得多。
+
+- 使用 `Blob.prototype.slice` 将文件切片。
 
 ```js
 function createFileChunk(file, size = SIZE) {
