@@ -125,6 +125,54 @@ git reset --hard <commit>
 
 ![图示-使用 reset 之后](./_image/hard-option.png)
 
+## Path Argument
+
+### Reset + Path
+
+- `git reset <file path>` 相当于 `git reset --mixed HEAD <file path>`。即把 HEAD 的内容复制到 Index。
+
+![把 HEAD 的内容复制到 Index](./_image/reset-with-path.png)
+
+### Reset + Commit + Path
+
+- `git reset <commit> -- <file path>` 相当于：
+1. Index 和 Working Directory 回滚到指定的 commit
+2. Working Directory 回滚到之前的 commit
+
+![只回滚 Index](./_image/reset-with-commit-and-path.png)
+
+- `reset` 支持 `--patch` 参数，即可回滚一个 commit 中的部分内容。
+
+## Reset + Branch
+
+### Soft
+
+- 执行 `git reset --soft main` 之前，dev 分支的 HEAD、Index 和 Working Directory 都是 `v3`。
+
+![执行 git reset --soft main 之前](./_image/reset-branch-soft-before.png)
+
+- 执行 `git reset --soft main` 之后，dev 分支的 HEAD 与 main 分支的 HEAD 相同，是 `v1`。Index 和 Working Directory 保持不变，是 `v3`。
+
+![执行 git reset --soft main 之后](./_image/reset-branch-soft-after.png)
+
+### Mixed
+
+- 执行 `git reset --mixed main` 之前，dev 分支的 HEAD、Index 和 Working Directory 都是 `v3`。
+- 执行 `git reset --mixed main` 之后，dev 分支的 HEAD、Index 与 main 分支的 HEAD、Index 相同，是 `v1`；Index 和 Working Directory 保持不变，是 `v3`。
+
+### Hard
+
+- 执行 `git reset --hard main` 之前，dev 分支的 HEAD、Index 和 Working Directory 都是 `v3`。
+- 执行 `git reset --hard main` 之后，dev 分支的 HEAD、Index、Working Directory 与 main 分支的 HEAD、Index、Working Director 相同，是 `v1`。
+
+## Checkout vs Reset
+
+- `checkout` 也和 `reset` 一样控制 `HEAD`，`Index` 和 `Working Directory`。
+
+### Without Paths
+
+### With Paths
+
 ## Refs
 
 - [Pro Git](https://a.co/d/hzFin1j)
