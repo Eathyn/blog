@@ -11,7 +11,10 @@ const sortingAlgorithm = {
   text: 'Sorting Algorithm',
   collapsible: true,
   prefix: 'sorting_algorithm/',
-  children: [],
+  children: [
+    'bubble_sort/',
+    'selection_sort/',
+  ],
 }
 
 const linearStructure = {
