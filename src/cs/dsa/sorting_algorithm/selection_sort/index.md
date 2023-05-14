@@ -10,7 +10,9 @@ tag:
 
 ## 原理
 
-> reference: _A Common-Sense Guide to DSA_: p63-p71
+> reference: 
+> - Book: _A Common-Sense Guide to DSA_: p63-p71
+> - Video: [_Selection sort in 3 minutes_](https://youtu.be/g-PGLbMth_g)
 
 从左到右进行遍历，获取最小值后与最开始进行遍历的地方交换值。
 
