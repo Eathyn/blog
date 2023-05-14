@@ -25,7 +25,7 @@ tag:
 - `i < arr.length - 1`：最后一项不需要排序
 
 ```js
-function insertionSort(arr) {
+function selectionSort(arr) {
   // `i < arr.length - 1`：最后一项不需要排序
   for (let i = 0; i < arr.length - 1; i++) {
     // `lowestNumberIndex`：每次最开始遍历的地方的索引
