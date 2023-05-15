@@ -14,6 +14,7 @@ const sortingAlgorithm = {
   children: [
     'bubble_sort/',
     'selection_sort/',
+    'insertion_sort/',
   ],
 }
 
