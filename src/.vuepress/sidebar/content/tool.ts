@@ -14,6 +14,9 @@ const tool = {
       ],
     },
     'reset/',
+    'merge/',
+    'config/',
+    'rebase/',
   ],
   node: [
     'lock_node_version/',
