@@ -19,6 +19,7 @@ const tool = {
     'rebase/',
     'commit/',
     'log/',
+    'remote/',
   ],
   node: [
     'lock_node_version/',
