@@ -6,6 +6,33 @@ tag: configuraton
 
 # Configuration
 
+## Configuration Files
+
+> reference:
+> - Pro Git: p20-p21
+> - Pro Git: p336
+> - [git config](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config)
+
+`git config --list --show-origin` 命令可以找到所有 Git 配置文件。
+
+### System
+
+- 定义：配置文件适用于本系统下的所有用户和仓库。
+- 命令：`git config --system`
+- 配置文件的路径：`<Git的安装目录>/etc/gitconfig`
+
+### Global
+
+- 定义：配置文件适用于某个用户和他的所有仓库。
+- 命令：`git config --global`
+- 配置文件的路径：`C:/User/<username>/.gitconfig`
+
+### Local
+
+- 定义：配置文件适用于某个仓库。
+- 命令：`git config --local`（--local 是默认参数）
+- 配置文件的路径：`<仓库路径>/.git/config`
+
 ## Get a Config
 
 `git config --get <name>` 可以获取某一个配置。例如：
