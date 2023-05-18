@@ -26,6 +26,10 @@ git config user.name Eaven
 
 `git config --list` 可以获取所有配置。
 
+## Delete a Config
+
+`git config --unset <name>` 删除指定的配置。
+
 ## LF and CRLF
 
 > Reference: [blog](http://kuanghy.github.io/2017/03/19/git-lf-or-crlf)
