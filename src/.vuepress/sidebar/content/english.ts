@@ -19,10 +19,10 @@ const english = {
   ],
   reading: [
     {
-      text: '语法 - 语法俱乐部',
-      prefix: '语法俱乐部/',
+      text: '语法',
+      collapsible: true,
       children: [
-        '1-初级句型：简单句.md',
+        'grammar/basic-sentence-patterns.md',
       ],
     },
   ],
