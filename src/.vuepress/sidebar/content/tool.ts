@@ -17,6 +17,8 @@ const tool = {
     'merge/',
     'config/',
     'rebase/',
+    'commit/',
+    'log/',
   ],
   node: [
     'lock_node_version/',
