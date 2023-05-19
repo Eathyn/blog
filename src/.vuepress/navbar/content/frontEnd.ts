@@ -7,6 +7,7 @@ const frontEnd = [
   { text: 'Browser', link: '/browser/event_loop/' },
   { text: 'Vue', link: '/vue/basic/communication_methods/' },
   { text: 'Mini Program', link: '/mini_program/navigation/' },
+  { text: 'Uni-APP', link: '/uniapp/note/' },
 ]
 
 export default frontEnd
