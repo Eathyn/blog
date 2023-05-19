@@ -22,7 +22,9 @@ const english = {
       text: '语法',
       collapsible: true,
       children: [
-        'grammar/basic-sentence-patterns.md',
+        'grammar/basic-sentence-patterns',
+        'grammar/sentence-components',
+        'grammar/parts-of-speech',
       ],
     },
   ],
