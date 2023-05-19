@@ -20,6 +20,8 @@ const tool = {
     'commit/',
     'log/',
     'remote/',
+    'clone/',
+    'pull/',
   ],
   node: [
     'lock_node_version/',
