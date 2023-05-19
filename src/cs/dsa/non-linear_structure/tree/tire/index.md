@@ -40,23 +40,23 @@
 
 1. 声明 currentNode 变量，该变量指向字典树的根节点。
 2. 遍历单词的字母
-   - 如果当前节点的哈希表中无法找到该字母，则说明单词不在字典树中。
-   - 如果找到该字母，则 currentNode 向下移动一位，开始遍历单词的下一个字母。
+  - 如果当前节点的哈希表中无法找到该字母，则说明单词不在字典树中。
+  - 如果找到该字母，则 currentNode 向下移动一位，开始遍历单词的下一个字母。
 
 ### 实现
 
 ```javascript
 function search(word) {
- let currentNode = this.root
- for (const char in word) {
-   if (currentNode.hasOwnProperty(char)) {
-     currentNode = currentNode.children[char]
-   } else {
-     return
-   }
- }
- // 返回 currentNode 用于实现自动完成功能
- return currentNode
+  let currentNode = this.root
+  for (const char in word) {
+    if (currentNode.hasOwnProperty(char)) {
+      currentNode = currentNode.children[char]
+    } else {
+      return
+    }
+  }
+  // 返回 currentNode 用于实现自动完成功能
+  return currentNode
 }
 ```
 
@@ -84,22 +84,22 @@ function search(word) {
 
 ```js
 function insert(word) {
-   let currentNode = this.root
-   for (const char of word) {
-      if (currentNode.children.hasOwnProperty(char)) {
-        currentNode = currentNode.children[char]
-      } else {
-        currentNode.children[char] = new TireNode()
-        currentNode = currentNode.children[char]
-      }
+  let currentNode = this.root
+  for (const char of word) {
+    if (currentNode.children.hasOwnProperty(char)) {
+      currentNode = currentNode.children[char]
+    } else {
+      currentNode.children[char] = new TireNode()
+      currentNode = currentNode.children[char]
+    }
 
-      // 代码优化
-      // if (!currentNode.children.hasOwnProperty(char)) {
-      //    currentNode.children[char] = new TireNode()
-      // }
-      // currentNode = currentNode.children[char]
-   }
-   currentNode.children['*'] = null
+    // 代码优化
+    // if (!currentNode.children.hasOwnProperty(char)) {
+    //    currentNode.children[char] = new TireNode()
+    // }
+    // currentNode = currentNode.children[char]
+  }
+  currentNode.children['*'] = null
 }
 ```
 
