@@ -18,6 +18,7 @@ const sideBar = sidebar({
   '/front_end/browser': frontEnd.browser,
   '/front_end/vue': frontEnd.vue,
   '/front_end/mini_program': frontEnd.miniProgram,
+  '/front_end/uniapp': frontEnd.uniapp,
 
   // computer science
   '/cs/dsa/': cs.dsa,

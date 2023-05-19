@@ -175,6 +175,10 @@ const frontEnd = {
     'pure_data/',
     'behaviors/',
   ],
+  uniapp: [
+    'note/',
+    'problem/',
+  ]
 }
 
 export default frontEnd
