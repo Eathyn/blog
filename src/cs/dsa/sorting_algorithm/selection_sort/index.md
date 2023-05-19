@@ -54,10 +54,10 @@ function selectionSort(arr) {
   - 第三轮：比较 2 次，即 n - 3 次
   - 第四轮：比较 1 次，即 n - 4 次
 
+- 执行比较的总次数：
 $$
 \begin{aligned}
-执行比较的总次数
-&= (n - 1) + (n - 2) + ... + 2 + 1 \\
+&  (n - 1) + (n - 2) + ... + 2 + 1 \\
 &= ((n - 1) + 1) \times \frac{n - 1}{2} \\
 &= n \times \frac{n - 1}{2} \\
 &= \frac{n ^ 2 - n}{2} \\
