@@ -25,6 +25,7 @@ const english = {
         'grammar/basic-sentence-patterns',
         'grammar/sentence-components',
         'grammar/parts-of-speech',
+        'grammar/tense-and-aspect',
       ],
     },
   ],
