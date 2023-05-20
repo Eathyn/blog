@@ -29,7 +29,7 @@ tag: grammar
 
 ## S+V+C
 
-- 主语 + 谓语/系动词 + 补语/表语
+- 主语 + 谓语 + 补语
 
 - The soup is hot.
   - S: the soup
