@@ -18,6 +18,33 @@ tag: rebase
 
 ![rebase 的图像](./_image/graph-rebase.png)
 
+## 基本用法
+
+> Reference: Pro Git: p92-94
+
+执行 rebase 之前的 main 分支和 extra 分支状态如下图所示。现在要把 extra 上的 commit 整合到 main 分支。
+
+![执行 rebase 之前](./_image/basic-before-rebase.png)
+
+### 方式一
+
+- 执行 `git rebase main extra` 命令后变成了单线结构，并且 `v3` 的哈希值发生了改变。
+
+![执行 rebase 之后](./_image/basic-after-rebase.png)
+
+- main 分支合并 extra 分支。
+
+![rebase 之后合并分支](./_image/basic-merge-after-rebase.png)
+
+::: tip
+`git rebase <base-branch> <topic-branch>`：把 topic-branch 上的 commit 整合到 base-branch。这个命令在任何分支上都可以执行，不需要切换分支。
+:::
+
+### 方式二
+
+- 切换到 extra 分支，执行 `git rebase main`。
+- main 分支合并 extra 分支。
+
 ## 整合到任意分支
 
 > Reference: Pro Git: p94-p97
@@ -36,8 +63,29 @@ tag: rebase
 
 ![整合 server 分支的 commit](./_image/rebase-server-branch.png)
 
-::: danger
-> Reference: Pro Git: p97-p99
+## 风险和解决方法
 
-不要对已经提交到远程仓库的 commit 进行 rebase。
+### 风险
+
+> Reference: Pro Git: p97-99
+
+- 使用 rebase 的风险：如果你 rebase 一些之前已经提交到远程仓库的 commit，并且别人基于这个 commit 在开发，那么会导致别人在拉取代码的后发现有重复的提交，如下图所示：
+
+![C4 为重复的提交](./_image/the-perils-of-rebasing.png)
+
+### 解决方法一
+
+> Reference: Pro Git: p99-100
+
+- git pull ==--rebase== `<repo-shortname>` `<repo-url>`
+
+::: tip
+配置 `git config pull.rebase true` 可以让执行 git pull 时默认带 `--rebase` 参数。
 :::
+
+### 解决方法二
+
+> Reference: Pro Git: p99-100
+
+- `git fetch`
+- `git rebase <base-branch> <topic-branch>`
