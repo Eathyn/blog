@@ -6,13 +6,13 @@ tag: 句子成分
 
 # 句子成分
 
-## 主语
+## 主语 subject
 
 ==The weather== is nice.
 
-## 谓语
+## 谓语 predicate
 
-## 宾语
+## 宾语 object
 
 ### 单宾语
 
