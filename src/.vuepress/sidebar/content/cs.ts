@@ -15,6 +15,7 @@ const sortingAlgorithm = {
     'bubble_sort/',
     'selection_sort/',
     'insertion_sort/',
+    'quick_sort/',
   ],
 }
 
