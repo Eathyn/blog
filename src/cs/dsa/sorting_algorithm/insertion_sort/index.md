@@ -1,3 +1,11 @@
+---
+date: 2023-05-13
+category: DSA
+tag:
+  - sorting
+  - insertion sort
+---
+
 # Insertion Sort
 
 ## 原理
