@@ -30,3 +30,47 @@ category: uni-app
 - 安卓模拟器运行 uni-app 项目
 
 ![run project](./_image/run-project.png)
+
+## App.vue
+
+> Reference: [App.vue](https://uniapp.dcloud.net.cn/collocation/App.html)
+
+`App.vue` 的作用：
+
+- 调用应用的生命周期函数
+- 全局数据
+- 全局样式
+
+## uni.scss
+
+> Reference: [uni.scss](https://uniapp.dcloud.net.cn/collocation/uni-scss.html)
+
+- 作用：定义一些全局的样式变量，方便在页面中使用，整体控制应用的风格。
+
+## pages.json
+
+> Reference: [pages.json](https://uniapp.dcloud.net.cn/collocation/pages.html)
+
+- 作用：配置所有页面。
+
+## manifest.json
+
+> Reference: [manifest.json](https://uniapp.dcloud.net.cn/collocation/manifest.html)
+
+- 作用：配置应用。
+
+## 跨平台
+
+> Reference: 
+> - [uni-app 组成和跨端原理](https://uniapp.dcloud.net.cn/tutorial/)
+> - [什么是编译器](https://uniapp.dcloud.net.cn/tutorial/compiler.html)
+
+uni-app 通过编译器和运行时实现跨平台。
+- 编译器：将源代码编译为各个平台支持的特有代码。
+- 运行时：？
+
+## 条件编译
+
+> Reference: [条件编译处理多端差异](https://uniapp.dcloud.net.cn/tutorial/compiler.html)
+
+- 条件编译：根据注释，将不同代码编译到不同平台。
