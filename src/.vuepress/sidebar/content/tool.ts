@@ -22,6 +22,7 @@ const tool = {
     'remote/',
     'clone/',
     'pull/',
+    'revert/',
   ],
   node: [
     'lock_node_version/',
