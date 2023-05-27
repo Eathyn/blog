@@ -92,43 +92,38 @@ tag:
 > Reference: A Common-Sense Guide to DSA: p202-205
 
 ```js
-function partition(arr, leftIdx = 0, rightIdx = arr.length - 2) {
-  if (arr.length === 0) {
-    console.error('the array is empty')
-    return
-  } else if (arr.length === 1) {
-    console.error('the array only has one item')
-    return
-  }
-  
+function partition(arr, leftIdx = 0, rightIdx = arr.length - 1) {
   // 最后一个值设定为 pivotIndex
-  const pivotIndex = arr.length - 1
+  const pivotIndex = rightIdx
 
   // leftIndex 为第一个值的索引
   let leftIndex = leftIdx
 
-  // rightIndex 为倒数第二个值的索引
-  let rightIndex = rightIdx
+  // rightIndex 为 pivotIndex 左边的索引
+  let rightIndex = rightIdx - 1
 
-  // 如果 leftIndex 指向的值小于 pivotIndex 指向的值，则 leftIndex 指针向右移动一位
-  while (leftIndex < arr.length - 1 && arr[leftIndex] < arr[pivotIndex]) {
-    leftIndex++
-  }
+  while (true) {
+    // 如果 leftIndex 指向的值小于 pivotIndex 指向的值，则 leftIndex 指针向右移动一位
+    while (leftIndex < arr.length - 1 && arr[leftIndex] < arr[pivotIndex]) {
+      leftIndex++
+    }
 
-  // 如果 rightIndex 指向的值大于 pivotIndex 指向的值，则 rightIndex 指针向左移动一位
-  while (rightIndex > -1 && arr[rightIndex] > arr[pivotIndex]) {
-    rightIndex--
-  }
+    // 如果 rightIndex 指向的值大于 pivotIndex 指向的值，则 rightIndex 指针向左移动一位
+    while (rightIndex > 0 && arr[rightIndex] > arr[pivotIndex]) {
+      rightIndex--
+    }
 
-  if (leftIndex < rightIndex) {
-    // 如果 leftIndex 小于 rightIndex，则交换 leftIndex 指向的值和 rightIndex 指向的值
-    [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]
-    // 递归执行赋值操作、左指针的移动操作、右指针的移动操作
-    partition(arr, leftIndex, rightIndex)
-  } else {
-    // 如果 leftIndex 大于或等于 rightIndex，则交换 leftIndex 指向的值和 pivotIndex 指向的值
-    // 完成排序，这时候 pivotIndex 指向的值比左分区的所有值大，比右分区的所有值小，即左分区的所有值比右分区的所有值小。 
-    [arr[leftIndex], arr[pivotIndex]] = [arr[pivotIndex], arr[leftIndex]]
+    if (leftIndex < rightIndex) {
+      // 如果 leftIndex 小于 rightIndex，则交换 leftIndex 指向的值和 rightIndex 指向的值
+      [arr[leftIndex], arr[rightIndex]] = [arr[rightIndex], arr[leftIndex]]
+      // 递归执行赋值操作、左指针的移动操作、右指针的移动操作
+      // partition(arr, leftIndex, rightIndex + 1)
+    } else {
+      // 如果 leftIndex 大于或等于 rightIndex，则交换 leftIndex 指向的值和 pivotIndex 指向的值
+      // 完成排序，这时候 pivotIndex 指向的值比左分区的所有值大，比右分区的所有值小，即左分区的所有值比右分区的所有值小。
+      [arr[leftIndex], arr[pivotIndex]] = [arr[pivotIndex], arr[leftIndex]]
+      return leftIndex
+    }
   }
 }
 ```
@@ -199,3 +194,17 @@ function partition(arr, leftIdx = 0, rightIdx = arr.length - 2) {
 
 > Reference: A Common-Sense Guide to DSA: p210-211
 
+```js
+function quickSort(arr, leftIdx = 0, rightIdx = arr.length - 1) {
+  // base case：分区只有一项
+  if (leftIdx >= rightIdx) {
+    return
+  }
+
+  const pivotIndex = partition(arr, leftIdx, rightIdx)
+  // 对左分区进行分区操作
+  quickSort(arr, leftIdx, pivotIndex - 1)
+  // 对右分区进行分区操作
+  quickSort(arr, pivotIndex + 1, rightIdx)
+}
+```
