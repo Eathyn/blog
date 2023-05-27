@@ -63,20 +63,6 @@ hi world
 >>>>>>> dev-2
 ```
 
-- 如果想放弃合并，则执行 `git merge --abort`，分支会恢复为原来的内容。
-
-```text
-# 放弃合并前
-<<<<<<< HEAD
-hello world
-=======
-hi world
->>>>>>> dev-2
-
-# 放弃合并后
-hello world
-```
-
 - 编辑文件解决冲突之后需要提交 commit。
 
 - 合并其他分支时，如果当前分支的 working directory 有内容，Git 会自动放弃合并，并提示你先 commit 或 stash。
@@ -96,3 +82,37 @@ hello world
 ### No-Merged
 
 ```git branch --no-merged <branch-name>``` 可以查看有哪些分支未合并到某个分支。
+
+## 取消合并
+
+执行 `git merge --abort`，分支会恢复为原来的内容。
+
+```text
+# 放弃合并前
+<<<<<<< HEAD
+hello world
+=======
+hi world
+>>>>>>> dev-2
+
+# 放弃合并后
+hello world
+```
+
+## undo merge
+
+- 如果合并分支之后发现合并了错误的分支，想要让分支恢复为合并之前的内容。这时分为两种情况，如果合并后的分支还没有推送到远程仓库，则使用 `reset`；如果已经推送到远程仓库，则使用 `revert`。
+
+### 未推送到远程仓库
+
+> Pro Git: p283 - p285
+
+- 如果合并后的分支没有推动到远程仓库且是 `fast-forward` 合并，则使用 `reset` 回退到特定的 commit。
+
+![](./_image/undo-merge-reset-fast-forward-merge.png)
+
+- 如果合并后的分支没有推动到远程仓库且是三方合并，则使用 `reset` 回退一个 commit（三方合并会产生额外的 commit）。
+
+![](./_image/undo-merge-reset-three-way-merge.png)
+
+### 已推送到远程仓库
