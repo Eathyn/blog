@@ -43,6 +43,15 @@ const frontEnd = {
   ],
   typescript: [
     {
+      text: 'Syntax',
+      collapsible: true,
+      prefix: 'syntax/',
+      children: [
+        'init',
+        'types',
+      ],
+    },
+    {
       text: 'Book: Learning TypeScript',
       collapsible: true,
       prefix: 'book-learning_typescript/',
