@@ -49,6 +49,10 @@ const frontEnd = {
       children: [
         'init',
         'types',
+        'type-assertion',
+        'type-inference',
+        'type-compatibility',
+        'combining-types',
       ],
     },
     {
