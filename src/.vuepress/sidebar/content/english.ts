@@ -20,12 +20,21 @@ const english = {
   reading: [
     {
       text: '语法',
+      prefix: 'grammar/',
       collapsible: true,
       children: [
-        'grammar/basic-sentence-patterns',
-        'grammar/sentence-components',
-        'grammar/parts-of-speech',
-        'grammar/tense-and-aspect',
+        'basic-sentence-patterns',
+        'sentence-components',
+        'parts-of-speech',
+        {
+          text: '时态',
+          prefix: 'tense-and-aspect/',
+          collapsible: true,
+          children: [
+            'intro',
+            'simple-present-tense',
+          ],
+        },
       ],
     },
   ],
