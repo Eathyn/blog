@@ -48,11 +48,15 @@ const frontEnd = {
       prefix: 'syntax/',
       children: [
         'init',
+        'operator',
         'types',
         'type-assertion',
         'type-inference',
         'type-compatibility',
+        'type-alias',
         'combining-types',
+        'narrowing',
+        'function',
       ],
     },
     {
