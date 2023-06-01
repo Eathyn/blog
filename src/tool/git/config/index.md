@@ -95,3 +95,34 @@ git config --global core.safecrlf false
 ## Multiple SSH Keys
 
 > Reference: [Using Multiple SSH Keys](https://gist.github.com/aprilmintacpineda/f101bf5fd34f1e6664497cf4b9b9345f)
+
+## Proxy
+
+- 配置代理后克隆仓库才能更快速。
+
+### SSH
+
+> Reference:
+> - [config SSH proxy](https://gist.github.com/ozbillwang/005bd1dfc597a2f3a00148834ad3e551)
+> - [config SSH proxy](https://stackoverflow.com/a/6739420)
+
+- 在 `~/ssh/config` 文件中添加 `ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p` 命令。
+
+```text
+# GitHub Eathyn
+ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
+
+# Github zheng-yb
+ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
+```
+
+### HTTP / HTTPS
+
+- 在 `~/.gitconfig` 文件中的 `http` 和 `https` 模块添加 `proxy = 127.0.0.1:10809` 命令。
+
+```text
+[http]
+	proxy = 127.0.0.1:10809
+[https]
+  proxy = 127.0.0.1:10809
+```
