@@ -208,3 +208,15 @@ function quickSort(arr, leftIdx = 0, rightIdx = arr.length - 1) {
   quickSort(arr, pivotIndex + 1, rightIdx)
 }
 ```
+
+## 时间复杂度
+
+### 最好的情况
+
+- 执行分组操作后基准点大约位于数组的中间
+- 时间复杂度：O(logN * N)
+
+### 最坏的情况
+
+- 执行分组操作后基准点位于数组的边缘
+- 时间复杂度：O(N^2^)
