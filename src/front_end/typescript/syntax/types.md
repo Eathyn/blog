@@ -59,24 +59,7 @@ let name: null
 
 ### interface
 
-- 通过接口（interface）定义对象类型，以便在多个地方使用。
-
-```ts
-interface Person {
-  name: string
-  age: number
-}
-
-let person: Person = {
-  name: 'Jeff',
-  age: 18,
-}
-
-function log(person: Person) {
-  console.log(person.name)
-  console.log(person.age)
-}
-```
+[详细](./interface)
 
 ### class
 
