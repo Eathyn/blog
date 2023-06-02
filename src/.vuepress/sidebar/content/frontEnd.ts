@@ -57,6 +57,7 @@ const frontEnd = {
         'combining-types',
         'narrowing',
         'function',
+        'interface',
       ],
     },
     {
