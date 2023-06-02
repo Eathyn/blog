@@ -58,6 +58,7 @@ const frontEnd = {
         'narrowing',
         'function',
         'interface',
+        'class',
       ],
     },
     {
