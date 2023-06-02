@@ -25,3 +25,12 @@ let person: Person = {
   age: 18,
 }
 ```
+
+## Function Type Alias
+
+- 可以为函数类型定义别名。
+
+```ts {1}
+type StringToNumber = (input: string) => number
+let stringToNumber: StringToNumber = (input: string): number => input.length
+```
