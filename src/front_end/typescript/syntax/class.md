@@ -69,7 +69,7 @@ let person2 = new Person(123456)
 
 - 方法覆盖（method overriding）指的是衍生类覆盖基类的方法。
 
-```ts {7}
+```ts {8-10}
 class Animal {
   makeSound() {
     return 'animal makes sound'
@@ -77,7 +77,7 @@ class Animal {
 }
 
 class Dog extends Animal {
-  makeSound(): string {
+  makeSound() {
     return 'dark'
   }
 }
@@ -137,4 +137,40 @@ class Student extends Person {
     this.grade = grade
   }
 }
+```
+
+## Polymorphism
+
+> Reference:
+> - [TypeScript Roadmap](https://roadmap.sh/typescript)
+> - [Polymorphism Definition](https://www.zhihu.com/question/30082151/answer/46688599)
+
+- 调用方法时会调用衍生类的方法，而不是基类的方法。
+
+```ts {19,21-22,24-26}
+class Animal {
+  makeSound() {
+    console.log('some sound')
+  }
+}
+
+class Dog extends Animal {
+  makeSound() {
+    console.log('Bark')
+  }
+}
+
+class Cat extends Animal {
+  makeSound() {
+    console.log('Meow')
+  }
+}
+
+let animal: Animal
+
+animal = new Dog()
+animal.makeSound() // Bark
+
+animal = new Cat()
+animal.makeSound() // Meow
 ```
