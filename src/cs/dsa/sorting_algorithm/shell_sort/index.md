@@ -12,6 +12,8 @@ tag: sorting
 
 ## 代码实现
 
+- 当 gap 等于 1 时，shell sort 相当于 insertion sort。
+
 ```js
 function shellSort(arr) {
   let gap = Math.floor(arr.length / 2)
@@ -36,3 +38,15 @@ function shellSort(arr) {
   }
 }
 ```
+
+## 时间复杂度
+
+- gap 的计算会影响到时间复杂度，参考 [Gap Sequences](https://en.wikipedia.org/wiki/Shellsort#:~:text=temp%0A%20%20%20%20%7D%0A%7D-,Gap%20sequences,-%5Bedit%5D)
+
+### 最坏的情况
+
+O(N^2^)
+
+### 最好的情况
+
+O(N * logN)
