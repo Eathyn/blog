@@ -17,6 +17,7 @@ const sortingAlgorithm = {
     'insertion_sort/',
     'quick_sort/',
     'shell_sort/',
+    'merge_sort/',
   ],
 }
 
