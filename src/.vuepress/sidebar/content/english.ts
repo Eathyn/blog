@@ -33,6 +33,8 @@ const english = {
           children: [
             'intro',
             'simple-present-tense',
+            'simple-past-tense',
+            'simple-future-tense',
           ],
         },
       ],
