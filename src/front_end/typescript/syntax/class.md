@@ -174,3 +174,101 @@ animal.makeSound() // Bark
 animal = new Cat()
 animal.makeSound() // Meow
 ```
+
+## Implement Interface
+
+- 接口可以被类实现。
+
+```ts {6}
+interface _Person {
+  name: string
+  greet(): string
+}
+
+class Person implements _Person {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+  
+  greet() {
+    return `hello, I am ${this.name}`
+  }
+}
+```
+
+- 类可以实现多个接口。
+
+```ts {10}
+interface Person {
+  name: string
+  age: number
+}
+
+interface Learner {
+  learn(): void
+}
+
+class Student implements Person, Learner {
+  name: string
+  age: number
+  
+  constructor(name: string, age: number, grade: number) {
+    this.name = name
+    this.age = age
+  }
+  
+  learn() {
+    console.log('learn something..')
+  }
+}
+```
+
+## Static Field
+
+- 使用 `static` 关键字定义属于类的属性和方法。这些属性和方法不属于类的实例。
+
+```ts {2-5,13}
+class Employee {
+  static headcount: number
+  static getHeadCount() {
+    return Employee.headcount
+  }
+  
+  name: string
+  title: string
+
+  constructor(name: string, title: string) {
+    this.name = name
+    this.title = title
+    Employee.headcount++
+  }
+}
+```
+
+## Getter and Setter
+
+- 可以为属性定义 `getter` 和 `setter`。
+
+```ts {8-10,12-14,18-19}
+class Person {
+  private _name: string
+
+  constructor(name: string) {
+    this._name = name
+  }
+
+  get name(): string {
+    return this._name
+  }
+
+  set name(value: string) {
+    this._name = value
+  }
+}
+
+const person = new Person('Jeff')
+person.name
+person.name = 'Eathyn'
+```
