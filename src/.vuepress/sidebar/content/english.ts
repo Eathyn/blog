@@ -36,6 +36,7 @@ const english = {
             'simple-past-tense',
             'simple-future-tense',
             'present-continuous-tense',
+            'past-continuous-tense',
           ],
         },
       ],
