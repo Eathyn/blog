@@ -33,6 +33,8 @@ export default hopeTheme({
   displayFooter: true,
   footer: 'Powered by Vuepress &#x1F680;',
 
+  editLink: false,
+
   blog: {
     name: 'Hi, I am Eathyn',
     // intro: "/intro.html",
@@ -55,6 +57,12 @@ export default hopeTheme({
 
   plugins: {
     blog: true,
+
+    git: {
+      createdTime: false,
+      updatedTime: false,
+      contributors: false,
+    },
 
     comment: {
       provider: "Giscus",
