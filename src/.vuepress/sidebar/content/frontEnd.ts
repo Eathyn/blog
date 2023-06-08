@@ -59,6 +59,7 @@ const frontEnd = {
         'function',
         'interface',
         'class',
+        'generics',
       ],
     },
     {
