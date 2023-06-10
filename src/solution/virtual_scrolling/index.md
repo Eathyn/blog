@@ -75,7 +75,7 @@ function binarySearch(positions, scrollTop) {
 ![cases](./image/cases.png)
 
 动态高度处理方式：
-- 滚动鼠标滚轮时会触发 `scroll` 事件处理函数，在 `scroll` 事件处理函数中会改变开始索引 `start`。因为 `visibleData` 是居于 `start` 的 `computed` 属性，且 `visibleData` 绑定到 `template` 中，所以 `visibleData` 改变后会触发 `updated` 钩子函数。
+- 滚动鼠标滚轮时会触发 `scroll` 事件处理函数，在 `scroll` 事件处理函数中会改变开始索引 `start`。因为 `visibleData` 是基于 `start` 的 `computed` 属性，且 `visibleData` 绑定到 `template` 中，所以 `visibleData` 改变后会触发 `updated` 钩子函数。
 - 因为想要获取到渲染后的列表项的实际高度，所以需要在 `updated` 钩子函数中处理动态高度问题，并使用 `nextTick`。
 - 在 `updated` 钩子函数中调用 `updateItemSize` 函数，该函数使用 `getBoundingClientRect` 获取每个列表项的当前高度等位置信息，然后计算出当前高度与预估高度之间的差值，最后更新列表项和该列表项下所有列表的位置信息，最后更新列表总高度。代码如下：
 
