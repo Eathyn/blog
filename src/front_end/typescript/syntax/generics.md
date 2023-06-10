@@ -11,6 +11,8 @@ category: TypeScript
 
 ## Generic Function
 
+### Basic Usage
+
 > Reference: [TypeScript Tutorial](https://www.typescripttutorial.net/typescript-tutorial/typescript-generics/)
 
 - 可以在函数中使用泛型，定义参数和返回值类型。
@@ -29,6 +31,16 @@ console.log(result1)
 const item2 = ['a', 'b', 'c', 'd', 'e']
 const result2 = getRandomElement<string>(item2)
 console.log(result2)
+```
+
+### Arrow Function
+
+```ts
+function fn1<T>(input: T): T {
+  return input
+}
+
+const fn2 = <T>(input: T): T => input
 ```
 
 ## Multiple Types
@@ -161,5 +173,77 @@ function getVal<T, K>(obj: T, prop: K) {
 ```ts {1}
 function getVal<T, K extends keyof T>(obj: T, prop: K) {
   return obj[prop] // 不会报错
+}
+```
+
+## Generic Class
+
+> Reference: [TypeScript Tutorial](https://www.typescripttutorial.net/typescript-tutorial/typescript-generic-classes/)
+
+- 类中可以使用泛型。
+
+```ts
+class Stack<T> {
+  private data: T[]
+
+  constructor() {
+    this.data = []
+  }
+
+  public push(item: T) {
+    this.data.push(item)
+  }
+
+  public pop() {
+    return this.data.length === 0 ? -1 : this.data.pop()
+  }
+}
+
+const stack = new Stack()
+stack.push(1)
+stack.push(2)
+console.log(stack)
+
+stack.pop()
+console.log(stack)
+```
+
+## Generic Interface
+
+### Basic Usage
+
+> Reference: [TypeScript Tutorial](https://www.typescripttutorial.net/typescript-tutorial/typescript-generic-classes/)
+
+- 接口可以使用泛型。
+
+```ts
+interface Pair<K, V> {
+  key: K
+  value: V
+}
+
+let month: Pair<string, number> = {
+  key: 'Jan',
+  value: 1,
+}
+
+let person: Pair<string, string> = {
+  key: 'name',
+  value: 'Jeff',
+}
+```
+
+### Describe Index Type
+
+> Reference: [TypeScript Tutorial](https://www.typescripttutorial.net/typescript-tutorial/typescript-generic-classes/)
+
+```ts
+interface Options<T> {
+  [name: string]: T
+}
+
+const inputOptions: Options<boolean> = {
+  disabled: true,
+  visible: false,
 }
 ```
