@@ -60,6 +60,7 @@ const frontEnd = {
         'interface',
         'class',
         'generics',
+        'utility-types',
       ],
     },
     {
