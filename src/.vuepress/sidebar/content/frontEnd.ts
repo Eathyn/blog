@@ -122,6 +122,7 @@ const frontEnd = {
         'skills',
       ],
     },
+    'storage/',
   ],
   vue: [
     {
