@@ -196,6 +196,7 @@ const frontEnd = {
     'skills/',
     'pure_data/',
     'behaviors/',
+    'subpackage/',
   ],
   uniapp: [
     'note/',
