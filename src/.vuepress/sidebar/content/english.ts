@@ -38,6 +38,7 @@ const english = {
             'present-continuous-tense',
             'past-continuous-tense',
             'future-continuous-tense',
+            'present-perfect-tense',
           ],
         },
       ],
