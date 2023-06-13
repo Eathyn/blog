@@ -10,11 +10,11 @@ tag: centering
 
 ### inline or inline-* element
 
-- use `text-align: center`
-- You can center inline elements horizontally, within a block-level parent element.
-- This will work for `inline`, `inline-block`, `inline-table`, `inline-flex`, etc.
+1. 将内联（inline）元素放在块（block）元素里。
+2. 对块元素使用 `text-align: center`。
 
-```html
+::: normal-demo
+```html {3,7}
 <div class="item">hello</div>
 
 <nav class="nav">
@@ -24,40 +24,47 @@ tag: centering
 </nav>
 ```
 
-```css
+```css {3}
 .item, .nav {
 	border: 1px solid #000;
 	text-align: center;
 	margin-bottom: 10px;
 }
 ```
+:::
+
+::: tip
+`inline`, `inline-block`, `inline-table`, `inline-flex` 都适用这个方法。
+:::
 
 ### one block-level element
 
-- use `margin: 0 auto`
-- You can center a block-level element by giving it `margin-left` and `margin-right` of _auto_.
-- This will work no matter what the width of the block level element you’re centering, or the parent.
+- 对块元素使用 `margin-left: auto; margin-right: auto`。
 
+::: normal-demo
 ```html
 <div class="item"></div>
 ```
 
-```css
+```css {5-6}
 .item {
 	width: 100px;
 	height: 100px;
 	border: 1px solid #000;
-	margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 ```
+:::
 
 ### multiple block-level elements
 
 #### in one row
 
-- use `display: flex` + `justify-content: center`
+- 对块级元素的父元素使用 `display: flex` + `justify-content: center`。
 
-```html
+::: normal-demo
+```html {1}
 <div class="container">
   <div class="item"></div>
   <div class="item"></div>
@@ -65,7 +72,7 @@ tag: centering
 </div>
 ```
 
-```css
+```css {2,3}
 .container {
 	display: flex;
 	justify-content: center;
@@ -80,10 +87,11 @@ tag: centering
 	border: 1px solid #000;
 }
 ```
+:::
 
-- use `display: inline-block` + `text-align: center`
+- 对块级元素使用 `display: inline-block`，对块级元素的父元素使用 `text-align: center`。
 
-```html
+```html {1}
 <div class="container">
   <div class="item"></div>
   <div class="item"></div>
@@ -91,7 +99,7 @@ tag: centering
 </div>
 ```
 
-```css
+```css {5,9}
 .container {
 	border: 1px solid #000;
 	padding: 20px;
@@ -109,8 +117,9 @@ tag: centering
 
 #### in multiple row
 
-- use `margin-left: auto` + `margin-right: auto`
+- 对块级元素使用 `margin-left: auto` + `margin-right: auto`
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item"></div>
@@ -133,6 +142,7 @@ tag: centering
 	margin: 0 auto;
 }
 ```
+:::
 
 ## Vertically
 
