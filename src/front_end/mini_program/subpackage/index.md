@@ -53,4 +53,57 @@ tag: subpackage
 
 ## 独立分包
 
-- 独立分包是小程序中一种特殊的分包，可以独立与于主包和其他分包运行。从独立分包中页面进入小程序时，不需要下载主包。当用户进入普通分包或主包内页面时，主包才会被下载。
+- 独立分包是小程序中一种特殊的分包，可以独立于主包和其他分包运行。从独立分包中页面进入小程序时，不需要下载主包。当用户进入普通分包或主包内页面时，主包才会被下载。
+
+### 限制
+
+- 独立分包不能依赖主包和其他分包中的内容。
+- 主包的 `app.wxss` 不会应用到独立分包中。
+- `App` 只能在主包内定义，独立分包中不能定义 `App`。
+- 独立分包不支持插件。
+
+## 分包预下载
+
+### 概念
+
+- 进入某个页面时，提前下载可能需要的分包，提升进入后续分包页面时的启动速度。
+
+### 配置
+
+- 配置 `app.json` 中的 `preloadRule`。
+
+```json
+{
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": ["packageA"]
+    }
+  }
+}
+```
+
+![预下载名为 packageA 的分包](./_image/preload.png)
+
+## 分包异步化
+
+> Reference: [分包异步化](https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/async.html)
+
+### 概念
+
+- 分包异步化可以让分包使用其他分包中的组件和 JavaScript 文件。
+
+### 组件
+
+- 一个分包使用其他分包的自定义组件时，由于其他分包还未下载或注入，其他分包的组件处于不可用的状态。通过为其他分包的自定义组件设置占位组件，我们可以先渲染占位组件作为替代，在分包下载完成后再进行替换。
+
+```json
+{
+  "usingComponents": {
+    "list": "/packageA/components/list/list"
+  },
+  "componentPlaceholder": {
+    "list": "view"
+  }
+}
+```
