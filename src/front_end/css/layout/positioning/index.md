@@ -14,6 +14,12 @@ tag:
 - The `top`, `right`, `bottom`, `left` and `z-index` properties have no effect.
 - This is the default value.
 
+::: normal-demo
+```html
+<div class="item top"></div>
+<div class="item"></div>
+```
+
 ```css
 .item {
 	width: 100px;
@@ -27,8 +33,7 @@ tag:
 	top: 50px; /* not working */
 }
 ```
-
-![static](./images/static.png)
+:::
 
 ## relative
 
@@ -108,9 +113,7 @@ tag:
 - The element is acting like fixed element after reaching the position.
 - Commonly using this feature to stick navigation bar.
 
-:::: code-group
-
-::: code-group-item index.html
+::: normal-demo
 ```html
 <div class="container">
   <div class="top"></div>
@@ -118,9 +121,7 @@ tag:
   <div class="bottom"></div>
 </div>
 ```
-:::
 
-::: code-group-item index.css
 ```css
 .container {
 	height: 600px;
@@ -146,10 +147,6 @@ tag:
 }
 ```
 :::
-
-::::
-
-![sticky](./images/sticky.gif)
 
 ## Refs
 

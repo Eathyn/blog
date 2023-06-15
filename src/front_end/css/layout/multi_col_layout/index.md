@@ -15,6 +15,7 @@ tag:
 - `flex: 1` : 右列自适应
 - `align-items: flex-start` : 避免左右列高度一致
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="left"></div>
@@ -43,8 +44,7 @@ tag:
 	height: 200px;
 }
 ```
-
-![Two Columns FlexBox](./images/two_columns_flexbox.png)
+:::
 
 ## Three Columns Layout
 
@@ -52,6 +52,7 @@ tag:
 
 - 左右两列固定 中间自适应
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="left"></div>
@@ -85,8 +86,7 @@ tag:
 	width: 250px; /* 右列等宽 */
 }
 ```
-
-![Three Columns FlexBox](./images/three_columns_flexbox.png)
+:::
 
 ## Refs
 

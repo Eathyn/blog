@@ -150,8 +150,9 @@ tag: centering
 
 #### single line
 
-- Making values of `padding-top` and `padding-bottom` to be equal.
+- 将 `padding-top` 和 `padding-bottom` 设置为相同的值。
 
+::: normal-demo
 ```html
 <div class="container">
   <a href="#" class="item">this is a link</a>
@@ -172,9 +173,11 @@ tag: centering
 	margin: 10px;
 }
 ```
+:::
 
-- Making the value of `height` to be equal to the value of `line-height`.
+- 将 `height` 和 `line-height` 设置为相同的值。
 
+::: normal-demo
 ```html
 <div class="item">hello</div>
 ```
@@ -186,6 +189,7 @@ tag: centering
 	border: 1px solid #000;
 }
 ```
+:::
 
 #### multiple lines
 
@@ -193,6 +197,7 @@ tag: centering
 
 - use `display` + `flex-direction` + `justify-content` 
 
+::: normal-demo
 ```html
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
 ```
@@ -207,9 +212,11 @@ tag: centering
 	justify-content: center;
 }
 ```
+:::
 
 - use `display` + `vertical-align`
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -229,9 +236,11 @@ tag: centering
 	vertical-align: middle;
 }
 ```
+:::
 
 - employing the “ghost element” technique, in which a full-height pseudo-element is placed inside the container and the text is vertically aligned with that.
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -258,6 +267,7 @@ tag: centering
 	vertical-align: middle;
 }
 ```
+:::
 
 ### block-level element
 
@@ -265,6 +275,7 @@ tag: centering
 
 - absolute positioning + negative margin
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -289,11 +300,13 @@ tag: centering
 	margin-top: -36px; /* calculation: -( 25px <a half of height> + 10px <padding> + 1px <border> ) */
 }
 ```
+:::
 
 #### do not know the height of element
 
 - absolute positioning + transform
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -317,9 +330,11 @@ tag: centering
 	transform: translateY(-50%);
 }
 ```
+:::
 
 #### if you don't care the element stretches the height of the container
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -342,9 +357,11 @@ tag: centering
 	vertical-align: middle;
 }
 ```
+:::
 
 #### flexbox
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -366,6 +383,7 @@ tag: centering
 	border: 1px solid #000;
 }
 ```
+:::
 
 ## Both Horizontally and Vertically
 
@@ -373,6 +391,7 @@ tag: centering
 
 - use absolute positioning and negative margin
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -397,11 +416,13 @@ tag: centering
 	margin: -50px 0 0 -150px;
 }
 ```
+:::
 
 ### element without fixed element and height
 
 - use absolute positioning and transform
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -424,9 +445,11 @@ tag: centering
 	transform: translate(-50%, -50%);
 }
 ```
+:::
 
 ### use flexbox
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -447,9 +470,11 @@ tag: centering
 	border: 1px solid #000;
 }
 ```
+:::
 
 ### use grid
 
+::: normal-demo
 ```html
 <div class="container">
   <div class="item">I'm vertically centered multiple lines of text in a flexbox container.</div>
@@ -470,6 +495,7 @@ tag: centering
 	border: 1px solid #000;
 }
 ```
+:::
 
 ## Refs
 
