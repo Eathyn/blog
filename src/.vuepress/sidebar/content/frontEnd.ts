@@ -61,8 +61,10 @@ const frontEnd = {
         'class',
         'generics',
         'utility-types',
+        'advanced-types',
       ],
     },
+    'exclude_extract_vs_omit_pick.md',
     {
       text: 'Book: Learning TypeScript',
       collapsible: true,
