@@ -133,7 +133,7 @@ type UserNameOnly = Omit<User, 'age'> // {name: string}
 
 ## Pick Type
 
-> Reference: [How the TypeScript Pick Type works](https://dev.to/smpnjn/how-the-typescript-pick-type-works-aph)
+> Reference: [How the TypeScript Pick Type Works](https://dev.to/smpnjn/how-the-typescript-pick-type-works-aph)
 
 - Pick 类型可以挑选出对象类型中的某些属性，并生成新的类型。
 
@@ -150,4 +150,60 @@ type UserOnlyName = Pick<User, 'name'> // {name: string}
 
 > Reference: [How the TypeScript Parameters Type Works](https://dev.to/smpnjn/how-the-typescript-parameters-type-works-49p5)
 
+- Parameters 类型会返回一个元组，元组是函数的形参类型。
 
+```ts
+function logPersonInfo(name: string, age: number) {
+  console.log(`name: ${name} - age: ${age}`)
+}
+
+type ParameterType = Parameters<typeof logPersonInfo> // [string, number]
+let parameter: ParameterType = ['Jeff', 18]
+logPersonInfo(...parameter)
+```
+
+## NonNullable Type
+
+> Reference: [How the TypeScript NonNullable Type Works](https://dev.to/smpnjn/how-the-typescript-parameters-type-works-12h4)
+
+- NonNullable 类型将联合类型中的 `null` 和 `undefined` 去除，并返回一个新类型。
+
+```ts
+type WithNullable = string | number | null | undefined
+type WithoutNullable = NonNullable<WithNullable> // string | number
+```
+
+## Return Type
+
+> Reference: [How the TypeScript ReturnType Type Works](https://dev.to/smpnjn/how-the-typescript-returntype-type-works-hao)
+
+- ReturnType 可以获取函数返回值的类型。
+
+```ts
+function sendPersonInfo(name: string, age: number) {
+  return { name, age }
+}
+
+type PersonInfo = ReturnType<typeof sendPersonInfo> // {name: string, age: number}
+```
+
+## Instance Type
+
+> Reference: []()
+
+- Instance Type 返回构造函数的实例类型。
+
+```ts
+class Person {
+  private readonly name: string
+  private readonly age: number
+  
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+}
+
+type PersonInstance = InstanceType<typeof Person> // Person
+let person: PersonInstance = new Person('Jeff', 18)
+```
