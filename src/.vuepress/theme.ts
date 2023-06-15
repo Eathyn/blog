@@ -80,7 +80,7 @@ export default hopeTheme({
       codetabs: false,
       container: true,
       delay: 800,
-      demo: false,
+      demo: true,
       echarts: false,
       figure: true,
       flowchart: false,
