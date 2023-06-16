@@ -199,6 +199,14 @@ const frontEnd = {
     'pure_data/',
     'behaviors/',
     'subpackage/',
+    {
+      text: '配置',
+      collapsible: true,
+      prefix: 'config/',
+      children: [
+        'app.json.md'
+      ],
+    },
   ],
   uniapp: [
     'note/',
