@@ -107,3 +107,33 @@ tag: subpackage
   }
 }
 ```
+
+### JavaScript 文件
+
+- 一个分包引用其他分包的 JS 文件时，为了不让下载阻塞代码运行，我们需要异步获取引用结果。
+
+```js
+// packageA/common/utility.js
+function greet() {
+  console.log('hi')
+}
+
+module.exports = {
+  greet,
+}
+```
+
+```js
+// packageB/pages/person/person.js
+let utility
+require
+  .async('/packageA/common/utility.js')
+  .then((mod) => utility = mod)
+
+Page({
+  data: {},
+  onLoad: function(options) {
+    utility.greet()
+  }
+})
+```
