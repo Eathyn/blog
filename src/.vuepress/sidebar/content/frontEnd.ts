@@ -27,6 +27,7 @@ const frontEnd = {
         'dynamic_import/',
       ],
     },
+    'prototype/',
   ],
   css: [
     'selectors/',
