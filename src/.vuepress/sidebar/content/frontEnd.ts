@@ -14,6 +14,7 @@ const frontEnd = {
     'function/losing_this/',
     'function/lexical_environment/',
     'function/rest_parameters_and_spread_syntax/',
+    'for_loop_comparison/',
   ],
   css: [
     'selectors/',
