@@ -17,6 +17,16 @@ const frontEnd = {
     'for_loop_comparison/',
     'set_weakset/',
     'map_weakmap/',
+    {
+      text: 'Module',
+      collapsible: true,
+      prefix: 'module/',
+      children: [
+        'intro/',
+        'export_import/',
+        'dynamic_import/',
+      ],
+    },
   ],
   css: [
     'selectors/',
