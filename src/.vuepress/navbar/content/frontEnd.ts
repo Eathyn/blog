@@ -5,7 +5,7 @@ const frontEnd = [
   { text: 'HTML', link: '/html/defer_vs_async/' },
   { text: 'TypeScript', link: '/typescript/syntax/init' },
   { text: 'Browser', link: '/browser/event_loop/' },
-  { text: 'Vue', link: '/vue/basic/communication_methods/' },
+  { text: 'Vue', link: '/vue/debounce_throttle_in_vue/' },
   { text: 'Mini Program', link: '/mini_program/navigation/' },
   { text: 'Uni-APP', link: '/uniapp/note/' },
 ]

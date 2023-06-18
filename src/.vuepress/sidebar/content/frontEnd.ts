@@ -146,6 +146,7 @@ const frontEnd = {
     'storage/',
   ],
   vue: [
+    'debounce_throttle_in_vue/',
     {
       text: '基础',
       collapsible: true,
@@ -153,7 +154,6 @@ const frontEnd = {
       children: [
         // hard
         'communication_methods/',
-        'debounce_throttle_in_vue/',
         'lifecycle_hooks/',
         'custom_directive/',
         'plugin/',
