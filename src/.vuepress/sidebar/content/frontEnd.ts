@@ -29,7 +29,8 @@ const frontEnd = {
     },
     'prototype/',
     'variable/',
-    'type_checking',
+    'type_checking/',
+    'shallow_and_deep_copy/',
   ],
   css: [
     'selectors/',
