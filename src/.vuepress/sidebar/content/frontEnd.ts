@@ -6,6 +6,7 @@ const frontEnd = {
     'new_operator/',
     'random_integer/',
     'concurrency_control/',
+    'deep_copy/',
   ],
   javascript: [
     'function/closure/',

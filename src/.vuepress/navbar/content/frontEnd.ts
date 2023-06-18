@@ -1,5 +1,5 @@
 const frontEnd = [
-  { text: 'implement', link: '/implement/call_apply/' },
+  { text: 'Implement', link: '/implement/call_apply/' },
   { text: 'JavaScript', link: '/javascript/function/closure/' },
   { text: 'CSS', link: '/css/selectors/' },
   { text: 'HTML', link: '/html/defer_vs_async/' },
