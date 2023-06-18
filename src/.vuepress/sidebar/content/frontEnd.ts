@@ -28,6 +28,7 @@ const frontEnd = {
       ],
     },
     'prototype/',
+    'variable/',
   ],
   css: [
     'selectors/',
