@@ -29,6 +29,7 @@ const frontEnd = {
     },
     'prototype/',
     'variable/',
+    'type_checking',
   ],
   css: [
     'selectors/',
