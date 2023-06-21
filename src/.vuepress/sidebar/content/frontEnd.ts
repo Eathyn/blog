@@ -80,6 +80,7 @@ const frontEnd = {
         'generics',
         'utility-types',
         'advanced-types',
+        'declaration-file',
       ],
     },
     'exclude_extract_vs_omit_pick.md',
