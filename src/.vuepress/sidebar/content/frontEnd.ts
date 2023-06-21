@@ -104,21 +104,6 @@ const frontEnd = {
         'chapter_13.md',
       ],
     },
-    {
-      text: 'Course: TypeScript Basic',
-      collapsible: true,
-      prefix: 'course-ts_basic/',
-      children: [
-        'README.md',
-        '69/',
-        '70/',
-        '71/',
-        '72/',
-        '73/',
-        '74/',
-        '75/',
-      ],
-    },
   ],
   browser: [
     'event_loop/',
