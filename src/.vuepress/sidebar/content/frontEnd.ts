@@ -81,6 +81,7 @@ const frontEnd = {
         'utility-types',
         'advanced-types',
         'declaration-file',
+        'module',
       ],
     },
     'exclude_extract_vs_omit_pick.md',
