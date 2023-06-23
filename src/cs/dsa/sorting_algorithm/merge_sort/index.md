@@ -14,55 +14,57 @@ category: DSA
 
 ## 实现
 
+> Reference
+> - [算法主要实现](https://youtu.be/3j0SWDX4AtU)
+> - [算法优化](https://www.programiz.com/dsa/merge-sort)
+
 ```js
-function mergeSort(arr, sortedArr = [], startIdx = 0, endIdx = arr.length - 1) {
+function mergeSort(arr, startIdx = 0, endIdx = arr.length - 1) {
   if (startIdx === endIdx) {
     return
   }
 
   const middleIdx = Math.floor((startIdx + endIdx) / 2)
-  mergeSort(arr, sortedArr, startIdx, middleIdx)
-  mergeSort(arr, sortedArr, middleIdx + 1, endIdx)
-  merge(arr, sortedArr, startIdx, endIdx, middleIdx)
-  return sortedArr
+  mergeSort(arr, startIdx, middleIdx)
+  mergeSort(arr, middleIdx + 1, endIdx)
+  merge(arr, startIdx, endIdx, middleIdx)
+  return arr
 }
 
-function merge(arr, sortedArr, startIdx, endIdx, middleIdx) {
+function merge(arr, startIdx, endIdx, middleIdx) {
   let arrIdx = startIdx
-  let leftIdx = startIdx
-  let rightIdx = middleIdx + 1
+  let leftArrIdx = 0
+  let rightArrIdx = 0
 
-  // 比较 leftIdx 和 rightIdx 指向的值，把小的值放到 sortedArr 的正确位置
-  while (leftIdx <= middleIdx && rightIdx <= endIdx) {
-    if (arr[leftIdx] <= arr[rightIdx]) {
-      sortedArr[arrIdx] = arr[leftIdx]
-      leftIdx++
+  const leftArr = arr.slice(startIdx, middleIdx + 1)
+  const rightArr = arr.slice(middleIdx + 1, endIdx + 1)
+
+  // 比较 leftArrIdx 和 rightArrIdx 指向的值，把小的值放到 arr 的正确位置中
+  while (leftArrIdx < leftArr.length && rightArrIdx < rightArr.length) {
+    if (leftArr[leftArrIdx] <= rightArr[rightArrIdx]) {
+      arr[arrIdx] = leftArr[leftArrIdx]
+      leftArrIdx++
     } else {
-      sortedArr[arrIdx] = arr[rightIdx]
-      rightIdx++
+      arr[arrIdx] = rightArr[rightArrIdx]
+      rightArrIdx++
     }
     arrIdx++
   }
 
   // 右边的项都放到正确的位置，左边的项都没有或者一部分没有放到正确位置。
   // 因为左边的项已经排序了，所以按顺序放到数组里就行
-  while (leftIdx <= middleIdx) {
-    sortedArr[arrIdx] = arr[leftIdx]
+  while (leftArrIdx < leftArr.length) {
+    arr[arrIdx] = leftArr[leftArrIdx]
     arrIdx++
-    leftIdx++
+    leftArrIdx++
   }
 
   // 左边的项都放到正确的位置，右边的项都没有或者一部分没有放到正确位置。
   // 因为右边的项已经排序了，所以按顺序放到数组里就行
-  while (rightIdx <= endIdx) {
-    sortedArr[arrIdx] = arr[rightIdx]
+  while (rightArrIdx < rightArr.length) {
+    arr[arrIdx] = rightArr[rightArrIdx]
     arrIdx++
-    rightIdx++
-  }
-  
-  // 改变原来的数组
-  for (const index in sortedArr) {
-    arr[index] = sortedArr[index]
+    rightArrIdx++
   }
 }
 ```
