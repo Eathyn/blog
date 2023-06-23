@@ -82,6 +82,7 @@ const frontEnd = {
         'advanced-types',
         'declaration-file',
         'module',
+        'tsconfig',
       ],
     },
     'exclude_extract_vs_omit_pick.md',
