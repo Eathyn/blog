@@ -68,3 +68,13 @@ function merge(arr, startIdx, endIdx, middleIdx) {
   }
 }
 ```
+
+## 时间复杂度
+
+- 最好：O(N * logN)
+- 最坏：O(N * logN)
+- 平均：O(N * logN)
+
+## 空间复杂度
+
+- O(N)
