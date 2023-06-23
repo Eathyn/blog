@@ -55,3 +55,16 @@ function wxToPromise(method, options = {}) {
 ```html
 <page-meta page-style="{{ showPopup ? 'overflow: hidden' : '' }}" />
 ```
+
+## 获取胶囊到可视区顶边的距离
+
+- 红色箭头标出的部分为胶囊到可视区顶边的距离。
+
+![胶囊到可视区顶边的距离](./_image/menu_button_top.png)
+
+- 通过 `wx.getMenuButtonBoundingClientRect` 对象的 `top` 属性获取该数据。
+
+```js
+const menuButton = wx.getMenuButtonBoundingClientRect()
+menuButton.top
+```
