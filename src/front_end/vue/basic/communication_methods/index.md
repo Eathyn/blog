@@ -8,10 +8,6 @@ tag:
 
 # Vue Component Communication Methods
 
-## Why components need communication
-
-- 传递数据
-
 ## Props and Emit
 
 - 适合父子组件通信

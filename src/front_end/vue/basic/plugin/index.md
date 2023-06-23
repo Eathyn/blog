@@ -10,8 +10,6 @@ tag:
 
 插件（plugin）是一个拥有 install 方法的对象（或者就是一个 install 方法），在插件中可以定义一些全局组件、指令、属性等。
 
-> TODO: 实现一个插件 or 看一些小型插件的源码
-
 ## Resources
 
 - [Docs: Plugin in Vue-2](https://v2.vuejs.org/v2/guide/plugins.html)

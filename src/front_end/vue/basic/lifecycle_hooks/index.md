@@ -13,11 +13,7 @@ tag:
 - Lifecycle hooks are pre-defined methods that get executed in a certain order, starting from the initialization of the
   Vue instance to its destruction.
 
-![lifecycle](./images/lifecycle.png)
-
-## Why do we need lifecycle hooks
-
-- Lifecycle hooks give users the opportunity to add their own code at specific stages.
+![lifecycle](./images/lifecycle.png =x600)
 
 ## beforeCreate
 

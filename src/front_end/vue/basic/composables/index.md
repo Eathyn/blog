@@ -8,9 +8,9 @@ tag:
 
 # Composables
 
-## Why do we need composables
+## 使用 composable 的原因
 
-### Disadvantages of Mixin
+### mixin 的缺点
 
 - 需要跳转到 mixin 对象所在的文件才能知道导入了哪些属性和方法
 - 导入多个 mixin 对象可能导致命名冲突
