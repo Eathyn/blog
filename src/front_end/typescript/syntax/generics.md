@@ -16,7 +16,7 @@ category: TypeScript
 > Reference: [TypeScript Tutorial](https://www.typescripttutorial.net/typescript-tutorial/typescript-generics/)
 
 - 可以在函数中使用泛型，定义参数和返回值类型。
-- `T` 指的是类型变量（type variable），可以写任意单词。
+- `T` 指的是类型变量（type variable），可以写成任意字母或单词。
 
 ```ts {1,7,11}
 function getRandomElement<T>(items: T[]): T {
@@ -36,10 +36,12 @@ console.log(result2)
 ### Arrow Function
 
 ```ts
+// 在函数上使用泛型
 function fn1<T>(input: T): T {
   return input
 }
 
+// 在箭头函数上使用泛型
 const fn2 = <T>(input: T): T => input
 ```
 

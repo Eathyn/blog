@@ -214,7 +214,7 @@ class Student implements Person, Learner {
   name: string
   age: number
   
-  constructor(name: string, age: number, grade: number) {
+  constructor(name: string, age: number) {
     this.name = name
     this.age = age
   }

@@ -29,7 +29,7 @@ let greet: string = 'hi'
 
 ### void
 
-- 当函数没有 `return` 语句或者没有显示地返回一个值时，函数的返回值的类型为 `void`。
+- 当函数没有 `return` 语句或者没有显式地返回一个值时，函数的返回值的类型为 `void`。
 
 ```ts
 // 没有 `return` 语句
@@ -63,23 +63,7 @@ let name: null
 
 ### class
 
-```ts
-class Person {
-  name: string
-  age: number
-
-  constructor(name: string, age: number) {
-    this.name = name
-    this.age = age
-  }
-
-  greet() {
-    console.log(`Hi, I am ${this.name}`)
-  }
-}
-
-const person = new Person('Jeff', 18)
-```
+[详细](./class)
 
 ### enum
 
@@ -161,7 +145,7 @@ console.log(value2.name) // error
 value2.fn() // error
 ```
 
-- 通过窄化（narrowing）可以 unknown 类型的值不报错。
+- 通过窄化（narrowing）可以让 unknown 类型的值不报错。
 
 ```ts
 function fn(value: unknown) {

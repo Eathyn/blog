@@ -9,7 +9,7 @@ category: interface
 
 - 通过接口（interface）定义对象类型，以便在多个地方使用。
 
-```ts {1-3}
+```ts {1-4}
 interface Person {
   name: string
   age: number
@@ -96,7 +96,7 @@ interface WithoutNullableName extends WithNullableName {
 
 - 接口可以扩展多个接口。
 
-```ts {9-11}
+```ts {10-12}
 interface Animal {
   move: () => void
 }
