@@ -164,7 +164,7 @@ console.log(person)
 
 _package.json_
 
-```json
+```json {7}
 {
   "scripts": {
     "dev": "webpack serve --mode development"
@@ -182,7 +182,7 @@ _package.json_
 
 _webpack.config.js_
 
-```js
+```js {12-14,24-28}
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 

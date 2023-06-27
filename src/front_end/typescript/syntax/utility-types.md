@@ -24,9 +24,9 @@ type PartialUser = Partial<User> // {name?: string, age?: number}
 
 > Reference: [How the TypeScript Required Type Works](https://dev.to/smpnjn/how-the-typescript-required-type-works-2nlc)
 
-- 将一个类型的所有可选属性都转变为必须（required）属性，并生成一个新类型。
+- 将一个类型的所有可选属性都转变为必需（required）属性，并生成一个新类型。
 
-```ts {3,5}
+```ts {3,6}
 interface User {
   name: string
   age?: number
@@ -150,9 +150,9 @@ type UserOnlyName = Pick<User, 'name'> // {name: string}
 
 > Reference: [How the TypeScript Parameters Type Works](https://dev.to/smpnjn/how-the-typescript-parameters-type-works-49p5)
 
-- Parameters 类型会返回一个元组，元组是函数的形参类型。
+- Parameters 类型会以元组的形式返回函数的形参类型。
 
-```ts
+```ts {1,5}
 function logPersonInfo(name: string, age: number) {
   console.log(`name: ${name} - age: ${age}`)
 }
@@ -166,7 +166,7 @@ logPersonInfo(...parameter)
 
 > Reference: [How the TypeScript NonNullable Type Works](https://dev.to/smpnjn/how-the-typescript-parameters-type-works-12h4)
 
-- NonNullable 类型将联合类型中的 `null` 和 `undefined` 去除，并返回一个新类型。
+- NonNullable 类型将**联合类型**中的 `null` 和 `undefined` 去除，并返回一个新类型。
 
 ```ts
 type WithNullable = string | number | null | undefined
@@ -179,7 +179,7 @@ type WithoutNullable = NonNullable<WithNullable> // string | number
 
 - ReturnType 可以获取函数返回值的类型。
 
-```ts
+```ts {1,2,5}
 function sendPersonInfo(name: string, age: number) {
   return { name, age }
 }
