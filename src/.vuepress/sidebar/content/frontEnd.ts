@@ -87,6 +87,7 @@ const frontEnd = {
     },
     'exclude_extract_vs_omit_pick.md',
     'resources',
+    'index_signature',
     {
       text: 'Book: Learning TypeScript',
       collapsible: true,
