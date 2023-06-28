@@ -28,6 +28,9 @@ const tool = {
     'lock_node_version/',
     'lock_package_manager/',
   ],
+  blog: [
+    'create_blog/',
+  ],
 }
 
 export default tool

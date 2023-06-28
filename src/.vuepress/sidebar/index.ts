@@ -28,6 +28,7 @@ const sideBar = sidebar({
   // tool
   '/tool/git': tool.git,
   '/tool/node': tool.node,
+  '/tool/blog': tool.blog,
 
   // english
   '/english/speaking': english.speaking,
