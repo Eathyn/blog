@@ -21,7 +21,7 @@ git diff --staged
 
 ## 输出结果
 
-> [output of diff command](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
+> Reference: [Output of Diff Command](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
 
 输出结果如下：
 

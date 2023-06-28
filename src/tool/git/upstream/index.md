@@ -7,7 +7,8 @@ category: Git
 
 ## 为仓库设置 upstream
 
-> [blog](https://devopscube.com/set-git-upstream-respository-branch/)
+> Reference: 
+> - [How to Set Git Upstream For a Respository and a Branch](https://devopscube.com/set-git-upstream-respository-branch/)
 
 ### 原因
 
@@ -19,7 +20,7 @@ category: Git
 - B: fork A 得到的 repo（自己源端的仓库）
 - C: clone B 得到的 repo（自己本地的仓库）
 
-如果没有将 C 的 upstream 设置为 A，那么当 A 更新时，C 无法拉取 A 更新的内容。需要将 C 设置为 A 的 upstream。命令如下：
+- 将 A 设置为 C 的 upstream（如果没有将 C 的 upstream 设置为 A，那么当 A 更新时，C 无法拉取 A 更新的内容）。命令如下：
 
 ```git
 git remote add upstream <repo A>
@@ -27,7 +28,7 @@ git remote add upstream <repo A>
 
 使用 `cat .git/config` 可以看到已经配置了 upstream。如图所示：
 
-![配置了 upstream](./image/check_config.png)
+![配置了 upstream](./image/check_config.png =x300)
 
 也可以使用 `git remote -v` 查看 upstream 配置。如图所示：
 
@@ -35,7 +36,7 @@ git remote add upstream <repo A>
 
 配置完 upstream 之后，就可以使用 `git pull upstream <branch>` 拉取 upstream repo 的分支的 commit 记录。如图所示：
 
-![拉取 upstream 的分支](./image/pull_original_repo.png)
+![拉取 upstream 的分支](./image/pull_original_repo.png =x250)
 
 最后再把本地分支（A）push 到 forked repo（B）进行更新。如图所示：
 
@@ -43,7 +44,8 @@ git remote add upstream <repo A>
 
 ## 为分支设置 upstream
 
-> [blog](https://devopscube.com/set-git-upstream-respository-branch/)
+> Reference:
+> - [How to Set Git Upstream For a Respository and a Branch](https://devopscube.com/set-git-upstream-respository-branch/)
 
 ### 原因
 
@@ -70,7 +72,3 @@ git branch --set-upstream-to <remote>/<branch> <local branch>
 这时候再使用 `git pull` 就可以更新 `test` 分支了。如图所示：
 
 ![正常拉取](./image/fixed.png)
-
-## Refs
-
-- [Set Git Upstream Repository Branch](https://devopscube.com/set-git-upstream-respository-branch/)
