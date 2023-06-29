@@ -185,6 +185,14 @@ const frontEnd = {
         'vue.js设计与实现/04-响应系统的作用与实现.md',
       ],
     },
+    {
+      text: 'Release',
+      collapsible: true,
+      prefix: 'release/',
+      children: [
+        '3.2/',
+      ],
+    },
   ],
   miniProgram: [
     'navigation/',
