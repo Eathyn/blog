@@ -191,6 +191,7 @@ const frontEnd = {
       prefix: 'release/',
       children: [
         '3.2/',
+        '3.3/',
       ],
     },
   ],
