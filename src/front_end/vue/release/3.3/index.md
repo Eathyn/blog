@@ -72,3 +72,69 @@ const props = defineProps<Props1 & Props2>()
 ::: warning
 需要实际类型分析的类型（例如条件类型）则不支持上述的特性。
 :::
+
+### 泛型组件
+
+- Vue 3.3 支持泛型组件（generic component）。
+
+::: code-tabs
+@tab App.vue
+```vue
+<template>
+  <Main :items="numbers" />
+  <Main :items="chars" />
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import Main from './components/Main.vue'
+
+const numbers = ref([1, 2, 3, 4, 5])
+const chars = ref(['a', 'b', 'c', 'd', 'e'])
+</script>
+```
+
+@tab Main.vue
+```vue {1,5,9}
+<script setup lang="ts" generic="T">
+import { onMounted, Ref, ref } from 'vue'
+
+interface Props {
+  items: T[]
+}
+
+const props = defineProps<Props>()
+const randomItem = ref<T>() as Ref<T>
+
+function changeRandomItem() {
+  const randomIndex = Math.floor(Math.random() * props.items.length)
+  randomItem.value = props.items[randomIndex]
+}
+
+onMounted(() => changeRandomItem())
+</script>
+
+<template>
+  <button @click="changeRandomItem">change random item</button>
+  <div>item: {{ randomItem }}</div>
+</template>
+```
+:::
+
+### 简写 `defineEmit`
+
+- Vue 3.3 之前在 `defineEmit` 中需要使用调用签名（call signature）的写法定义类型名称、形参类型和返回类型。Vue 3.3 简化了写法。
+
+```vue
+<script setup lang="ts">
+// Before
+const emits1 = defineEmits<{
+  (e: 'send', data: number): void
+}>()
+
+// After
+const emits2 = defineEmits<{
+  send: [data: number]
+}>()
+</script>
+```
