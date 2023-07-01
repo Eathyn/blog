@@ -69,7 +69,7 @@ tag: rebase
 
 > Reference: Pro Git: p97-99
 
-- 使用 rebase 的风险：如果你 rebase 一些之前已经提交到远程仓库的 commit，并且别人基于这个 commit 在开发，那么会导致别人在拉取代码的后发现有重复的提交，如下图所示：
+- 使用 rebase 的风险：如果你 rebase 一些之前已经提交到远程仓库的 commit，并且别人基于这个 commit 在开发，那么会导致别人在拉取代码的时候发现有重复的提交，如下图所示：
 
 ![C4 为重复的提交](./_image/the-perils-of-rebasing.png)
 
