@@ -14,14 +14,14 @@ tag: cache
 
 ### 概念
 
-- 服务器设置 `Cache-Control`，后续针对该请求，浏览器直接从缓存中获取数据，不需要通过服务器
+- 强制缓存（Strong Cache）：服务器设置 `Cache-Control`，后续针对该请求，浏览器直接从缓存中获取数据，不需要通过服务器
 
-![force cache concept](./images/force_cache/concept.png)
+![force cache concept](./images/force_cache/concept.png =x320)
 
 ### 代码
 
-- 前端
-
+::: code-tabs
+@tab 前端
 ```js
 function fetchData() {
   fetch('http://localhost:3000', {
@@ -30,8 +30,7 @@ function fetchData() {
 }
 ```
 
-- 后端
-
+@tab 后端
 ```js
 app.get('/', (req, res) => {
   res.set({
@@ -43,16 +42,17 @@ app.get('/', (req, res) => {
   }))
 })
 ```
+:::
 
 ### 结果
 
 - 第一次请求从服务器获取数据
 
-![force_cache_result_1.png](./images/force_cache/force_cache_result_1.png)
+![force_cache_result_1.png](./images/force_cache/force_cache_result_1.png =x350)
 
 - 第二次请求开始从缓存获取数据
 
-![force_cache_result_2.png](./images/force_cache/force_cache_result_2.png)
+![force_cache_result_2.png](./images/force_cache/force_cache_result_2.png =x350)
 
 ### 注意
 
@@ -67,9 +67,9 @@ app.get('/', (req, res) => {
 
 ### 概念
 
-- 服务器判断浏览器缓存里的资源是否和服务器一致，若一致则返回 304，浏览器从缓存中获取资源；不一致则返回 200 和新资源
+- 协商缓存（Negotiation Cache）：服务器判断浏览器缓存里的资源是否和服务器一致，若一致则返回 304，浏览器从缓存中获取资源；不一致则返回 200 和新资源
 
-![negotiation cache](./images/negotiation_cache/concept.png)
+![negotiation cache](./images/negotiation_cache/concept.png =x350)
 
 ### 过程
 
@@ -81,7 +81,7 @@ app.get('/', (req, res) => {
 2. 浏览器再次请求时携带 `If-Modified-Since` 头部
 3. 服务器收到请求后对比 `Last-Modified` 和 `If-Modified-Since`，如果两者相同说明资源没有更新，返回 304 响应状态码，浏览器从缓存中获取资源；如果两者不同说明资源已更新，返回新资源和新 `Last-Modified`
 
-![last-modified and if-modified-since](./images/negotiation_cache/last_modified.png)
+![last-modified and if-modified-since](./images/negotiation_cache/last_modified.png =x350)
 
 #### Etag / If-None-Match
 
@@ -95,13 +95,8 @@ app.get('/', (req, res) => {
 
 ## 总结
 
-![summary](./images/summary.png)
+![summary](./images/summary.png =x500)
 
 ## Refs
 
 - [no-store vs. no-cache](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
-
-## Translation
-
-- 强制缓存 : strong cache
-- 协商缓存 : negotiation cache

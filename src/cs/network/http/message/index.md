@@ -8,27 +8,29 @@ tag:
 
 # HTTP Message
 
-- two types of HTTP messages: request and response
+- HTTP 报文（message）有两种类型：请求（request）和响应（response）。
 
-### Request
+## Request
 
-- HTTP method
-- resource path
-- version of the protocol
-- headers
-- body
+- 请求的组成：
+  - HTTP method
+  - resource path
+  - version of the protocol
+  - headers
+  - body
 
-![request](./images/request.png)
+![request](./images/request.png =x250)
 
-### Response
+## Response
 
-- version of the protocol
-- status code
-- status message
-- headers
-- body
+- 响应的组成：
+  - version of the protocol
+  - status code
+  - status message
+  - headers
+  - body
 
-![response](./images/response.png)
+![response](./images/response.png =x320)
 
 ## Refs
 
