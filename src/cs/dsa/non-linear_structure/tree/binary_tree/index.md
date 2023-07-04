@@ -194,6 +194,23 @@ flowchart TB
   style D fill:red, stroke:red
 ```
 
+### 规律-1
+
+- 用数组表示二叉树结构，假设 N 为节点的总数，`Math.floor(N / 2) - 1` 为最后一个非叶子节点的索引。
+- 最后一个非叶子节点的索引：`Math.floor(6 / 2) - 1 = 2`。
+
+```mermaid
+flowchart TB
+  A --> B
+  A --> C
+  B --> D
+  B --> E
+  C --> F
+  C --> Node(null)
+  
+  style C fill:red, stroke:red
+```
+
 ## Balanced Binary Tree
 
 ### 概念
