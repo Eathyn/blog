@@ -156,7 +156,6 @@ const frontEnd = {
         'observable/',
         'reactivity_fundamentals/',
         'spa_mpa/',
-        'two_way_binding/',
 
         // easy
         'directive_composition/',
@@ -171,6 +170,8 @@ const frontEnd = {
         'event_handling/',
         'keep-alive/',
         'form_input_bindings/',
+        'two_way_binding/',
+        'two_way_binding_in_component/',
       ],
     },
     {
