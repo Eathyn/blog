@@ -227,6 +227,14 @@ const frontEnd = {
         'app.json.md'
       ],
     },
+    {
+      text: '性能优化',
+      collapsible: true,
+      prefix: 'performance/',
+      children: [
+        'start',
+      ],
+    }
   ],
   uniapp: [
     'note/',
