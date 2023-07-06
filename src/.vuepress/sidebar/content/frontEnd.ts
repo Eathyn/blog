@@ -172,6 +172,8 @@ const frontEnd = {
         'form_input_bindings/',
         'two_way_binding/',
         'two_way_binding_in_component/',
+        'props_and_emits/',
+        'slot/',
       ],
     },
     {
