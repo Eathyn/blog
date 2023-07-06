@@ -218,7 +218,6 @@ const frontEnd = {
     'skills/',
     'pure_data/',
     'behaviors/',
-    'subpackage/',
     {
       text: '配置',
       collapsible: true,
@@ -227,6 +226,7 @@ const frontEnd = {
         'app.json.md'
       ],
     },
+    'subpackage/',
     {
       text: '性能优化',
       collapsible: true,
@@ -234,7 +234,8 @@ const frontEnd = {
       children: [
         'start',
       ],
-    }
+    },
+    'template/',
   ],
   uniapp: [
     'note/',
