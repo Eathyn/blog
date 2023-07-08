@@ -105,3 +105,28 @@ export function heapSort(arr) {
   ```
 
 ### 将大根堆进行堆排序
+
+- 算法思想：
+  1. 构建大根堆。
+  2. 交换第一项和未排序部分的最后一项。
+  3. 重回第一步，直到未排序部分只剩一项。
+
+```js
+function heapSort(arr) {
+  // 从最后一个非叶子节点开始，往前构建大根堆
+  const arrLen = arr.length
+  for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+    heapify(arr, arrLen, i)
+  }
+
+  // 堆排序
+  for (let i = arrLen - 1; i > 0; i--) {
+    // 排除已排序部分，对未排序部分进行首尾交换
+    [arr[0], arr[i]] = [arr[i], arr[0]]
+    // 排除已排序部分，对未排序部分构建大根堆
+    heapify(arr, i, 0)
+  }
+}
+```
+
+- `heapify(arr, i, 0)` 第二个参数传递 `i` 非常巧妙，可以在不修改原数组的情况下排除掉已排序的部分。
