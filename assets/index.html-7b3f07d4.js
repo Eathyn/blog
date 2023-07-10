@@ -1,0 +1,16 @@
+import{_ as p,W as u,X as d,Y as e,Z as n,$ as i,a1 as a,C as o}from"./framework-0d71bc9d.js";const m={},v=e("h1",{id:"模板",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#模板","aria-hidden":"true"},"#"),n(" 模板")],-1),b={href:"https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/template.html",target:"_blank",rel:"noopener noreferrer"},_=e("ul",null,[e("li",null,[n("通过 "),e("code",null,"name"),n(" 属性指定模板（template）的名字。通过 "),e("code",null,"import"),n(" 和 "),e("code",null,"is"),n(" 属性引用模板。通过 "),e("code",null,"data"),n(" 属性传递模板需要的值。")])],-1),k=e("div",{class:"language-wxml line-numbers-mode","data-ext":"wxml"},[e("pre",{class:"language-wxml"},[e("code",null,`<template name="message">
+  <view>name: {{ name }}</view>
+  <view>age: {{ age }}</view>
+</template>
+`)]),e("div",{class:"line-numbers","aria-hidden":"true"},[e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"})])],-1),x=e("div",{class:"language-wxml line-numbers-mode","data-ext":"wxml"},[e("pre",{class:"language-wxml"},[e("code",null,`<import src="/pages/message/message.wxml"></import>
+
+<template is="message" data="{{ ...person }}" />
+`)]),e("div",{class:"line-numbers","aria-hidden":"true"},[e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"})])],-1),g=e("div",{class:"language-javascript line-numbers-mode","data-ext":"js"},[e("pre",{class:"language-javascript"},[e("code",null,[e("span",{class:"token function"},"Page"),e("span",{class:"token punctuation"},"("),e("span",{class:"token punctuation"},"{"),n(`
+  `),e("span",{class:"token literal-property property"},"data"),e("span",{class:"token operator"},":"),n(),e("span",{class:"token punctuation"},"{"),n(`
+    `),e("span",{class:"token literal-property property"},"person"),e("span",{class:"token operator"},":"),n(),e("span",{class:"token punctuation"},"{"),n(`
+      `),e("span",{class:"token literal-property property"},"name"),e("span",{class:"token operator"},":"),n(),e("span",{class:"token string"},"'Eathyn'"),e("span",{class:"token punctuation"},","),n(`
+      `),e("span",{class:"token literal-property property"},"age"),e("span",{class:"token operator"},":"),n(),e("span",{class:"token number"},"26"),e("span",{class:"token punctuation"},","),n(`
+    `),e("span",{class:"token punctuation"},"}"),n(`
+  `),e("span",{class:"token punctuation"},"}"),e("span",{class:"token punctuation"},","),n(`
+`),e("span",{class:"token punctuation"},"}"),e("span",{class:"token punctuation"},")"),n(`
+`)])]),e("div",{class:"line-numbers","aria-hidden":"true"},[e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"}),e("div",{class:"line-number"})])],-1);function h(w,f){const c=o("ExternalLinkIcon"),r=o("CodeTabs");return u(),d("div",null,[v,e("blockquote",null,[e("p",null,[n("Reference: "),e("a",b,[n("模板"),i(c)])])]),_,i(r,{id:"15",data:[{title:"message.wxml"},{title:"index.wxml"},{title:"index.js"}]},{tab0:a(({title:s,value:t,isActive:l})=>[k]),tab1:a(({title:s,value:t,isActive:l})=>[x]),tab2:a(({title:s,value:t,isActive:l})=>[g]),_:1},8,["data"])])}const C=p(m,[["render",h],["__file","index.html.vue"]]);export{C as default};
