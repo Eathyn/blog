@@ -19,6 +19,7 @@ const sortingAlgorithm = {
     'shell_sort/',
     'merge_sort/',
     'heap_sort/',
+    'counting_sort/',
   ],
 }
 
