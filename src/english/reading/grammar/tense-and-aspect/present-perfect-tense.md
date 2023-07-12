@@ -33,3 +33,8 @@ tag: 现在完成时
 
 - 含义：一个开始于过去的动作或状态延续到现在。
 - 例句：I ==have been== a school teacher for 28 years now.
+
+## 重复事件
+
+- 含义：站在现在的角度回顾到目前为止的一个时间段内，某一活动或事件重复发生了多次。动作不是毫不间断地连续发生，而是断断续续地在重复。
+- 例句：I ==have had== teachers in school.
