@@ -20,6 +20,7 @@ const sortingAlgorithm = {
     'merge_sort/',
     'heap_sort/',
     'counting_sort/',
+    'bucket_sort/',
   ],
 }
 
