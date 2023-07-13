@@ -14,16 +14,18 @@ tag: 搭建 Vue 项目
 npm create vite@latest
 ```
 
-### 配置路径
+### 配置路径 - JavaScript
 
-_vite.config.js_
+- 在 `vite.config.js` 中配置 `resolve.alias`。
+- 在 `jsconfig.js` 中配置 `compilerOptions.paths`。
 
+::: code-tabs
+@tab vite.config.js
 ```js
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   resolve: {
@@ -32,18 +34,10 @@ export default defineConfig({
     },
     extensions: ['.js', '.json', '.vue'],
   },
-  // server: {
-  //   proxy: {
-  //     '/xxx': {
-  //       // ...
-  //     }
-  //   }
-  // }
 })
 ```
 
-_jsconfig.js_
-
+@tab jsconfig.js
 ```js
 module.exports = {
   compilerOptions: {
@@ -54,6 +48,50 @@ module.exports = {
   exclude: ['node_modules', 'dist'],
 }
 ```
+:::
+
+### 配置路径 - TypeScript
+
+> Reference: [Vite 搭建 Vue3 + TypeScript 项目](https://juejin.cn/post/7205467823563505701)
+
+- 安装 `@types/node`：`npm i --save-dev @types/node`。
+- 在 `vite.config.ts` 中配置 `resolve.alias`。
+- 在 `tsconfig.json` 中配置 `compilerOptions.paths`。
+
+::: code-tabs
+@tab vite.config.ts
+```ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
+
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+})
+```
+
+@tab tsconfig.json
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+:::
+
+::: tip
+- 在 `Webstorm` 中，如果完成了上述配置后依然显示 `Volar: Cannot find module 'path' or its corresponding type declarations.`。那么需要重新启动 `Volar`。
+
+![重新启动 Volar](./images/vite/config.png =x150)
+:::
 
 ## Vue Router
 
