@@ -21,6 +21,7 @@ const sortingAlgorithm = {
     'heap_sort/',
     'counting_sort/',
     'bucket_sort/',
+    'radix_sort/',
   ],
 }
 
