@@ -101,22 +101,77 @@ export default defineConfig({
 npm install vue-router@4
 ```
 
-### 使用
+### 使用 - TypeScript
 
-_src/router/index.js_
+::: code-tabs
+@tab index.ts
+```typescript
+// src/router/index.ts
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-```js
-import { createRouter, createWebHashHistory } from 'vue-router'
-
-const routes = []
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: '',
+    redirect() {
+      return {
+        path: '/home',
+      }
+    },
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/pages/Home.vue')
+  },
+  {
+    path: '/404',
+    component: () => import('@/pages/404.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    redirect() {
+      return {
+        path: '/404',
+      }
+    },
+  },
+]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(''),
   routes,
+  scrollBehavior() {
+    return {
+      el: '#app',
+      top: 0,
+      behavior: 'smooth',
+    }
+  },
 })
 
 export default router
 ```
+
+@tab main.ts
+```typescript {3,8}
+// src/main.ts
+import { createApp } from 'vue'
+import router from '@/router'
+import App from './App.vue'
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
+```
+
+@tab App.vue
+```vue {2}
+<template>
+  <router-view />
+</template>
+```
+:::
 
 ## Vuex
 
