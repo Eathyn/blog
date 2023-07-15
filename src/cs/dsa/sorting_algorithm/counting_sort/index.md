@@ -31,14 +31,16 @@ function countingSort(arr) {
   }
 
   const output = []
-  arr.forEach((value) => {
+  // 如果从数组的末尾开始执行，那么算法就是稳定的（stable）
+  for (let i = arrLen - 1; i >= 0; i--) {
     // 将 `arr` 各项的值作为 `count` 的索引，获取 `count` 对应的值。
     // `count 对应的值 - 1` 作为 output 的索引，把 arr 的项作为这个索引的值。
+    const value = arr[i]
     const index = count[value] - 1
     output[index] = value
     // 设置完 output 的值后，对应的 count 值减一。
     count[value]--
-  })
+  }
 
   output.forEach((value, index) => arr[index] = value)
 }
