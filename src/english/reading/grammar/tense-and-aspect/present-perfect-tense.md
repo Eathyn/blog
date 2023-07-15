@@ -51,3 +51,25 @@ _例子 1_
 
 - David ==has fallen== in love, and that’s why he’s becoming excited.
 - David "陷入恋情" 这个动作是在过去发生的，并且 "陷入恋情" 这个动作对他造成的影响是他现在变得兴奋。
+
+_例子 2_
+
+Mr. Odds works in a bank and lives on his own. The only family he has is in the next town: his sister lives there with her husband, and her son, Mark. Last week Mr. Odds had a surprise. He drove home from the bank at the usual time, driving neither too slowly nor too fast; he parked his car where he always parked it, out of the way of other cars, and he went inside to
+make his evening meal. Straight away, there was a knock at the door. Mr. Odds opened the door, to find a policeman standing on the doorstep.
+
+“What have I done wrong?”Mr. Odds asked himself.“Have I driven on the wrong side of the road? Has there been some trouble at the bank? Have I forgotten to pay an important bill?”
+
+“Hello, Uncle,”said the policeman,“My name’s Mark.”
+
+- Mr. Odds 看到警察来找他，以为因为自己做了什么事情才导致警察来找他。所以才会使用现在完成时向警察提问：`What have I done wrong?`, `Have I driven on the wrong side of the road?`, `Has there been some trouble at the bank?` 和 `Have I forgotten to pay an important bill?`
+
+_例子 3_
+
+He now knows what the elephant is like. He has just been to the zoo.
+
+- 他去过动物园，对现在造成的影响是他现在知道大象是什么样的。
+
+### 注意
+
+- “单一事件”的完成时态是与说话的语境密切相关的，若单独拿出完成时态的句⼦，我们很难理解其所要表达的真正含义，因为它所要表达的⾔外之意或潜含在上下⽂的语境中，或通过上下⽂的其他句⼦反映出来。
+- 语⾔表达本质上是⼀种思维表达，语⾔只是载体，它的背后是说话⼈的思维。
