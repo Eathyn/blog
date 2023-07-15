@@ -6,19 +6,22 @@ tag: icon
 
 # 图标
 
-## 精灵图 Image Sprites
+## 精灵图
 
-- 原理：将多张图片组合成一张图片，通过 `background-position` 定位到各个小图片
+- 精灵图（Image Sprites）原理：将多张图片组合成一张图片，通过 `background-position` 定位到各个小图片
 - 原因：减少 HTTP 请求（如果使用 HTTP/2，那么多请求也不会有很大的性能开销）
 
-_代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/image-sprites))：_
+[代码地址](https://github.com/Eathyn/icon-solutions/tree/main/image-sprites)
 
+::: code-tabs
+@tab html
 ```html
 <div id="home"></div>
 <div id="left"></div>
 <div id="right"></div>
 ```
 
+@tab css
 ```css
 #home {
 	width: 46px;
@@ -42,14 +45,15 @@ _代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/image-sprit
 	background-position: -91px 0;
 }
 ```
+:::
 
 ## Iconfont
 
 ### unicode
 
-- `unicode` 的特点是兼容性最好，但不支持多色图标
+[代码地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/unicode)
 
-_代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/unicode))_：
+- `unicode` 的特点是兼容性最好，但不支持多色图标
 
 - 从 `iconfont` 官网下载图标压缩文件至本地，将字体文件复制到项目中，并且在 `CSS` 文件中指定字体文件的地址
 
@@ -85,9 +89,9 @@ _代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/un
 
 ### font-class
 
-- `font-class` 可以解决 `unicode` 语义不直观，不能一眼看出引用了哪个图标的问题
+[代码地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/font-class)
 
-_代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/font-class))_：
+- `font-class` 可以解决 `unicode` 语义不直观，不能一眼看出引用了哪个图标的问题
 
 - 从 `iconfont` 官网下载图标压缩文件至本地，将字体文件复制到项目中，并且在 `CSS` 文件中指定字体文件的地址
 
@@ -143,9 +147,9 @@ _代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/fo
 
 ### symbol
 
-- 特点：支持多色图标；矢量图形，放大不会模糊
+[代码地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/symbol)
 
-- 步骤如下（[代码地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/symbol)）：
+- 特点：支持多色图标；矢量图形，放大不会模糊
 
 第一步：引入解压文件中的 `iconfont.js`
 
@@ -173,9 +177,55 @@ _代码 ([地址](https://github.com/Eathyn/icon-solutions/tree/main/iconfont/fo
 </svg>
 ```
 
-## 封装 icon 组件
+### 封装组件
 
+[代码地址](https://github.com/Eathyn/icon-solutions/tree/main/encapsulate-icon)
 
+::: code-tabs
+@tab IconSvg.vue
+```vue
+<template>
+  <svg class="icon" aria-hidden="true">
+    <use :xlink:href="iconName"></use>
+  </svg>
+</template>
+
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  iconClass: {
+    type: String,
+    required: true,
+  },
+})
+
+const iconName = computed(() => `#icon-${props.iconClass}`)
+</script>
+
+<style scoped>
+.icon {
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+</style>
+```
+
+@tab MainView.vue
+```vue
+<template>
+  <IconSvg icon-class="guanbi" />
+  <IconSvg icon-class="Icon_freckle" />
+</template>
+
+<script setup>
+import IconSvg from '@/components/IconSvg'
+</script>
+```
+:::
 
 ## Refs
 
