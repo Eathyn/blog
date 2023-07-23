@@ -198,6 +198,32 @@ const frontEnd = {
       ],
     },
   ],
+  packageManager: [
+    {
+      text: 'npm',
+      collapsible: true,
+      prefix: 'npm/',
+      children: [
+        'semver/',
+      ],
+    }
+  ],
+  bundler: [
+    {
+      text: 'Webpack',
+      collapsible: true,
+      prefix: 'webpack/',
+      children: [],
+    },
+    {
+      text: 'Vite',
+      collapsible: true,
+      prefix: 'vite/',
+      children: [
+        'css/',
+      ],
+    }
+  ],
   miniProgram: [
     'navigation/',
     'component_communication/',

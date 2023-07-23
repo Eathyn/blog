@@ -6,6 +6,8 @@ const frontEnd = [
   { text: 'TypeScript', link: '/typescript/syntax/init' },
   { text: 'Browser', link: '/browser/event_loop/' },
   { text: 'Vue', link: '/vue/debounce_throttle_in_vue/' },
+  { text: 'Package Manager', link: '/package_manager/npm/semver/' },
+  { text: 'Bundler', link: '/bundler/vite/css/' },
   { text: 'Mini Program', link: '/mini_program/navigation/' },
   { text: 'Uni-APP', link: '/uniapp/note/' },
 ]
