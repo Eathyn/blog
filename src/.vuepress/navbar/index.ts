@@ -5,6 +5,7 @@ import frontEnd from './content/frontEnd'
 import cs from './content/cs'
 import tool from './content/tool'
 import english from './content/english'
+import math from './content/math'
 
 const navBar = navbar([
   "/",
@@ -48,6 +49,13 @@ const navBar = navbar([
     text: 'English',
     prefix: '/english',
     children: english,
+  },
+
+  // Math
+  {
+    text: 'Math',
+    prefix: '/math',
+    children: math,
   },
 ]);
 

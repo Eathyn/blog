@@ -4,6 +4,7 @@ import frontEnd from './content/frontEnd'
 import cs from './content/cs'
 import tool from './content/tool'
 import english from './content/english'
+import math from './content/math'
 
 const sideBar = sidebar({
   // solution
@@ -33,6 +34,9 @@ const sideBar = sidebar({
   // english
   '/english/speaking': english.speaking,
   '/english/reading': english.reading,
+
+  // math
+  '/math/numbers': math.numbers,
 });
 
 export default sideBar
