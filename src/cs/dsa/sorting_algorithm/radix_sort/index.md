@@ -5,7 +5,7 @@ category: sorting algorithm
 
 # Radix Sort
 
-# 原理
+## 原理
 
 > Reference
 > - [Radix Sort Algorithm Introduction in 5 Minutes](https://youtu.be/XiuSW_mEn7g)
