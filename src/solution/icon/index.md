@@ -227,6 +227,23 @@ import IconSvg from '@/components/IconSvg'
 ```
 :::
 
+## SVG
+
+> Reference: [自己制作 SVG Sprite](https://juejin.cn/post/6844903517564436493#heading-7)
+
+### Iconfont 的缺点
+
+- svg sprite 包含在 Iconfont 网站生成的 `iconfont.js` 文件中，如果我们新增一个 svg 文件，就需要把这个 svg 文件上传到 Iconfont 网站并和其他 svg 图片放到同一个项目库中，然后根据该项目库重新生成 `iconfont.js` 文件，操作比较麻烦。
+- `iconfong.js` 中包含较多无用信息增大了文件大小。
+
+### 自己制作 svg sprite
+
+> Reference: [svg-sprite-loader](https://github.com/JetBrains/svg-sprite-loader)
+
+- 使用 `svg-sprite-loader` 制作 svg sprite，不需要经过 Iconfont，也不会生成 `iconfont.js` 文件。
+
+### 优化 svg
+
 ## Refs
 
 - [图标发展史](https://juejin.cn/post/6844903517564436493)

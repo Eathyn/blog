@@ -6,6 +6,7 @@ const solution = [
   { text: '文件上传', link: '/file_upload/' },
   { text: '瀑布流', link: '/waterfall/' },
   { text: '权限管理', link: '/permission/' },
+  { text: '图标', link: '/icon/' },
   { text: '登录', link: '/login/' },
   { text: '登出', link: '/logout/' },
   { text: '跨域', link: '/cross_origin/' },
