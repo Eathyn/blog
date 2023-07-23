@@ -39,6 +39,17 @@ const english = {
             'past-continuous-tense',
             'future-continuous-tense',
             'present-perfect-tense',
+            'past_perfect_tense',
+            'future_perfect_tense',
+            {
+              text: '完成进行时',
+              prefix: 'perfect_continuous',
+              collapsible: true,
+              children: [
+                'intro',
+                'present_perfect_continuous',
+              ],
+            },
           ],
         },
       ],
