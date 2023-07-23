@@ -73,3 +73,26 @@ He now knows what the elephant is like. He has just been to the zoo.
 
 - “单一事件”的完成时态是与说话的语境密切相关的，若单独拿出完成时态的句⼦，我们很难理解其所要表达的真正含义，因为它所要表达的⾔外之意或潜含在上下⽂的语境中，或通过上下⽂的其他句⼦反映出来。
 - 语⾔表达本质上是⼀种思维表达，语⾔只是载体，它的背后是说话⼈的思维。
+
+## 过去事件
+
+- 过去事件有远近之分，需要根据语境才能判断出来。
+
+_例子 1_
+
+- A: Have you asked your little brother to do the dishes?
+- B: No. I did that myself this morning.（近的过去事件）
+
+---
+
+- A: Have you asked your little brother to do the dishes?
+- B: Thousands of times.（远的过去事件）
+
+_例子 2_
+
+- I have cleaned the car. So it’s ready for tomorrow.（近的过去事件）
+
+---
+
+- A: You’ve never cleaned the car yourself. You’ve always paid someone to do it.
+- B: That’s not true. I have cleaned the car, you know. Several times.（远的过去事件）
