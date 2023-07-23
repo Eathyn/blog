@@ -30,7 +30,7 @@ function bubbleSort(arr) {
 
 - 外层循环只需要 `arr.length - 1` 次，因为到第 `n - 1` 次时已经排序好了。
 
-![optimization-1](./_image/optimization-1.png)
+![optimization-1](./_image/optimization-1.png =x500)
 
 - 内层循环只需要 `arr.length - 1` 次，如果将 `j < arr.length - 1` 改成 `j < arr.length`；那么 `arr[j + 1]` 就超过了数组范围。
 
@@ -93,5 +93,10 @@ function bubbleSort(arr) {
 
 ## 时间复杂度
 
-- 最坏的情况是数组是降序的，需要 `O(N^2)` 次比较和 `O(N^2)` 次交换。因此时间复杂度为 `O(N^2)`。
-- 最坏的情况是数组是升序的，采用 `优化-3` 中的算法，只需要 `O(N)` 次比较。因此时间复杂度为 `O(N)`。
+### 最坏的情况
+
+- 最坏的情况是数组是降序的，需要 $O(N^2)$ 次比较和 $O(N^2)$ 次交换。因此时间复杂度为 $O(N^2)$。
+
+### 最好的情况
+
+- 最好的情况是数组是升序的，采用 [优化-3](/blog/cs/dsa/sorting_algorithm/bubble_sort/#优化-3) 中的算法，只需要 $O(N)$ 次比较。因此时间复杂度为 $O(N)$。
