@@ -1,0 +1,24 @@
+import{_ as e,W as t,X as p,Y as n,Z as s,$ as o,a0 as c,C as i}from"./framework-0d71bc9d.js";const l={},r=n("h1",{id:"css",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#css","aria-hidden":"true"},"#"),s(" CSS")],-1),u=n("h2",{id:"postcss",tabindex:"-1"},[n("a",{class:"header-anchor",href:"#postcss","aria-hidden":"true"},"#"),s(" PostCSS")],-1),d={href:"https://juejin.cn/post/7157168950990766087",target:"_blank",rel:"noopener noreferrer"},k=c(`<ul><li>安装 <code>postcss-px-to-viewport-8-plugin</code> 包。</li></ul><div class="language-npm line-numbers-mode" data-ext="npm"><pre class="language-npm"><code>npm i --save-dev postcss-px-to-viewport-8-plugin
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul><li>在 <code>vite.config.ts</code> 中配置 PostCSS。</li></ul><div class="language-typescript line-numbers-mode" data-ext="ts"><pre class="language-typescript"><code><span class="token keyword">import</span> postcssPxToViewport <span class="token keyword">from</span> <span class="token string">&#39;postcss-px-to-viewport-8-plugin&#39;</span>
+
+<span class="token keyword">const</span> pxToVw <span class="token operator">=</span> <span class="token function">postcssPxToViewport</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  unitToConvert<span class="token operator">:</span> <span class="token string">&#39;px&#39;</span><span class="token punctuation">,</span>
+  viewportWidth<span class="token operator">:</span> <span class="token number">375</span><span class="token punctuation">,</span>
+  unitPrecision<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  propList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;*&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  viewportUnit<span class="token operator">:</span> <span class="token string">&#39;vw&#39;</span><span class="token punctuation">,</span>
+  fontViewportUnit<span class="token operator">:</span> <span class="token string">&#39;vw&#39;</span><span class="token punctuation">,</span>
+  selectorBlackList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  minPixelValue<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  mediaQuery<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  exclude<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">node_modules</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  css<span class="token operator">:</span> <span class="token punctuation">{</span>
+    postcss<span class="token operator">:</span> <span class="token punctuation">{</span>
+      plugins<span class="token operator">:</span> <span class="token punctuation">[</span>pxToVw<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,4);function v(m,b){const a=i("ExternalLinkIcon");return t(),p("div",null,[r,u,n("blockquote",null,[n("p",null,[s("Reference: "),n("a",d,[s("在 Vite 中使用 postcss-px-to-viewport"),o(a)])])]),k])}const g=e(l,[["render",v],["__file","index.html.vue"]]);export{g as default};
