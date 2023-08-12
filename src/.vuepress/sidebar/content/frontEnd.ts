@@ -216,7 +216,12 @@ const frontEnd = {
       text: 'Webpack',
       collapsible: true,
       prefix: 'webpack/',
-      children: [],
+      children: [
+        'init/',
+        'mode/',
+        'style/',
+        'access_less_variable',
+      ],
     },
     {
       text: 'Vite',
