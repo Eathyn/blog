@@ -1,6 +1,7 @@
 import { sidebar } from "vuepress-theme-hope";
 import solution from './content/solution'
 import frontEnd from './content/frontEnd'
+import backEnd from './content/backEnd'
 import cs from './content/cs'
 import tool from './content/tool'
 import english from './content/english'
@@ -22,16 +23,21 @@ const sideBar = sidebar({
   '/front_end/uniapp': frontEnd.uniapp,
   '/front_end/package_manager': frontEnd.packageManager,
   '/front_end/bundler': frontEnd.bundler,
+  '/front_end/engineering': frontEnd.engineering,
+
+  // back end
+  '/back_end/node': backEnd.node,
 
   // computer science
   '/cs/dsa/': cs.dsa,
   '/cs/network': cs.network,
+  '/cs/database': cs.database,
   '/cs/others/': cs.others,
 
   // tool
   '/tool/git': tool.git,
-  '/tool/node': tool.node,
   '/tool/blog': tool.blog,
+  '/tool/common': tool.common,
 
   // english
   '/english/speaking': english.speaking,

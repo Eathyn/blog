@@ -24,12 +24,11 @@ const tool = {
     'pull/',
     'revert/',
   ],
-  node: [
-    'lock_node_version/',
-    'lock_package_manager/',
-  ],
   blog: [
     'create_blog/',
+  ],
+  common: [
+    'tree_directory/',
   ],
 }
 
