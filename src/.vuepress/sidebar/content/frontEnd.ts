@@ -232,6 +232,12 @@ const frontEnd = {
       ],
     }
   ],
+  engineering: [
+    'browserslist/',
+    'bem/',
+    'sass/',
+    'postcss/',
+  ],
   miniProgram: [
     'navigation/',
     'component_communication/',
