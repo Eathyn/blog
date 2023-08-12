@@ -53,6 +53,7 @@ const frontEnd = {
     'transform/',
     'transition/',
     'animation/',
+    'staging_process/',
   ],
   html: [
     'defer_vs_async/',
