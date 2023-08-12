@@ -2,6 +2,7 @@ import { navbar } from "vuepress-theme-hope"
 import access from './content/access'
 import solution from './content/solution'
 import frontEnd from './content/frontEnd'
+import backEnd from './content/backEnd'
 import cs from './content/cs'
 import tool from './content/tool'
 import english from './content/english'
@@ -28,6 +29,13 @@ const navBar = navbar([
     text: 'Front End',
     prefix: '/front_end',
     children: frontEnd
+  },
+
+  // Back End
+  {
+    text: 'Back End',
+    prefix: '/back_end',
+    children: backEnd,
   },
 
   // Computer Science
