@@ -124,6 +124,19 @@ const network = [
   'tcp/three_handshakes_four_waves/',
 ]
 
+/* ----------------------------- database ------------------------------ */
+
+const database = [
+  {
+    text: 'PostgreSQL',
+    collapsible: true,
+    prefix: 'postgresql/',
+    children: [
+      'query_data/',
+    ],
+  },
+]
+
 /* ----------------------------- others ------------------------------- */
 
 const others = [
@@ -137,6 +150,7 @@ const others = [
 const cs = {
   dsa,
   network,
+  database,
   others,
 }
 
