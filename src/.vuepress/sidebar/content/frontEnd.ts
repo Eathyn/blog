@@ -135,6 +135,8 @@ const frontEnd = {
       ],
     },
     'storage/',
+    'rendering_engine/',
+    'vendor_prefix/',
   ],
   vue: [
     'debounce_throttle_in_vue/',
