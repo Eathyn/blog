@@ -237,6 +237,7 @@ const frontEnd = {
     'bem/',
     'sass/',
     'postcss/',
+    'stylelint/',
   ],
   miniProgram: [
     'navigation/',
