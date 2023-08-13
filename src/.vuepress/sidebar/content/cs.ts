@@ -133,6 +133,7 @@ const database = [
     prefix: 'postgresql/',
     children: [
       'query_data/',
+      'filter_data/',
     ],
   },
 ]
