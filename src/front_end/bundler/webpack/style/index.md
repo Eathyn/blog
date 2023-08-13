@@ -9,7 +9,8 @@ category: webpack
 
 - HTML 模板：使用 `html-webpack-plugin` 生成 html 文件，并自动引入打包文件和样式文件。
 - 识别：使用 `style-loader`、`css-loader`、`less-loader`、`sass-loader` 识别和处理样式文件。
-- PostCSS：使用 `postcss-loader` 解决兼容性和 CSS 格式校验等操作。
+- PostCSS：使用 `postcss-loader` 解决浏览器兼容性等。参考 [文章](/blog/front_end/engineering/postcss/)
+- Stylelint：使用 `stylelint` 发现样式中的错误。参考 [文章](/blog/front_end/engineering/stylelint/)。
 - 提取：使用 `mini-css-extract-plugin` 将样式提取到单独的 CSS 文件。
 - 优化和压缩：使用 `css-minimizer-webpack-plugin` 优化和压缩 CSS 文件。
 
@@ -116,5 +117,5 @@ function generatePlugins(devMode) {
 ```
 
 ::: warning
-除了配置 `webpack.config.js`，还需要配置 `postcss.config.js`、`.browserslistrc` 等文件，具体参见 [源码](https://github.com/Eathyn/webpack-config/tree/style)。
+使用 PostCSS 和 Stylelint 除了 `webpack.config.js`，还需要创建和配置其他文件。具体参见 [源码](https://github.com/Eathyn/webpack-config/tree/style)。
 :::
