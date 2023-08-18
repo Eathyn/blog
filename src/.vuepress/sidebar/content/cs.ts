@@ -134,6 +134,7 @@ const database = [
     children: [
       'query_data/',
       'filter_data/',
+      'join_tables/',
     ],
   },
 ]
