@@ -220,6 +220,7 @@ const frontEnd = {
         'init/',
         'mode/',
         'style/',
+        'image/',
         'access_less_variable',
       ],
     },
