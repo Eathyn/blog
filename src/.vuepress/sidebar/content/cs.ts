@@ -136,6 +136,7 @@ const database = [
       'filter_data/',
       'join_tables/',
       'group_data/',
+      'set_operation/',
     ],
   },
 ]
