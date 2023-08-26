@@ -240,6 +240,7 @@ const frontEnd = {
     'sass/',
     'postcss/',
     'stylelint/',
+    'babel/',
   ],
   miniProgram: [
     'navigation/',
