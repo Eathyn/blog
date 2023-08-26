@@ -221,6 +221,7 @@ const frontEnd = {
         'mode/',
         'style/',
         'image/',
+        'babel/',
         'access_less_variable',
       ],
     },
