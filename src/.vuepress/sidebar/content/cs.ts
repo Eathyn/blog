@@ -137,6 +137,8 @@ const database = [
       'join_tables/',
       'group_data/',
       'set_operation/',
+      'multiple_grouping_sets/',
+      'sub_query/',
     ],
   },
 ]
