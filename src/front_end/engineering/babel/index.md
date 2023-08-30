@@ -10,11 +10,11 @@ category: Babel
 - 将 JavaScript 转化为低版本的 JavaScript。
 - 添加 Polyfill。
 
-## cli
+## @babel/cli
 
 - `@babel/cli`：允许开发者在终端使用 Babel。
 
-## preset env
+## @babel/preset-env
 
 > Reference: [@babel/preset-env](https://babeljs.io/docs/babel-preset-env)
 
@@ -26,28 +26,29 @@ category: Babel
 
 - `@babel/preset-env` 不支持 Stage 3 以下的特性，因为这些特性浏览器还未实现。
 
-## transform runtime
+### useBuiltIns
+
+- `useBuiltIns: entry`：根据要支持的浏览器种类和版本导入全部 polyfill。需要在入口文件引入 `core-js`。
+- `useBuiltIns: usage`：根据要支持的浏览器种类和版本导入需要的 polyfill。
+- `useBuiltIns: false`：不添加 polyfill。
+
+## @babel/plugin-transform-runtime
 
 > Reference: [@babel/plugin-transform-runtime](https://babeljs.io/docs/babel-plugin-transform-runtime#why)
 
-- 作用：使用 `@babel/plugin-transform-runtime` 可以从 `runtime-corejs3` 包中引入工具函数。否则 Babel 会为每个 JavaScript 文件中定义工具函数，这样会增加打包体积。
+- 作用：可以从 `runtime-corejs3` 包中引入工具函数，以此实现语法和 API。如果不使用 `@babel/plugin-transform-runtime`，那么 Babel 会在每个 JavaScript 文件中定义工具函数，这样会增加打包体积：
 
-::: code-tabs
-@tab Before
 ```javascript
-function _typeof(obj) {}
-function _defineProperties(target, props) {}
-function _createClass(Constructor, protoProps, staticProps) {}
-function _classCallCheck(instance, Constructor) {}
-// ...
-```
+"use strict";
 
-@tab After
-```javascript
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+
+// 转换语法
+var _promise = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/promise"));
+// 实现 API
 var _includes = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/includes"));
-var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
-// ...
+
+var promise = new _promise["default"]();
+var arr = [1, 2, 3];
+(0, _includes["default"])(arr).call(arr, 2);
 ```
-:::
