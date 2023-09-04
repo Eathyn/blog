@@ -140,6 +140,7 @@ const database = [
       'multiple_grouping_sets/',
       'sub_query/',
       'common_table_expressions/',
+      'modify_data/',
     ],
   },
 ]
