@@ -141,6 +141,7 @@ const database = [
       'sub_query/',
       'common_table_expressions/',
       'modify_data/',
+      'transaction/',
     ],
   },
 ]
