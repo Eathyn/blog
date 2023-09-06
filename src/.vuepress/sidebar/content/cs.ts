@@ -142,6 +142,7 @@ const database = [
       'common_table_expressions/',
       'modify_data/',
       'transaction/',
+      'csv_file/',
     ],
   },
 ]
