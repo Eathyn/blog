@@ -222,7 +222,7 @@ const frontEnd = {
         'style/',
         'image/',
         'babel/',
-        'access_less_variable',
+        'access_less_variable/',
       ],
     },
     {
