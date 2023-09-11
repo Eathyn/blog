@@ -241,6 +241,7 @@ const frontEnd = {
     'postcss/',
     'stylelint/',
     'babel/',
+    'eslint/',
   ],
   miniProgram: [
     'navigation/',
