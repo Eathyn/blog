@@ -223,6 +223,7 @@ const frontEnd = {
         'image/',
         'babel/',
         'access_less_variable/',
+        'eslint/',
       ],
     },
     {
