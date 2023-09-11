@@ -243,6 +243,7 @@ const frontEnd = {
     'stylelint/',
     'babel/',
     'eslint/',
+    'prettier/',
   ],
   miniProgram: [
     'navigation/',
