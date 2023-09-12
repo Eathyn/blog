@@ -224,6 +224,7 @@ const frontEnd = {
         'babel/',
         'access_less_variable/',
         'eslint/',
+        'prettier/',
       ],
     },
     {
