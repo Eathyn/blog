@@ -225,6 +225,7 @@ const frontEnd = {
         'access_less_variable/',
         'eslint/',
         'prettier/',
+        'webpack-dev-server/',
       ],
     },
     {
