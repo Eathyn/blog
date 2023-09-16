@@ -143,6 +143,7 @@ const database = [
       'modify_data/',
       'transaction/',
       'csv_file/',
+      'manage_table/',
     ],
   },
 ]
