@@ -226,6 +226,7 @@ const frontEnd = {
         'eslint/',
         'prettier/',
         'webpack-dev-server/',
+        'source_map/',
       ],
     },
     {
