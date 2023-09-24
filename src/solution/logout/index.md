@@ -16,9 +16,9 @@ tag: 登出
 
 ## Code
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item Navbar.vue
+@tab Navbar.vue
 ```vue
 <script>
 export default {
@@ -31,10 +31,8 @@ export default {
 }
 </script>
 ```
-:::
 
-::: code-group-item user.js
-
+@tab user.js
 ```js
 const actions = {
   logout({ commit, state, dispatch }) {
@@ -57,10 +55,5 @@ const actions = {
   }
 }
 ```
-:::
-
-::: code-group-item
 
 :::
-
-::::

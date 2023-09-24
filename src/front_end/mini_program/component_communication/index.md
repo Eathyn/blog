@@ -13,21 +13,19 @@ tag: 组件通信
 - 父组件为子组件设置属性
 - 子组件通过 `properties` 接收
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item tabOne.wxml
+@tab tabOne.wxml
 ```html
 <custom-comp num="{{ 1 }}" />
 ```
-:::
 
-::: code-group-item custom-comp.wxml
+@tab custom-comp.wxml
 ```html
 <view>number form parent: {{ num }}</view>
 ```
-:::
 
-::: code-group-item custom-comp.js
+@tab custom-comp.js
 ```js
 Component({
   properties: {
@@ -38,24 +36,22 @@ Component({
   },
 })
 ```
-:::
 
-::::
+:::
 
 ### selectComponent
 
 - 父组件通过 `selectComponent` 获取子组件实例
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item tabOne.wxml
+@tab tabOne.wxml
 ```html
 <custom-comp class="child" />
 <button bind:tap="getChildInstance">get child instance</button>
 ```
-:::
 
-::: code-group-item tabOne.js
+@tab tabOne.js
 ```js
 Page({
   getChildInstance() {
@@ -63,9 +59,8 @@ Page({
   },
 })
 ```
-:::
 
-::::
+:::
 
 ## 子组件 -> 父组件
 
@@ -74,15 +69,14 @@ Page({
 - 子组件通过 `triggerEvent` 向父组件发送事件和数据
 - 父组件监听事件，从 `event.detail` 中获取数据
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item custom-comp.wxml
+@tab custom-comp.wxml
 ```html
 <button bind:tap="handleTap">send data to parent</button>
 ```
-:::
 
-::: code-group-item custom-comp.js
+@tab custom-comp.js
 ```js
 Component({
   methods: {
@@ -92,19 +86,17 @@ Component({
   },
 })
 ```
+
 :::
 
-::::
+::: code-tabs
 
-:::: code-group
-
-::: code-group-item tabOne.wxml
+@tab tabOne.wxml
 ```html
 <custom-comp bind:send="handleSend" />
 ```
-:::
 
-::: code-group-item tabOne.js
+@tab tabOne.js
 ```js
 Page({
   handleSend(evt) {
@@ -113,9 +105,8 @@ Page({
   },
 })
 ```
-:::
 
-::::
+:::
 
 ## 兄弟组件 -> 兄弟组件
 
@@ -124,16 +115,15 @@ Page({
 
 _Parent_
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item parent.wxml
+@tab parent.wxml
 ```html
 <ChildOne bind:send="passDataToChildTwo" />
 <ChildTwo a="{{ a }}" />
 ```
-:::
 
-::: code-group-item parent.js
+@tab parent.js
 ```js
 Component({
   data: {
@@ -150,21 +140,19 @@ Component({
   },
 })
 ```
-:::
 
-::::
+:::
 
 _Child One_
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item child-one.wxml
+@tab child-one.wxml
 ```html
 <button bind:tap="passData">pass data to child two</button>
 ```
-:::
 
-::: code-group-item child-one.js
+@tab child-one.js
 ```js
 Component({
   methods: {
@@ -174,21 +162,19 @@ Component({
   },
 })
 ```
-:::
 
-::::
+:::
 
 _Child Two_
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item child-two.wxml
+@tab child-two.wxml
 ```html
 <view>a: {{ a }}</view>
 ```
-:::
 
-::: code-group-item child-two.js
+@tab child-two.js
 ```js
 Component({
   properties: {
@@ -199,9 +185,8 @@ Component({
   }
 })
 ```
-:::
 
-::::
+:::
 
 ## 全局
 
@@ -231,18 +216,17 @@ export const store = observable({
 
 _Component_
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item access-data.wxml
+@tab access-data.wxml
 ```html
 <view>access data component</view>
 <view>count: {{ count }}</view>
 <view>double count: {{ doubleCount }}</view>
 <button bind:tap="increment">increment</button>
 ```
-:::
 
-::: code-group-item access-data.js
+@tab access-data.js
 ```js
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
 import { store } from '../../store/index.js'
@@ -270,7 +254,6 @@ Component({
   },
 })
 ```
-:::
 
 ::::
 

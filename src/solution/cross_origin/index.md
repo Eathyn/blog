@@ -15,9 +15,9 @@ tag: 跨域
 
 - 适合开发环境
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item webpack
+@tab webpack
 ```js
 module.exports = {
   // ...
@@ -35,7 +35,7 @@ module.exports = {
 ```
 :::
 
-::: code-group-item vite
+@tab vite
 ```ts
 export default defineConfig({
   // ...
@@ -51,9 +51,8 @@ export default defineConfig({
   // ...
 })
 ```
-:::
 
-::::
+:::
 
 ## Nginx
 
