@@ -144,6 +144,7 @@ const database = [
       'transaction/',
       'csv_file/',
       'manage_table/',
+      'constrain/',
     ],
   },
 ]
