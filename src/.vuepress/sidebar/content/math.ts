@@ -1,4 +1,13 @@
 const math = {
+  discreteMathematics: [
+    {
+      text: 'Complexity',
+      collapsible: true,
+      children: [
+        'time_complexity/',
+      ],
+    },
+  ],
   numbers: [
     {
       text: '数字',

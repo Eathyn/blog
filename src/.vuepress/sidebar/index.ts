@@ -44,6 +44,7 @@ const sideBar = sidebar({
   '/english/reading': english.reading,
 
   // math
+  '/math/discrete_mathematics': math.discreteMathematics,
   '/math/numbers': math.numbers,
 });
 
