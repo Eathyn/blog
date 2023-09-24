@@ -227,6 +227,7 @@ const frontEnd = {
         'prettier/',
         'webpack-dev-server/',
         'source_map/',
+        'split_chunk/',
       ],
     },
     {
