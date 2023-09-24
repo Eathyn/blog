@@ -111,7 +111,7 @@ const dsa = [
 /* ----------------------------- network ------------------------------ */
 
 const network = [
-  'authentication/cookie/',
+  'cookie/',
   'authentication/session/',
   'authentication/jwt/',
   'http/headers/',
