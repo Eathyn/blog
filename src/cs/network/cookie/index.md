@@ -76,7 +76,23 @@ document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
 
 ### secure
 
+> Ref:
+>   - [secure option](https://javascript.info/cookie#secure)
+>   - [secure option works on localhost](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies:~:text=HTTP%20(except%20on-,localhost,-)%2C%20which%20means%20man)
+
+- 将 `secure` 设置为 `true` 之后，cookie 只能在使用 `HTTPS` 协议的网站（除了 `localhost`）上保存和发送。
+
 ### samesite
+
+> Ref: 
+>   - [samesite option](https://javascript.info/cookie#samesite)
+>   - [samesite option](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#:~:text=current%20document%20location.-,%3Bsamesite,-%3A%20SameSite%20prevents)
+
+- `samesite` 选项可以避免跨站请求伪造（Cross-Site Request Forgery, CSRF）攻击。
+
+- `samesite: 'none'` 表示 cookie 可以在同站（same-site）或跨站（cross-site）中传输。
+- `samesite: 'lax'` 表示 cookie 可以在同站（same-site）或跨站（cross-site）中传输，跨站请求传输的要求是请求必须是安全的（例如：GET）并且执行的是顶级导航（top-level navigation）操作（即：在浏览器的地址栏中改变 URL）。
+- `samesite: 'strict'` 表示 cookie 只能在同站（same-site）中传输。
 
 ### http-only
 
