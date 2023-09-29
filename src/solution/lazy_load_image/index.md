@@ -6,9 +6,9 @@ tag: 图片懒加载
 
 # 图片懒加载
 
-## 原因
+## 优点
 
-_[参考](https://wp-rocket.me/blog/lazyloading/#section-2)_
+> Ref: [图片懒加载的优点](https://wp-rocket.me/blog/lazyloading/#section-2)
 
 - 减少网页加载时间
 - 减少浏览器的工作
@@ -16,23 +16,36 @@ _[参考](https://wp-rocket.me/blog/lazyloading/#section-2)_
 - 减少服务器或 CDN 的压力
 - 减少带宽
 
+## 方案
+
+- scroll event
+- intersection observer api
+- `loading` attribute of `img` element
+- libraries
+
 ## Scroll
 
 ### 前置知识
 
 _getBoundingClientRect API_
 
-`getBoundingClientRect` 返回一个包含了该元素的一系列信息的对象。我们从这个对象中可以获取到该元素的位置信息，如下图所示，通过 `x`/`left` 属性可以获取到视口左边到元素左边的距离；通过 `y`/`top` 属性可以获取到视口顶边到元素顶边的距离。注意：`x`、`y`、`top`、`left` 都是相对于视口，不是相对于整个文档。如果 `top <= 0`，说明元素的顶边在视口顶边的上方或与视口顶边重合，此时无法看见元素的顶边。如果 `top > 0`，说明元素的顶边在视口中或视口的下方，此时可能可以看到元素的顶边。[link](https://javascript.info/coordinates#element-coordinates-getboundingclientrect)
+> Ref: [getBoundingClientRect API](https://javascript.info/coordinates#element-coordinates-getboundingclientrect)
 
-![getBoundingClientRect](./images/getBoundingClientRect.png)
+- `getBoundingClientRect` 返回一个包含了该元素的一系列信息的对象。我们从这个对象中可以获取到该元素的位置信息，如下图所示，通过 `x`/`left` 属性可以获取到视口左边到元素左边的距离；通过 `y`/`top` 属性可以获取到视口顶边到元素顶边的距离。注意：`x`、`y`、`top`、`left` 都是相对于视口，不是相对于整个文档。如果 `top <= 0`，说明元素的顶边在视口顶边的上方或与视口顶边重合，此时无法看见元素的顶边。如果 `top > 0`，说明元素的顶边在视口中或视口的下方，此时可能可以看到元素的顶边。
+
+![getBoundingClientRect API](./images/getBoundingClientRect.png =x350)
 
 _window.innerHeight_
 
-- 使用 `window.innerHeight` 可以获取视口的高度。[link](https://javascript.info/size-and-scroll-window#width-height-of-the-window)
+> Ref: [window.innerHeight](https://javascript.info/size-and-scroll-window#width-height-of-the-window)
+
+- 使用 `window.innerHeight` 可以获取视口的高度。
 
 _dataset_
 
-- `<div class="test"></div>` 中的 `class` 是标准的属性。开发者可以使用 `data-属性名` 的格式定义非标准的属性，并通过 `dataset` 可以获取非标准属性和对应值。例子如下：
+> Ref: [dataset](https://javascript.info/dom-attributes-and-properties#non-standard-attributes-dataset)
+
+- `<div class="test"></div>` 中的 `class` 是标准的属性。开发者可以使用 `data-属性名` 的格式定义非标准的属性，并通过 `dataset` 可以获取非标准属性和对应值：
 
 ```html
 <!-- name 是非标准属性 -->
@@ -46,7 +59,9 @@ _dataset_
 
 ### 原理
 
-使用 `getBoundingClientRect` 获取元素的位置信息；使用 `window.innerHeight` 获取视口高度。对比元素位置信息和视口高度判断出元素的顶边或底边是否出现在视口中。如果元素出现在视口中，则将图片的地址从 `dataset` 中取出，赋值给 `src` 属性，就可以加载图片了。[link](https://javascript.info/onscroll#load-visible-images)
+> Ref: [图片懒加载原理](https://javascript.info/onscroll#load-visible-images)
+
+使用 `getBoundingClientRect` 获取元素的位置信息；使用 `window.innerHeight` 获取视口高度。对比元素位置信息和视口高度判断出元素的顶边或底边是否出现在视口中。如果元素出现在视口中，则将图片的地址从 `dataset` 中取出，赋值给 `src` 属性，就可以加载图片了。
 
 ```html
 <img
@@ -54,6 +69,7 @@ _dataset_
   data-src="https://en.js.cx/clipart/solar/planets.jpg"
   width="640"
   height="360"
+  alt=""
 >
 ```
 
@@ -119,19 +135,21 @@ window.addEventListener('scroll', _.throttle(loadImage, 200))
 
 ### 完整代码
 
-[代码链接](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/scroll-event)
+> Ref: [Source Code](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/scroll-event)
 
-_代码_
-
+::: code-tabs
+@tab HTML
 ```html
 <img
   src="placeholder.svg"
   data-src="https://en.js.cx/clipart/solar/planets.jpg"
   width="640"
   height="360"
+  alt=""
 >
 ```
 
+@tab JavaScript
 ```js
 // 判断图片是否进入视口
 function isVisible(elem) {
@@ -165,6 +183,7 @@ function loadImage() {
 loadImage()
 window.addEventListener('scroll', _.throttle(loadImage, 200))
 ```
+:::
 
 ## Intersection Observer
 
@@ -172,37 +191,42 @@ window.addEventListener('scroll', _.throttle(loadImage, 200))
 
 _IntersectionObserver API_
 
+> Ref: [IntersectionObserver API](https://blog.webdevsimplified.com/2022-01/intersection-observer/)
+
 `IntersectionObserver` 可以监听元素是否进入视口。代码如下：当元素进入视口后，在控制台打印 `item entered the viewport`。
 
+::: code-tabs
+@tab HTML
 ```html
 <div class="item"></div>
-
-<style>
-  .item {
-    width: 100px;
-    height: 100px;
-    background-color: indianred;
-    position: absolute;
-    top: 800px;
-  }
-</style>
-
-<script>
-  const item = document.querySelector('.item')
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        console.log('item entered the viewport')
-      }
-    })
-  })
-  observer.observe(item)
-</script>
 ```
 
-![intersectionObserver API](./images/intersectionObserver.gif)
+@tab CSS
+```css
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: indianred;
+  position: absolute;
+  top: 800px;
+}
+```
 
-`IntersectionObserver` 还可以设置 `threshold`、`rootMargin`、`root` 选项，详细可看这篇[文章](https://blog.webdevsimplified.com/2022-01/intersection-observer/)。
+@tab JavaScript
+```javascript
+const item = document.querySelector('.item')
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log('item entered the viewport')
+    }
+  })
+})
+observer.observe(item)
+```
+:::
+
+![intersectionObserver API](./images/intersectionObserver.gif =x400)
 
 ### 原理
 
@@ -214,6 +238,7 @@ _IntersectionObserver API_
   data-src="https://en.js.cx/clipart/solar/saturn.jpg"
   width="805"
   height="390"
+  alt=""
 >
 
 <script>
@@ -266,17 +291,21 @@ const observer = new IntersectionObserver(
 
 ### 完整代码
 
-[代码链接](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/intersection-observer-api)
+> Ref: [Source Code](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/intersection-observer-api)
 
+::: code-tabs
+@tab HTML
 ```html
 <img
   src="placeholder.svg"
   data-src="https://en.js.cx/clipart/solar/saturn.jpg"
   width="805"
   height="390"
+  alt=""
 >
 ```
 
+@tab JavaScript
 ```js
 const observer = new IntersectionObserver(
   (entries, observer) => {
@@ -296,6 +325,7 @@ const observer = new IntersectionObserver(
 const images = document.querySelectorAll('img[data-src]')
 images.forEach((image) => observer.observe(image))
 ```
+:::
 
 ## Loading Attribute
 
@@ -305,9 +335,9 @@ images.forEach((image) => observer.observe(image))
 
 ### 完整代码
 
-[代码链接](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/native-attribute)
+> Refs: [Source Code](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/native-attribute)
 
-```html
+```html {6}
 <img
   src="https://en.js.cx/clipart/solar/planets.jpg"
   width="640"
@@ -323,8 +353,6 @@ images.forEach((image) => observer.observe(image))
 
 ## Custom Plugin and Directive in Vue
 
-[源码](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/vue-plugin)
-
 ### 前置知识
 
 - vue plugin
@@ -332,9 +360,9 @@ images.forEach((image) => observer.observe(image))
 
 ### 原理
 
-如果使用 Vue.js 作为框架，那么可以使用插件进行封装，方便在多个组件中使用。
+- 如果使用 Vue.js 作为框架，那么可以使用插件进行封装，方便在多个组件中使用。
 
-在插件中，我创建了自定义指令 `v-lazy`。在 `created` 钩子中设置真实图片的 URL 和占位符图片；在 `mounted` 钩子中根据浏览器的兼容性，使用 `IntersectionObserver` 或滚动事件处理图片懒加载问题。代码如下：
+- 在插件中，我创建了自定义指令 `v-lazy`。在 `created` 钩子中设置真实图片的 URL 和占位符图片；在 `mounted` 钩子中根据浏览器的兼容性，使用 `IntersectionObserver` 或滚动事件处理图片懒加载问题。代码如下：
 
 ```js
 const lazyLoad = {
@@ -370,9 +398,14 @@ const lazyLoad = {
     v-lazy="'https://en.js.cx/clipart/solar/planets.jpg'"
     height="360"
     width="640"
+    alt=""
   >
 </template>
 ```
+
+### 完整代码
+
+> Ref: [Source Code](https://github.com/Eathyn/lazy-load-image-solutions/tree/main/vue-plugin)
 
 ## Refs
 
