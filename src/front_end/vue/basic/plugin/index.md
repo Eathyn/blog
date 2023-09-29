@@ -8,7 +8,33 @@ tag:
 
 # Plugins
 
-插件（plugin）是一个拥有 install 方法的对象（或者就是一个 install 方法），在插件中可以定义一些全局组件、指令、属性等。
+- 插件（plugin）用于添加应用级别的（app-level）功能，例如 Vue Router。
+
+- 插件是一个拥有 install 方法的对象（或者就是一个 install 方法），在插件中可以定义一些全局组件、指令、属性等。
+
+- Vue 通过 `app.use()` 引入插件：
+
+::: code-tabs
+@tab define plugin
+```javascript
+export const myPlugin = {
+  install(app, options) {
+    // configure the app
+  }
+}
+```
+
+@tab use plugin
+```javascript
+import { createApp } from 'vue'
+
+const app = createApp({})
+
+app.use(myPlugin, {
+  // options
+})
+```
+:::
 
 ## Resources
 
