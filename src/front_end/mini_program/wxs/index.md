@@ -10,7 +10,7 @@ tag: WXS
 
 - 小程序的运行环境分为渲染层和逻辑层，它们分别由两个线程管理。渲染层由 `WebView` 渲染，逻辑层由 `JS core` 线程运行 JS。`WXML` 和 `WXSS` 运行在渲染层，`JS` 运行在逻辑层，渲染层与逻辑层的通信通过微信客户端转发
 
-![communication](./images/communication.png)
+![communication](./images/communication.png =x400)
 
 - 跨线程通信成本较高，不适合频繁通信的场景。`WXS` 可以看作是运行在 `WebView` 中的 `JS`，优点是不需要跨线程通信
 
