@@ -293,7 +293,6 @@ body {
 	padding-left: constant(safe-area-inset-left);
 	padding-left: env(safe-area-inset-left);
 
-
 	padding-right: constant(safe-area-inset-right);
 	padding-right: env(safe-area-inset-right);
 
