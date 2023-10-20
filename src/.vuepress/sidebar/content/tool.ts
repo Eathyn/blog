@@ -23,6 +23,7 @@ const tool = {
     'clone/',
     'pull/',
     'revert/',
+    'switch/',
   ],
   blog: [
     'create_blog/',
