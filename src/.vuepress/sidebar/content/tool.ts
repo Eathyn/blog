@@ -24,6 +24,7 @@ const tool = {
     'pull/',
     'revert/',
     'switch/',
+    'push/',
   ],
   blog: [
     'create_blog/',
