@@ -121,11 +121,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'Home',
-    component: () => import('@/pages/Home.vue')
+    component: () => import('@/views/Home.vue')``
   },
   {
     path: '/404',
-    component: () => import('@/pages/404.vue'),
+    component: () => import('@/views/404.vue'),
   },
   {
     path: '/:pathMatch(.*)*',
@@ -173,6 +173,73 @@ app.mount('#app')
 ```
 :::
 
+## Pinia
+
+### 安装
+
+```bash
+npm install pinia
+```
+
+### 使用
+
+::: code-tabs
+@tab src/store/counter.ts
+```typescript
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
+
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const doubleCount = computed(() => count.value * 2)
+
+  function increment() {
+    count.value++
+  }
+
+  return {
+    count,
+    doubleCount,
+    increment,
+  }
+})
+```
+
+@tab src/main.ts
+```typescript {2,7,11}
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import './style.css'
+import router from '@/router'
+import App from './App.vue'
+
+const pinia = createPinia()
+const app = createApp(App)
+
+app.use(router)
+app.use(pinia)
+app.mount('#app')
+```
+
+@tab src/views/Home.vue
+```vue
+<script setup lang="ts">
+import { useCounterStore } from '@/store/counter.ts'
+import { storeToRefs } from 'pinia'
+
+const store = useCounterStore()
+const { count, doubleCount } = storeToRefs(store)
+</script>
+
+<template>
+  <div>home</div>
+  <div>count: {{ count }}</div>
+  <div>double count: {{ doubleCount }}</div>
+  <button @click="store.increment">increment</button>
+</template>
+```
+:::
+
 ## Vuex
 
 ### 安装
@@ -183,8 +250,8 @@ npm install vuex@next --save
 
 ### 使用
 
-_src/store/index.js_
-
+::: code-tabs
+@tab src/store/index.js
 ```js
 import { createStore } from 'vuex'
 import count from '@/store/modules/count.js'
@@ -198,8 +265,7 @@ const store = createStore({
 export default store
 ```
 
-_src/store/modules/count.js_
-
+@tab src/store/modules/count.js
 ```js
 const count = {
   state() {
@@ -226,6 +292,7 @@ const count = {
 
 export default count
 ```
+:::
 
 ## Element UI
 
