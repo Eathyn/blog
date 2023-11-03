@@ -101,3 +101,16 @@ npm install --save-dev eslint
 ```
 
 - 如果将 `env.browser` 设置为 `false`，并在 JS 文件中使用了全局变量 `Window`，那么 ESLint 就会报错：`ESLint: 'Window' is not defined.(no-undef)`。
+
+## Command Line Interface
+
+### --ext
+
+> Reference: [--ext](https://eslint.org/docs/latest/use/command-line-interface#--ext)
+
+- `--ext` 的默认值为 `.js`，即 `npx eslint` 默认只识别 JS 文件。在 `--ext` 后面添加其他文件后缀可以让 ESLint 识别其他文件：
+
+```bash
+# 识别 js 和 vue 文件
+npx eslint <file or dir> --ext .js,.vue
+```
