@@ -94,7 +94,54 @@ git config --global core.safecrlf false
 
 ## Multiple SSH Keys
 
-> Reference: [Using Multiple SSH Keys](https://gist.github.com/aprilmintacpineda/f101bf5fd34f1e6664497cf4b9b9345f)
+> Reference: 
+> - [Using Multiple SSH Keys](https://gist.github.com/aprilmintacpineda/f101bf5fd34f1e6664497cf4b9b9345f)
+> - [Configure multiple SSH-keys for GIT on the same device](https://psychowhiz.medium.com/configuring-multiple-ssh-keys-for-git-on-the-same-device-41c29320e5fe)
+> - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+> - [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+- 根据[文档](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)生成 SSH Key 文件并添加到 SSH Agent。
+
+- 根据[文档](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)将公用的 SSH Key 保存到 GitHub。
+
+- 配置 `~/.ssh/config` 文件：
+
+```text
+# Eathyn GitHub Account
+Host eathyn
+    HostName github.com
+    # `id_ed25519_eathyn` 是文件 SSH key 的文件名
+    IdentityFile ~/.ssh/id_ed25519_eathyn
+
+# ZYB GitHub Account
+Host zyb
+    HostName github.com
+    # `id_ed25519_zyb` 是文件 SSH key 的文件名
+    IdentityFile ~/.ssh/id_ed25519_zyb
+```
+
+- 使用命令测试是否可以使用，如果返回 `Hi xxx! You've successfully authenticated`，则说明本地与源端连接成功：
+
+```bash
+# Eathyn
+ssh -vT git@eathyn
+
+# ZYB
+ssh -vT git@zyb
+```
+
+- 进行 Git 操作时，要将 `github.com` 改为 `~/.ssh/config` 文件中配置的 Host 值：
+
+```bash
+# before
+git clone git@github.com:liruifengv/daily-poetry-image.git
+
+# after
+git clone git@eathyn:liruifengv/daily-poetry-image.git
+
+# after
+git clone git@zyb:liruifengv/daily-poetry-image.git
+```
 
 ## Proxy
 
@@ -106,13 +153,10 @@ git config --global core.safecrlf false
 > - [config SSH proxy](https://gist.github.com/ozbillwang/005bd1dfc597a2f3a00148834ad3e551)
 > - [config SSH proxy](https://stackoverflow.com/a/6739420)
 
-- 在 `~/ssh/config` 文件中添加 `ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p` 命令。
+- 在 `~/.ssh/config` 文件中添加 `ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p` 命令。
 
 ```text
-# GitHub Eathyn
-ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
-
-# Github zheng-yb
+# Proxy
 ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
 ```
 
@@ -124,5 +168,5 @@ ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
 [http]
 	proxy = 127.0.0.1:10809
 [https]
-  proxy = 127.0.0.1:10809
+    proxy = 127.0.0.1:10809
 ```
