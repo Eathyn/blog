@@ -26,6 +26,16 @@ const tool = {
     'switch/',
     'push/',
   ],
+  debug: [
+    {
+      text: 'Chrome',
+      prefix: 'chrome/',
+      collapsible: true,
+      children: [
+        'emulate_focused/',
+      ],
+    },
+  ],
   blog: [
     'create_blog/',
   ],

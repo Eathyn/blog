@@ -36,6 +36,7 @@ const sideBar = sidebar({
 
   // tool
   '/tool/git': tool.git,
+  '/tool/debug': tool.debug,
   '/tool/blog': tool.blog,
   '/tool/common': tool.common,
 
