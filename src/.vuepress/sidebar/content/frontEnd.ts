@@ -229,6 +229,7 @@ const frontEnd = {
         'source_map/',
         'clean_cache/',
         'module_chunk_bundle/',
+        'hash/',
         'split_chunk/',
       ],
     },
