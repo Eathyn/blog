@@ -230,6 +230,7 @@ const frontEnd = {
         'clean_cache/',
         'module_chunk_bundle/',
         'hash/',
+        'filename_chunk-filename/',
         'split_chunk/',
       ],
     },
