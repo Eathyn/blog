@@ -17,7 +17,7 @@ category: webpack
 module.exports = {
   output: {
     filename: 'js/[name].[contenthash].bundle.js',
-    chunkFilename: 'js/[name].[chunkhash].chunk.js',
+    chunkFilename: 'js/[name].[contenthash].chunk.js',
   },
 }
 ```
