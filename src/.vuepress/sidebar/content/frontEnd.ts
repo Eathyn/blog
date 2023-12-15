@@ -233,6 +233,7 @@ const frontEnd = {
         'scope_hoisting/',
         'filename_chunk-filename/',
         'tree_shaking/',
+        'node_core_modules/',
         'split_chunk/',
       ],
     },
