@@ -232,6 +232,7 @@ const frontEnd = {
         'hash/',
         'scope_hoisting/',
         'filename_chunk-filename/',
+        'tree_shaking/',
         'split_chunk/',
       ],
     },
