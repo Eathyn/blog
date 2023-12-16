@@ -266,6 +266,222 @@ function fn(a, b) {
 
 - 待学习
 
+## Babel
+
+> Reference:
+> - [Webpack5 核心原理与应用实践: chapter28](https://juejin.cn/book/7115598540721618944?utm_source=course_list)
+
+Tree shaking 目前只支持 `ESM`，如果 Babel 将 `ESM` 转化为 `CommonJS`，Webpack 就无法使用 tree shaking。
+
+::: code-tabs
+@tab babel.config.js
+```js {6-7}
+module.exports = {
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // "modules": false // 表示保留 ESM，不将 ESM 转化为其他模块类型，例如 CommonJS
+        "modules": "commonjs" // 表示将 ESM 转化为 CommonJS，tree shaking 会因此失效
+      }
+    ]
+  ]
+}
+```
+
+@tab webpack.config.js
+```js
+module.exports = {
+  mode: 'development',
+  entry: {
+    entry_a: resolve(__dirname, 'src/entry_a.js'),
+  },
+  optimization: {
+    usedExports: true,
+    minimize: true,
+  },
+}
+```
+
+@tab entry_a.js
+```js
+import { fn1 } from './module_a'
+
+fn1()
+```
+
+@tab module_a.js
+```js
+export function fn1() {
+  return 1
+}
+
+export function fn2() {
+  return 2
+}
+```
+
+@tab output
+```js {9-11}
+(() => {
+  'use strict'
+  var e, r = {
+    './src/entry_a.js': (e, r, o) => {
+      (0, o('./src/module_a.js').fn1)()
+    }, './src/module_a.js': (e, r, o) => {
+      o('./node_modules/@babel/runtime-corejs3/core-js-stable/object/define-property.js')(r, '__esModule', {value: !0}), r.fn1 = function () {
+        return 1
+      }, r.fn2 = function () {
+        return 2
+      }
+    },
+  }, o = {}
+})()
+```
+:::
+
+如上代码所示，`modules: "commonjs"` 表示将 `ESM` 转化为 `CommonJS`，tree shaking 会因此失效，所以即使 `fn2` 没有使用，依然被打包进输出文件。
+
+最佳实践：如果不需要兼容不支持 ESM 的浏览器，就应该将 `modules` 设置为 `false`。如果需要支持，就将 `modules` 设置为默认值 `"auto"`。
+
+## ESM Package
+
+> Reference:
+> - [Webpack5 核心原理与应用实践: chapter28](https://juejin.cn/book/7115598540721618944?utm_source=course_list)
+> - [Publish your npm package as ES Module, and backward compatibility CommonJS](https://gist.github.com/aelbore/65a4d2e86c3326f36607db111a7b6887)
+
+- NPM 包最开始都是使用 CommonJS，因为 tree shaking 目前只支持 ESM，所以越来越多的包优先使用 ESM，而将 CommonJS 作为后备方案。下面对比一下 `lodash` 和 `lodash-es`（lodash 的 ESM 格式）打包后的文件大小：
+    
+::: code-tabs
+@tab lodash
+```js
+const { add } = require('lodash')
+console.log(add(1, 2))
+```
+
+@tab lodash-es
+```js
+import { add } from 'lodash-es'
+console.log(add(1, 2))
+```
+:::
+
+![打包 lodash 和 lodash-es 后的大小对比](./_images/commonjs_esm_comparison.png)
+
+## Dynamic Import
+
+dynamic import 默认无法使 tree shaking 生效：
+
+::: code-tabs
+@tab webpack.config.js
+```js
+module.exports = {
+  mode: 'development',
+  entry: {
+    entry_a: resolve(__dirname, 'src/entry_a.js'),
+  },
+  optimization: {
+    splitChunks: {
+      minSize: 0,
+      chunks: 'all',
+    },
+    usedExports: true,
+    minimize: true,
+  },
+}
+```
+
+@tab entry_a.js
+```js {1}
+import('./module_a')
+  .then((module) => {
+    module.fn1()
+  })
+```
+
+@tab module_a.js
+```js
+export function fn1() {
+  return 1
+}
+
+export function fn2() {
+  return 2
+}
+```
+
+@tab output
+```js {3-9}
+(self.webpackChunkwebpack_performance = self.webpackChunkwebpack_performance || []).push([['src_module_a_js'], {
+  './src/module_a.js': (e, n, r) => {
+    function c() {
+      return 1
+    }
+
+    function u() {
+      return 2
+    }
+
+    r.r(n), r.d(n, {fn1: () => c, fn2: () => u})
+  },
+}])
+```
+:::
+
+添加注释 `webpackExports` 可以让 dynamic import 的 tree shaking 生效：
+
+::: code-tabs
+@tab webpack.config.js
+```js
+module.exports = {
+  mode: 'development',
+  entry: {
+    entry_a: resolve(__dirname, 'src/entry_a.js'),
+  },
+  optimization: {
+    splitChunks: {
+      minSize: 0,
+      chunks: 'all',
+    },
+    usedExports: true,
+    minimize: true,
+  },
+}
+```
+
+@tab entry_a.js
+```js {1}
+import(/* webpackExports: ['fn1'] */ './module_a')
+  .then((module) => {
+    module.fn1()
+  })
+```
+
+@tab module_a.js
+```js
+export function fn1() {
+  return 1
+}
+
+export function fn2() {
+  return 2
+}
+```
+
+@tab output
+```js {3-5}
+(self.webpackChunkwebpack_performance = self.webpackChunkwebpack_performance || []).push([['src_module_a_js'], {
+  './src/module_a.js': (e, c, r) => {
+    function s() {
+      return 1
+    }
+
+    r.d(c, {fn1: () => s})
+  },
+}])
+```
+:::
+
 ## CSS Tree Shaking
 
 > Reference: 
