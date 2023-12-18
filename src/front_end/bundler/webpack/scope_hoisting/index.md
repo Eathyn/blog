@@ -72,7 +72,6 @@ export function greet() {
 > References
 > - [Babel: disable modules option](https://babeljs.io/docs/babel-preset-env#modules)
 > - [Webpack5 核心原理与应用实践: chapter18](https://juejin.cn/book/7115598540721618944?utm_source=course_list)
-> - [Vite: resolve.mainFields](https://vitejs.dev/config/shared-options.html#resolve-mainfields)
 
 - `ModuleConcatenationPlugin` 仅支持 ESM，因此需要将 Babel 的 `modules` 设置为 `false`，即 Babel 不会将 ESM 转换为其他形式，浏览器最终运行的是 ESM。
 
@@ -81,7 +80,7 @@ export function greet() {
 ```js
 module.exports = {
   resolve: {
-    mainFields: ['browser', 'module', 'jsnext:main', 'jsnext']
+    mainFields: ['jsnext:main', 'browser', 'main'],
   },
 }
 ```
