@@ -9,7 +9,7 @@ category: webpack
 > - [hash comparison](https://juejin.cn/post/6844904018053955591)
 > - [docs](https://webpack.js.org/configuration/output/#template-strings)
 
-## effect
+## Role
 
 - 使用哈希值后可以利用浏览器的缓存功能获得更快的加载速度。
 
@@ -46,7 +46,7 @@ category: webpack
 
 ## non-initial chunk affects initial chunk
 
-- `non-initial` chunk 改变后会改变 `initial` chunk 的 hash。如下面代码所示，改变 `module_b` 的内容会导致 `entry_a` 的 hash 改变，单 `module_a` 的 hash 不会改变。
+- `non-initial chunk` 改变后会改变 `initial chunk` 的 hash。如下面代码所示，改变 `module_b` 的内容会导致 `entry_a` 的 hash 改变，但 `module_a` 的 hash 不会改变。
 
 :::code-tabs
 @tab entry_a.js
