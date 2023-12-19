@@ -228,6 +228,7 @@ const frontEnd = {
         'webpack-dev-server/',
         'source_map/',
         'clean_cache/',
+        'split_chunks/',
         'module_chunk_bundle/',
         'hash/',
         'scope_hoisting/',
