@@ -70,20 +70,20 @@ export const greet2 = (name) => {
 
 ### Principle
 
-1. `usedExports: true` 标记出导出的且没有被使用过的模块。
-2. 使用代码压缩插件删除导出标记的模块。
+1. `usedExports: true` 标记出**导出的**且**没有被使用过**的模块。
+2. 使用代码压缩插件删除第一步中标记出来的模块。
 
 ## SideEffects
 
 ### Prerequisite
 
-`import` 有四种使用方式：
+- `import` 有四种使用方式：
   - named import: `import { export1, export2 } from 'module-name'`
   - default import: `import defaultExport from 'module-name'`
   - namespace import: `import * as name from 'module-name'`
   - side effect import: `import 'module-name'`
 
-dead code: 使用 `export` 导出且没有被使用的代码，例如 `num2`：
+- `dead code`: 使用 `export` 导出且没有被使用的代码，例如 `num2`：
 
 ::: code-tabs
 @tab index.js
@@ -99,7 +99,7 @@ export const num2 = 2 // dead code
 ```
 :::
 
-global code: 没有使用 `export` 导出的代码，例如 `num2`：
+- `global code`: 没有使用 `export` 导出的代码，例如 `num2`：
 
 ```js
 export const num1 = 1
