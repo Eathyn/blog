@@ -3,7 +3,7 @@ date: 2023-11-29
 category: webpack
 ---
 
-# filename and chunkFilename
+# Filename and ChunkFilename
 
 > Reference
 > - [filename](https://webpack.js.org/configuration/output/#outputfilename)
