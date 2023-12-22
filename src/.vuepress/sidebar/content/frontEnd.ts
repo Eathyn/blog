@@ -236,7 +236,7 @@ const frontEnd = {
         'tree_shaking/',
         'node_core_modules/',
         'hot_module_replacement/',
-        'split_chunk/',
+        'import_loaders/',
       ],
     },
     {
