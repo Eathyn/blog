@@ -44,31 +44,37 @@ flowchart TB
 
 ## 查找
 
+> Reference
+> - _A Common-Sense Guide to Data Structures and Algorithms_ : p251-256
+
 ### 算法
 
-1. 设置 currentNode 指向一个当前树的根节点。
-2. 比较 currentNode 的值和要查找的值。
-3. 如果相等，则说明找到了；如果 currentNode 的值大于要查找的值，则接下来从左子树继续查找；如果 currentNode 的值小于要查找的值，则接下来从右子树继续查找。
-4. 重复步骤一到三，直到找到或到达叶子节点。
+- 比较查询值（searchValue）和当前节点值（node.value）；
+- 如果相等，则说明找到了（递归的基准条件）；
+- 如果查询值比当前节点值大，那么根据二叉查找树的特性排除掉左子树，往当前节点的右子树查找；
+- 如果查询值比当前节点值小，那么根据二叉查找树的特性排除掉右子树，往当前节点的左子树查找；
+- 如果当前节点为 null，说明查询到叶子节点的子节点也查不到，结束查询（递归的基准条件）。
+
 
 ### 实现
 
 ```js
 function search(searchValue, node) {
-  // base case
-  if (node === null || node.value === searchValue) {
+  // base case: 找不到查询的值
+  if (node === null) {
+    return null
+  }
+
+  // base case: 找到查询的值
+  if (searchValue === node.value) {
     return node
   }
 
-  // 根据二叉查找树的特性，排除掉右子树，只查找左子树
-  if (searchValue < node.value) {
-    // 记得使用 return
-    return search(searchValue, node.leftNode)
-  }
-
-  // 根据二叉查找树的特性，排除掉左子树，只查找右子树
+  // 查询的值比当前节点的值大，则往右子树查找
   if (searchValue > node.value) {
-    return search(searchValue, node.rightNode)
+    return search(searchValue, node.rightChild)
+  } else { // 查询的值比当前节点的值小，则往左子树查找
+    return  search(searchValue, node.leftChild)
   }
 }
 ```
@@ -79,11 +85,7 @@ function search(searchValue, node) {
 
 - 最差的情况是变成退化树，此时 `N` 个结点会形成有 `N` 层的树。所以时间复杂度是 `O(N)`。
 
-- 平均的情况是变成平衡树，此时 `N` 个结点会形成有 `logN` 层的树，所以时间复杂度是 `O(logN)`。
-
-:::tip
-有序数组的搜索操作采用二分查找时，事件复杂度为 `log(N)`。
-:::
+- 平均的情况是变成平衡树，此时 `N` 个结点会形成有 `logN` 层的树，每次递归都会把范围缩小到左子树或右子树，即排除一半的节点，所以时间复杂度是 `O(logN)`。
 
 ## 插入
 
