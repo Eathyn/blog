@@ -11,6 +11,8 @@ tag:
 ## Terminology
 
 ### Leaf and Internal Node / Edge
+ 
+> Ref: [leaf node, external node, edge](https://www.programiz.com/dsa/trees)
 
 - 叶子节点（leaf node）/ 外部节点（external node）：没有子节点的节点（D/E/C）。
 
@@ -30,6 +32,8 @@ flowchart TB
 ```
 
 ### Depth and Height of Node / Height of Tree
+
+> Ref: [height and depth of node](https://www.geeksforgeeks.org/height-and-depth-of-a-node-in-a-binary-tree/)
 
 - 节点的深度：根节点到该节点的路径上出现的边（edge）的数量。
   - A 的深度是 0。因为根节点到 A 的路径上出现的边的数量为 0。
@@ -55,8 +59,3 @@ flowchart TB
   E --> F
   E --> Node(null)
 ```
-
-## Refs
-
-- [leaf node, external node, edge](https://www.programiz.com/dsa/trees)
-- [height and depth of node](https://www.geeksforgeeks.org/height-and-depth-of-a-node-in-a-binary-tree/)
