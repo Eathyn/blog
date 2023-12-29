@@ -237,6 +237,7 @@ const frontEnd = {
         'node_core_modules/',
         'hot_module_replacement/',
         'import_loaders/',
+        'pre_operation/',
       ],
     },
     {
