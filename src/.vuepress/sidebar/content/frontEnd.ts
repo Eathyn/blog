@@ -57,7 +57,7 @@ const frontEnd = {
   ],
   html: [
     'defer_vs_async/',
-    'preload_prefetch/',
+    'pre_operation/',
     'form/submit_event.md',
   ],
   typescript: [
