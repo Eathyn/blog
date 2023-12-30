@@ -238,6 +238,7 @@ const frontEnd = {
         'hot_module_replacement/',
         'import_loaders/',
         'pre_operation/',
+        'runtime_chunk/',
       ],
     },
     {
