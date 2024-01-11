@@ -52,6 +52,15 @@ const english = {
             },
           ],
         },
+        {
+          text: '从句',
+          prefix: 'clause/',
+          collapsible: true,
+          children: [
+            'noun_clause',
+            // 'relative_clause',
+          ],
+        },
       ],
     },
   ],
