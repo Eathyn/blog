@@ -208,6 +208,7 @@ const frontEnd = {
       prefix: 'npm/',
       children: [
         'semver/',
+        'commands/',
       ],
     }
   ],
