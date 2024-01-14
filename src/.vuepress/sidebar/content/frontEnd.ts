@@ -209,6 +209,7 @@ const frontEnd = {
       children: [
         'semver/',
         'commands/',
+        'config/',
       ],
     }
   ],
