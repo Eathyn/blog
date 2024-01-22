@@ -241,6 +241,7 @@ const frontEnd = {
         'import_loaders/',
         'pre_operation/',
         'runtime_chunk/',
+        'module/',
       ],
     },
     {
