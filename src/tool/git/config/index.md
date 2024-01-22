@@ -112,12 +112,16 @@ Host eathyn
     HostName github.com
     # `id_ed25519_eathyn` 是文件 SSH key 的文件名
     IdentityFile ~/.ssh/id_ed25519_eathyn
+    # Proxy
+    ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
 
 # ZYB GitHub Account
 Host zyb
     HostName github.com
     # `id_ed25519_zyb` 是文件 SSH key 的文件名
     IdentityFile ~/.ssh/id_ed25519_zyb
+    # Proxy
+    ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
 ```
 
 - 使用命令测试是否可以使用，如果返回 `Hi xxx! You've successfully authenticated`，则说明本地与源端连接成功：
@@ -154,11 +158,17 @@ git clone git@zyb:liruifengv/daily-poetry-image.git
 > - [config SSH proxy](https://stackoverflow.com/a/6739420)
 
 - 在 `~/.ssh/config` 文件中添加 `ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p` 命令。
+- %h 表示 hostname。
+- %p 表示 port。
 
 ```text
 # Proxy
 ProxyCommand connect -H 127.0.0.1:10809 -a none %h %p
 ```
+
+::: warning
+- 每个 Host 都需要配置代理。
+:::
 
 ### HTTP / HTTPS
 
