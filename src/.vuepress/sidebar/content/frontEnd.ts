@@ -242,6 +242,7 @@ const frontEnd = {
         'pre_operation/',
         'runtime_chunk/',
         'module/',
+        'bundle_library_output/',
       ],
     },
     {
