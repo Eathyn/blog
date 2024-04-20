@@ -25,6 +25,7 @@ const tool = {
     'revert/',
     'switch/',
     'push/',
+    'ignore/',
   ],
   debug: [
     {
