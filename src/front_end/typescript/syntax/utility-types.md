@@ -37,9 +37,11 @@ type RequiredUser = Required<User> // {name: string, age: number}
 
 ## Record Type
 
-> Reference: [How the TypeScript Record Type Works](https://dev.to/smpnjn/how-the-typescript-record-type-works-1f5m)
+> Reference: 
+> - [How the TypeScript Record Type Works](https://dev.to/smpnjn/how-the-typescript-record-type-works-1f5m)
+> - [Define a list of optional keys for Typescript Record](https://stackoverflow.com/q/53276792/9863318)
 
-- Record 可以确保一致性，接收一个键和一个值。
+Record 可以确保一致性，接收一个键和一个值：
 
 ```ts
 interface User {
@@ -55,6 +57,70 @@ let data: Record<Country, User> = {
   india: { name: 'John', age: 20 },
 }
 ```
+
+因为 `Record` 的定义是：
+
+```ts
+type Record<K extends keyof any, T> = {
+    [P in K]: T;
+};
+```
+
+所以 `Record` 的键是必须的，不是可选的。如果缺少则会报错：
+
+```ts {8-12}
+interface User {
+  name: string
+  age: number
+}
+
+type Country = 'uk' | 'france' | 'india'
+
+// TS2741: Property `india` is missing in type
+let data: Record<Country, User> = {
+  uk: { name: 'Jeff', age: 18 },
+  france: { name: 'Eaven', age: 19 },
+}
+```
+
+有两种方法（参考 [stackoverflow](https://stackoverflow.com/a/53276873/9863318)）可以让 `Record` 的键变为可选：
+
+::: code-tabs
+@tab 方法一
+```ts {8-10}
+// 方法一：参考 Record 的定义，将 key 改为可选
+interface User {
+  name: string
+  age: number
+}
+
+type Country = 'uk' | 'france' | 'india'
+type PartialRecord<K extends keyof any, T> = {
+  [P in K]?: T
+}
+
+let data: PartialRecord<Country, User> = {
+  uk: { name: 'Jeff', age: 18 },
+  france: { name: 'Eaven', age: 19 },
+}
+```
+
+@tab 方法二
+```ts {9-12}
+// 方法二：使用 Partial 封装 Record
+interface User {
+  name: string
+  age: number
+}
+
+type Country = 'uk' | 'france' | 'india'
+
+let data: Partial<Record<Country, User>> = {
+  uk: { name: 'Jeff', age: 18 },
+  france: { name: 'Eaven', age: 19 },
+}
+```
+:::
 
 ## Readonly Type
 
@@ -138,12 +204,13 @@ type UserNameOnly = Omit<User, 'age'> // {name: string}
 - Pick 类型可以挑选出对象类型中的某些属性，并生成新的类型。
 
 ```ts
-type User = {
+type Student = {
   name: string
-  age: number
+  age?: number
+  grade: number
 }
 
-type UserOnlyName = Pick<User, 'name'> // {name: string}
+type Person = Pick<Student, 'name' | 'age'> // {name: string, age?: number}
 ```
 
 ## Parameters Type
