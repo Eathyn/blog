@@ -264,6 +264,14 @@ const frontEnd = {
     'babel/',
     'eslint/',
     'prettier/',
+    {
+      text: 'Monorepo',
+      collapsible: true,
+      prefix: 'monorepo/',
+      children: [
+        'pnpm_workspace/',
+      ],
+    },
   ],
   miniProgram: [
     'navigation/',
