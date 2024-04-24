@@ -252,6 +252,14 @@ const frontEnd = {
       prefix: 'vite/',
       children: [
         'css/',
+        {
+          text: 'Plugin',
+          collapsible: true,
+          prefix: 'plugin/',
+          children: [
+            'pinia-plugin-persistedstate/',
+          ],
+        },
       ],
     }
   ],
