@@ -262,6 +262,15 @@ const frontEnd = {
         },
       ],
     }
+    },
+    {
+      text: 'Others',
+      collapsible: true,
+      prefix: 'others/',
+      children: [
+        'module_evolution/',
+      ],
+    },
   ],
   engineering: [
     'browserslist/',
