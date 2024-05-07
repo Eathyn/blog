@@ -54,6 +54,7 @@ const frontEnd = {
     'transition/',
     'animation/',
     'staging_process/',
+    'full_background_image/',
   ],
   html: [
     'defer_vs_async/',
