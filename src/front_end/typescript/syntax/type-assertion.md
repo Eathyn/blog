@@ -177,6 +177,26 @@ let obj2 = <TypeA>{
 ```
 
 ## Assertion Function
+### Definition
+
+> Ref: [definition of assertion function](https://blog.logrocket.com/assertion-functions-typescript/#:~:text=Assertion%20functions%20in%20TypeScript%20are%20a%20very%20expressive%20type%20of%20function%20whose%20signature%20states%20that%20a%20given%20condition%20is%20verified%20if%20the%20function%20itself%20returns.)
+
+断言函数（assertion function）的定义：如果函数抛出错误，TS 编译器就认为函数的断言是错误的；如果函数没有抛出错误，TS 编译器就认为函数断言是正确的。
+
+用以下代码解释断言函数的定义，当不满足这两个条件（`!Array.isArray(value) || value.some((item) => typeof item !== 'number')`）时，函数会抛出错误（throw new Error(\`${value} is not the array number type)\`），那么 TS 编译器就认为函数的断言（`value is number[]`）是错误的。反之，如果满足这两个条件时，函数不会抛出错误，那么 TS 编译器就认为函数断言是正确的，那么 value 的类型就被 TS 编译器推断为 `number[]`：
+
+```ts
+function assertNumberArr(value: unknown): asserts value is number[] {
+  if (!Array.isArray(value) || value.some((item) => typeof item !== 'number')) {
+    throw new Error(`${value} is not the array number type`)
+  }
+}
+
+const data: unknown = [1, 2, 3] // data: unknown
+assertNumberArr(data)
+data.reduce((acc, curr) => acc + curr, 0) // data: number[]
+```
+
 
 > Ref: [Assertion Functions in TypeScript](https://mariusschulz.com/blog/assertion-functions-in-typescript)
 
