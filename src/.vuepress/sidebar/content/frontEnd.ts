@@ -260,6 +260,7 @@ const frontEnd = {
             'pinia-plugin-persistedstate/',
           ],
         },
+        'dependency_pre-bundling/',
       ],
     }
     },
