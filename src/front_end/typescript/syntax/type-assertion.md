@@ -177,9 +177,136 @@ let obj2 = <TypeA>{
 ```
 
 ## Assertion Function
+
+### Why
+
+> Ref: [TypeScript 引入断言签名的原因](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions)
+
+Node.js 中的 assert 断言函数：
+
+```js
+const assert = require('assert')
+
+const a = 1
+// AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+//  assert(a === 2)
+assert(a === 2)
+```
+
+但是调用 Node.js 的 assert 函数并不能让 TypeScript 编译器窄化变量的类型：
+
+```ts
+const assert = require('assert')
+
+function fn(str: unknown) {
+  // Node.js assert function
+  assert(typeof str === 'string')
+  // TS18046: str is of type unknown
+  str.toUpperCase()
+}
+```
+
+于是 TypeScript 3.7 提出断言签名（assertion signature）的概念来并解决类型窄化的问题，使用断言签名的函数称为断言函数（assertion function）：
+
+```ts
+function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg)
+  }
+}
+
+function yell(x: unknown) {
+  // TS18046: x is of type unknown
+  x.toUpperCase()
+
+  assert(typeof x === 'string')
+
+  // x: string
+  x.toUpperCase()
+}
+```
+
+### Two Forms
+
+> Ref: [断言签名的两种格式](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions)
+
+断言函数有两种格式，一种是断言**整个条件**，另一种是断言**变量或对象属性**。
+
+断言整个条件的格式源于模仿 Node.js 的 assert 函数，这种方式直接断言整个条件（asserts condition）：
+
+```ts
+function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new TypeError(msg)
+  }
+}
+
+function yell(x: unknown) {
+  // TS18046: x is of type unknown
+  x.toUpperCase()
+
+  assert(typeof x === 'string')
+
+  // x: string
+  x.toUpperCase()
+}
+```
+
+断言变量或对象属性的格式：
+
+```ts
+function assertIsString(value: unknown): asserts value is string {
+  if (typeof value !== 'string') {
+    throw new TypeError(`${value} is not string type`)
+  }
+}
+
+function test(value: unknown) {
+  // TS18046: value is of type unknown
+  // value.toUpperCase()
+
+  assertIsString(value)
+
+  // value: string
+  value.toUpperCase()
+}
+```
+
+### Type Predicate vs Assertion Function
+
+> Ref: 
+> - [类型断言 vs 断言函数](https://blog.logrocket.com/assertion-functions-typescript/#:~:text=number%27\)%0A%7D-,Assertion%20functions%20and%20type%20guards,-Assertion%20functions%20in)
+> - [类型断言 vs 断言函数](https://exploringjs.com/tackling-ts/ch_type-guards-assertion-functions.html#quick-reference-user-defined-type-guards-and-assertion-functions)
+
+类型断言（type predicate）与断言函数（assertion function）的区别：
+- 类型断言的返回值的类型是布尔值；
+- 断言函数的返回值的类型是 void 或抛出错误：
+
+```ts
+// 类型断言签名
+function assertIsString(value: unknown): value is string {
+  return typeof value === 'string'
+}
+
+// 断言签名
+function assertIsString(value: unknown): asserts value is string {
+  if (typeof value !== 'string') {
+    throw new TypeError(`${value} is not string type`)
+  }
+}
+
+// 类型断言签名的错误使用
+// TS2355: A function whose declared type is neither undefined, void, nor any must return a value.
+function assertIsString(value: unknown): value is string {
+  if (typeof value !== 'string') {
+    throw new TypeError(`${value} is not string type`)
+  }
+}
+```
+
 ### Definition
 
-> Ref: [definition of assertion function](https://blog.logrocket.com/assertion-functions-typescript/#:~:text=Assertion%20functions%20in%20TypeScript%20are%20a%20very%20expressive%20type%20of%20function%20whose%20signature%20states%20that%20a%20given%20condition%20is%20verified%20if%20the%20function%20itself%20returns.)
+> Ref: [definition of assertion function](https://typescript.tv/best-practices/type-checking-with-assertion-functions-in-typescript/#disadvantages:~:text=An%20assertion%20function%20is%20the%20implementation%20of%20a%20runtime%20check%20that%20is%20able%20to%20identify%20the%20type%20of%20unknown%20input.%20When%20the%20conditions%20of%20the%20assertion%20functions%20are%20passed%2C%20TypeScript%27s%20compiler%20will%20then%20assume%20that%20the%20input%20is%20of%20the%20type%20claimed%20by%20the%20signature%20of%20the%20assertion%20function.)
 
 断言函数（assertion function）的定义：如果函数抛出错误，TS 编译器就认为函数的断言是错误的；如果函数没有抛出错误，TS 编译器就认为函数断言是正确的。
 
@@ -188,7 +315,7 @@ let obj2 = <TypeA>{
 ```ts
 function assertNumberArr(value: unknown): asserts value is number[] {
   if (!Array.isArray(value) || value.some((item) => typeof item !== 'number')) {
-    throw new Error(`${value} is not the array number type`)
+    throw new TypeError(`${value} is not the array number type`)
   }
 }
 
@@ -197,10 +324,11 @@ assertNumberArr(data)
 data.reduce((acc, curr) => acc + curr, 0) // data: number[]
 ```
 
+### Application
 
 > Ref: [Assertion Functions in TypeScript](https://mariusschulz.com/blog/assertion-functions-in-typescript)
 
-因为 `document.getElementById` 的返回值类型是 HTMLElement | null，所以 `elem.addEventListener` 会报错：
+因为 `document.getElementById` 的返回值类型是 `HTMLElement | null`，所以 `elem.addEventListener` 会报错：
 
 ```ts
 let elem = document.getElementById('#test')
@@ -270,7 +398,7 @@ elem.addEventListener('click', () => {})
   // function declaration
   function isString(value: unknown): asserts value is string {
     if (typeof value === 'string') {
-      throw new Error(`${value} is not string`)
+      throw new TypeError(`${value} is not string`)
     }
   }
 }
@@ -279,7 +407,7 @@ elem.addEventListener('click', () => {})
   // function expression
   const isString: (value: unknown) => asserts value is string = (value: unknown) => {
     if (typeof value === 'string') {
-      throw new Error(`${value} is not string`)
+      throw new TypeError(`${value} is not string`)
     }
   }
 }
@@ -289,7 +417,7 @@ elem.addEventListener('click', () => {})
   type AssertIsString = (value: unknown) => asserts value is string
   const isString: AssertIsString = (value: unknown) => {
     if (typeof value === 'string') {
-      throw new Error(`${value} is not string`)
+      throw new TypeError(`${value} is not string`)
     }
   }
 }
