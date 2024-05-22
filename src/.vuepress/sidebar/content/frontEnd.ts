@@ -72,6 +72,7 @@ const frontEnd = {
         'types',
         'type-assertion',
         'type-tools-type-creation',
+        'type-tools-type-safe',
         'type-inference',
         'type-compatibility',
         'narrowing',
