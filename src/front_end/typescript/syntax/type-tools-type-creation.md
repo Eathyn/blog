@@ -76,17 +76,32 @@ type Type = string & boolean
 
 ### Index Signature
 
+> Ref: [why index signature](https://dmitripavlutin.com/typescript-index-signatures/#1-why-index-signature)
+
+当你不能确定对象有哪些具体的属性，但是能确定对象的属性类型和属性值类型时，可以使用索引签名描述（index signature）这个对象的类型。例如：我不能确定 `Person` 类型的对象有哪些具体的属性，但是我能确定 `Person` 类型的对象的属性类型都是 `string`，属性值类型是 `string` 或 `number`，那么我可以用索引签名这样表示类型：
+
+```ts
+interface Person {
+  [key: string]: string | number
+}
+
+const person: Person = {
+  name: 'John',
+  age: 25,
+}
+```
+
+> Ref: [types of key of index signature](https://dmitripavlutin.com/typescript-index-signatures/#2-index-signature-syntax:~:text=The%20key%20of%20the%20index%20signature%20can%20only%20be%20a%20string%2C%20number%2C%20or%20symbol.%20Other%20types%20are%20not%20allowed%3A)
+
+索引签名的键的类型只能是 `string`、`number` 或 `symbol`，因为 JavaScript 对象的属性只能是这三种类型。
+
 > Ref: [TypeScript 全面进阶指南](https://juejin.cn/book/7086408430491172901?scrollMenuIndex=1): 第七章
 
-索引签名（index signature）用于在接口或类型别名中声明一个键值类型一致的类型结构。`[]` 表示索引签名：
+索引签名（index signature）用于在接口或类型别名中声明一个键值类型一致的类型结构。下面代码中的 `[key: string]: string` 表示索引签名：
 
 ```ts
 interface AllStringType {
   [key: string]: string
-}
-
-type AllNumberType = {
-  [key: string]: number
 }
 ```
 
@@ -104,6 +119,31 @@ const obj: AllStringType = {
 }
 ```
 
+> Ref: [在索引签名中声明可选项](https://basarat.gitbook.io/typescript/type-system/index-signatures#using-a-limited-set-of-string-literals)
+
+使用 `?` 操作符可以在索引签名中声明可选项：
+
+```ts
+type Index = 'a' | 'b' | 'c'
+
+type RequiredProp = {
+  [key in Index]: number
+}
+
+type OptionalProp = {
+  [key in Index]?: number
+}
+
+// TS2739: Type { a: number; } is missing the following properties from type RequiredProp: b, c
+const foo: RequiredProp = {
+  a: 1
+}
+
+const bar: OptionalProp = {
+  a: 1
+}
+```
+
 索引签名可以和具体的键值对类型声明并存，但是具体的键值对类型声明要符合索引签名的声明：
 
 ```ts
@@ -118,6 +158,53 @@ interface StringOrBooleanType {
   [key: string]: string | boolean
   propA: string
   propB: boolean
+}
+```
+
+> Ref: [index signature caveat](https://dmitripavlutin.com/typescript-index-signatures/#31-non-existing-properties)
+
+警告1：TypeScript 编译器可能会把不存在的属性的类型推断为索引签名上定义的类型。例如，TypeScript 编译器把 `value` 的类型推断为 `string`，但 `value` 是 `undefined`：
+
+```ts
+interface StringByString {
+  [key: string]: string
+}
+
+const object: StringByString = {}
+// value: string
+const value = object['notExistingProp']
+// undefined
+console.log(value)
+```
+
+解决这个问题的方法是将 `undefined` 添加到索引签名的类型值：
+
+```ts
+interface StringByString {
+  [key: string]: string | undefined
+}
+
+const object: StringByString = {}
+// value: string | undefined
+const value = object['notExistingProp']
+// undefined
+console.log(value)
+```
+
+> Ref: [index signature vs Record](https://dmitripavlutin.com/typescript-index-signatures/#4-index-signature-vs-record)
+
+索引签名和 Record 的区别是：索引签名不支持字面量类型，Record 支持字面量类型：
+
+```ts
+interface NumberByString {
+  // TS1337: An index signature parameter type cannot be a literal type or generic type.
+  [key: 'a' | 'b']: number
+}
+
+const obj1: NumberByString = { a: 1 }
+const obj2: Record<'a' | 'b', number> = {
+  a: 1,
+  b: 2,
 }
 ```
 
