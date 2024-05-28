@@ -208,11 +208,76 @@ const obj2: Record<'a' | 'b', number> = {
 }
 ```
 
-### Search Index Type
+> Ref: [`Object.keys` 在 TypeScript 中的问题和解决方式](https://blog.logrocket.com/how-to-use-keyof-operator-typescript/#:~:text=when%20we%20iterate%20the%20keys%20and%20access%20the%20object%20property%20by%20the%20key%2C%20TypeScript%20throws%20an%20error%20when%20the%20TypeScript%20strict%20mode%20is%20turned%20on)
+
+当开启 `noImplicitAny` 时，使用 `Object.keys` 可能会报错：
+
+::: code-tabs
+@tab tsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "noImplicitAny": true
+  }
+}
+```
+
+@tab index.ts
+```ts
+const user = {
+  name: 'John',
+  age: 25,
+}
+
+Object.keys(user).forEach((key) => {
+  // TS7053: Element implicitly has an any type because expression of type string can't be used to index type { name: string; age: number; }
+    // No index signature with a parameter of type string was found on type { name: string; age: number; }
+  console.log(user[key])
+})
+```
+:::
+
+上述代码报错的原因是因为 TypeScript 推断 `user` 的类型是 `{name: string, age: number}`，并把 `key` 的类型推断为 `string`。因为 `string` 不属于 `'name' | 'age'`，所以 TypeScript 就报错了。
+
+（**解决方式一**）将 `key` 的类型 `string` 断言为 `user` 的键（即 `'name' | 'age'`）：
+
+```ts
+const user = {
+  name: 'John',
+  age: 25,
+}
+
+// "name" | "age"
+type userKeyType = keyof typeof user
+
+Object.keys(user).forEach((key) => {
+  console.log(user[key as userKeyType])
+})
+```
+
+（**解决方式二**）将 `Object.keys` 的返回类型由 `string[]` 改为 `(keyof T)[]`：
+
+```ts
+const user = {
+  name: 'John',
+  age: 25,
+}
+
+interface ObjectConstructor {
+  keys<T>(o: T): (keyof T)[]
+}
+
+Object.keys(user).forEach((key) => {
+  console.log(user[key])
+})
+```
+
+### keyof Type Operator
 
 > Ref: [TypeScript 全面进阶指南](https://juejin.cn/book/7086408430491172901?scrollMenuIndex=1): 第七章
 
-`keyof` 可以将对象中的键转化为对应的字面量类型，然后再组合成联合类型。注意：字符串或 Symbol 类型的键会转成字符串字面量，而数组类型的键会转成数字类型的字面量：
+`keyof` 可以将对象中的键转化为对应的字面量类型，然后再组合成联合类型。注意：字符串或 Symbol 类型的键会转成字符串字面量，而数字类型的键会转成数字类型的字面量：
 
 ```ts
 const testSymbol = Symbol('test')
@@ -226,6 +291,38 @@ interface A {
 
 // "name" | "age" | 1 | "testSymbol"
 type B = keyof A
+```
+
+> Ref: [对拥有索引签名的对象使用 keyof](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html#:~:text=If%20the%20type%20has%20a%20string%20or%20number%20index%20signature%2C%20keyof%20will%20return%20those%20types%20instead%3A)
+
+对拥有索引签名的对象使用 `keyof` 时，返回索引的类型：
+
+```ts
+interface Type {
+  [key: number]: string
+}
+
+// Keys: number
+type Keys = keyof Type
+
+const a: Keys = 1
+const b: Keys = 'x' // TS2322: Type string is not assignable to type number
+```
+
+> Ref: [对拥有 string 类型的索引签名的对象使用 keyof](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html#:~:text=JavaScript%20object%20keys%20are%20always%20coerced%20to%20a%20string)
+
+对拥有 string 类型的索引签名的对象使用 `keyof` 时，返回 `string | number`。因为在 JavaScript 中，number 类型的键会被转化为 string 类型的键：
+
+```ts
+interface Type {
+  [key: string]: boolean
+}
+
+// Keys: string | number
+type Keys = keyof Type
+
+const a: Keys = 1
+const b: Keys = 'x'
 ```
 
 ### Access Index Type
