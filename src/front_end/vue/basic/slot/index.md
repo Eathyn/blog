@@ -175,3 +175,97 @@ function render() {
 > Reference: [Typed Slots with `defineSlots`](https://blog.vuejs.org/posts/vue-3-3#typed-slots-with-defineslots)
 
 - [Using Slot in Render Function with TypeScript](/blog/front_end/vue/release/3.3/#使用-defineslots-规定类型)
+
+## Access Slot Value
+
+通过 `slots.<插槽名>?.()[0].children` 可以在子组件获取父组件传递过来的插槽值：
+
+::: code-tabs
+@tab ParentComponent
+```vue
+<script setup>
+import ChildComponent from './components/ChildComponent.vue'
+</script>
+
+<template>
+  <ChildComponent>
+    <template v-slot:header>this is the header</template>
+    <template v-slot:default>this is the content</template>
+    <template v-slot:footer>this is the footer</template>
+  </ChildComponent>
+</template>
+
+```
+
+@tab ChildComponent
+```vue
+<script setup>
+import { useSlots } from 'vue'
+
+const slots = useSlots()
+const headerSlot = slots.header?.()[0].children
+console.log('headerSlot: ', headerSlot) // this is the header
+
+const defaultSlot = slots.default?.()[0].children
+console.log('defaultSlot: ', defaultSlot) // this is the content
+
+const footerSlot = slots.footer?.()[0].children
+console.log('footerSlot: ', footerSlot) // this is the footer
+</script>
+
+<template>
+  <div class="main">
+    <div class="header">
+      <slot name="header"></slot>
+    </div>
+    <div class="content">
+      <slot name="default"></slot>
+    </div>
+    <div class="footer">
+      <slot name="footer"></slot>
+    </div>
+  </div>
+</template>
+```
+:::
+
+如果插槽中传入多个元素，那么 `slots.<插槽名>?.()[0].children` 就会变为数组：
+
+::: code-tabs
+@tab ParentComp
+```vue
+<script setup>
+import ChildComp from './ChildComp.vue'
+</script>
+
+<template>
+  <ChildComp>
+    <template v-slot:default>
+      <div>
+        <span>x</span>
+        <span>y</span>
+      </div>
+    </template>
+  </ChildComp>
+</template>
+```
+
+@tab ChildComp
+```vue
+<script setup>
+  import { useSlots } from 'vue'
+
+  const slots = useSlots()
+  const defaultSlot = slots.default?.()[0].children
+  for (const VNode of defaultSlot) {
+    console.log(VNode.children) // x,y
+  }
+</script>
+
+<template>
+  <div class="child-comp">
+    <slot name="default"></slot>
+  </div>
+</template>
+```
+:::
