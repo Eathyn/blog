@@ -253,6 +253,7 @@ const frontEnd = {
       prefix: 'vite/',
       children: [
         'css/',
+        'code-splitting/',
         {
           text: 'Plugin',
           collapsible: true,
