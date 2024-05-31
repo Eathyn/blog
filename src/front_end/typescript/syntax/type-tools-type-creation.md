@@ -325,6 +325,169 @@ const a: Keys = 1
 const b: Keys = 'x'
 ```
 
+> Ref: [keyof + typeof](https://blog.logrocket.com/how-to-use-keyof-operator-typescript/#using-keyof-typeof-pattern)
+
+`keyof` 只能获取类型对象（例如 interface, type）的属性，而无法获取对象实例的键：
+
+```ts
+interface User {
+  name: string
+  age: number
+}
+
+type Person = {
+  name: string
+  age: number
+}
+
+const student = {
+  name: 'John',
+  age: 25
+}
+
+// "name" | "age"
+type UserKeys = keyof User
+// "name" | "age"
+type PersonKeys = keyof Person
+// TS2749: student refers to a value, but is being used as a type here.
+type StudentKey = keyof student
+```
+
+`keyof` 配合 `typeof` 可以获取对象实例的键：
+
+```ts
+const student = {
+  name: 'John',
+  age: 25
+}
+
+// "name" | "age"
+type StudentKeys = keyof typeof student
+```
+
+> Ref: [keyof + generics](https://refine.dev/blog/typescript-keyof/#using-typescript-keyof-in-generic-types)
+
+`keyof` 可以结合泛型使用：
+
+```ts
+const user = {
+  name: 'John',
+  age: 25,
+}
+
+function getProp<T, K extends keyof T>(obj: T, prop: K) {
+  console.log(obj[prop])
+}
+
+function setProp<T, K extends keyof T>(obj: T, prop: K, value: T[K])  {
+  obj[prop] = value
+}
+```
+
+> Ref: [keyof + index signature + generics](https://refine.dev/blog/typescript-keyof/#typescript-keyof-with-generic-type-mappers)
+
+`keyof` 结合索引签名和泛型一起使用：
+
+```ts
+type User = {
+  name: string
+  age: number
+}
+
+type ExtendedType<T> = {
+  [K in keyof T]: {
+    value: T[K]
+    description: string
+  }
+}
+
+/**
+ * {
+ *  name: { value: string, description: string },
+ *  age: { value: number, description: string },
+ * }
+ * */
+type ExtendedUser = ExtendedType<User>
+
+const user: User = {
+  name: 'John',
+  age: 25,
+}
+
+const extendedUser: ExtendedUser = {
+  name: {
+    value: 'John',
+    description: 'user name',
+  },
+  age: {
+    value: 25,
+    description: 'user age',
+  },
+}
+```
+
+> Ref: [keyof + index signature + as + generics](https://refine.dev/blog/typescript-keyof/#typescript-keyof-a-remapped-type-example)
+
+```ts
+interface User {
+  name: string
+  age: number
+}
+
+type PropGetterMapper<T> = {
+  [K in keyof T as `get${Capitalize<string & K>}`]: (obj: T) => T[K]
+}
+
+// {
+//  getName: (obj: User) => User["name"],
+//  getAge: (obj: User) => User["age"],
+// }
+type UserPropGetters = PropGetterMapper<User>
+
+const userPropGetters: UserPropGetters = {
+  getName(user: User) {
+    return user.name
+  },
+  getAge(user: User) {
+    return user.age
+  },
+}
+
+const user = {
+  name: 'John',
+  age: 25,
+}
+
+userPropGetters.getName(user) // John
+userPropGetters.getAge(user) // 25
+```
+
+> Ref: [keyof in set function](https://dev.to/this-is-learning/typescript-tips-tricks-keyof-4an0)
+
+Q: 为什么 `setUserProp2` 会报错？
+
+```ts
+interface User {
+  name: string
+  age: number
+}
+
+function setProp<T extends object, K extends keyof T>(obj: T, key: K, val: T[K]) {
+  obj[key] = val
+}
+
+function setUserProp<K extends keyof User>(user: User, key: K, val: User[K]) {
+  user[key] = val
+}
+
+type UserKeys = keyof User
+function setUserProp2(user: User, key: UserKeys, val: User[UserKeys]) {
+  // TS2322: Type string | number is not assignable to type never
+    // Type string is not assignable to type never
+  user[key] = val
+}
+```
+
 ### Access Index Type
 
 > Ref: [TypeScript 全面进阶指南](https://juejin.cn/book/7086408430491172901?scrollMenuIndex=1): 第七章
