@@ -253,6 +253,7 @@ const frontEnd = {
       prefix: 'vite/',
       children: [
         'css/',
+        'bundle-chunk-vendor/',
         'code-splitting/',
         {
           text: 'Plugin',
