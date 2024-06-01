@@ -488,22 +488,21 @@ function setUserProp2(user: User, key: UserKeys, val: User[UserKeys]) {
 }
 ```
 
-### Access Index Type
+### Indexed Access Type
 
 > Ref: [TypeScript 全面进阶指南](https://juejin.cn/book/7086408430491172901?scrollMenuIndex=1): 第七章
 
-在 TypeScript 中，可以通过访问对象属性类型的方式获得对象属性值的类型：
+在 TypeScript 中，对象值的类型可以通过 `对象类型[对象键的类型]` 获取，这种方式称为索引访问类型：
 
 ```ts
-interface A {
+interface Foo {
   [key: string]: number
 }
-
 // number
-type ValueType = A[string]
+type FooValType = Foo[string]
 ```
 
-还可以通过访问接口的属性字面量获得属性值的类型：
+同理，下面的 `propA` 和 `propB` 也属于字符串字面量类型，而不是 JavaScript 字符串值：
 
 ```ts
 interface Type {
@@ -542,6 +541,99 @@ type B = Type['propA' | 'propB']
 
 // string | number
 type C = Type[keyof Type]
+```
+
+如果没有定义索引签名，那么只能通过字面量类型访问：
+
+```ts
+interface Foo {
+  propA: boolean
+}
+// TS2537: Type Foo has no matching index signature for type string
+type FooValType1 = Foo[string]
+// ok
+type FooValType2 = Foo['propA']
+```
+
+> Ref: [`类型数组[number]` 获取数组项的类型](https://www.allthingstypescript.dev/p/indexed-access-types-in-typescript)
+
+通过 `类型数组[number]` 可以获取数组项的类型：
+
+```ts
+type Persons = {
+  name: string
+  age: number
+  address: {
+    country: string
+    province: string
+    city: string
+  }
+}[]
+
+// {name: string, age: number, address: {country: string, province: string, city: string}}
+type Person = Persons[number]
+
+// {country: string, province: string, city: string}
+type Address = Persons[number]['address']
+```
+
+> Ref: [`typeof 数组实例[number]` 获取数组项的类型](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html#:~:text=Another%20example%20of%20indexing%20with%20an%20arbitrary%20type%20is%20using%20number%20to%20get%20the%20type%20of%20an%20array%E2%80%99s%20elements.)
+
+通过 `typeof 数组实例[number]` 可以获取数组项的类型：
+
+```ts
+const persons = [
+  { name: 'John', age: 25 },
+  { name: 'Eaven', age: 30 },
+]
+
+// {name: string, age: number}
+type Person = typeof persons[number]
+const person: Person = {
+  name: 'John',
+  age: 25,
+}
+```
+
+数组项的类型可能不同，所以 `typeof 数组[number]` 的返回值是数组项类型的并集：
+
+```ts
+const persons = [
+  { name: 'John', age: 25 },
+  { name: 'Eaven', hobby: 'cs' },
+]
+
+// {name: string, age: number} | {name: string, hobby: string}
+type Person = typeof persons[number]
+
+const person1: Person = {
+  name: 'John',
+  age: 25,
+}
+const person2: Person = {
+  name: 'Eavan',
+  hobby: 'cs'
+}
+```
+
+> Ref: [索引访问类型只能接受类型](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html#:~:text=You%20can%20only%20use%20types%20when%20indexing)
+
+索引访问类型只能接受类型，可以使用别名，但不能使用变量：
+
+```ts
+interface Person {
+  name: string
+  age: number
+}
+
+type key1 = 'name'
+// string
+type NameType1 = Person[key1]
+
+const key2 = 'name'
+// TS2538: Type key2 cannot be used as an index type.
+  // TS2749: key2 refers to a value, but is being used as a type here.
+type NameType2 = Person[key2]
 ```
 
 ## Mapped Type
