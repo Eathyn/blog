@@ -640,68 +640,142 @@ type NameType2 = Person[key2]
 
 > Ref: [TypeScript 全面进阶指南](https://juejin.cn/book/7086408430491172901?scrollMenuIndex=1): 第七章
 
-映射类型（mapped type）的作用是基于键名映射到键值类型。以下代码表示创建 `StringedType`，然后把 `TypeA` 的所有键名复制到 `StringedType`，最后把 `StringedType` 的所有键值设置为 `string` 类型。`K in` 就是映射类型的语法：
+映射类型（mapped type）的作用是基于键名映射到键值类型，经常用于复制类型或者在某个类型的基础上生成新的类型。
+
+> Ref: None
+
+映射类型可以用来复制类型：
 
 ```ts
-interface TypeA {
-  prop1: string
-  prop2: number
-  prop3: boolean
-  prop4: () => void
+type Person = {
+  name: string
+  age: number
 }
 
-type TypeB<T> = {
-  [K in keyof T]: string
+// {name: string, age: number}
+type ClonePerson = {
+  [K in keyof Person]: Person[K]
 }
-
-// {prop1: string, prop2: string, prop3: string, prop4: string}
-type StringedType = TypeB<TypeA>
 ```
 
-我们还能通过映射类型克隆接口，`T[K]` 可以获取键的值类型：
+> Ref: None
+
+映射类型结合泛型：
 
 ```ts
-interface TypeA {
-  prop1: string
-  prop2: number
-  prop3: boolean
-  prop4: () => void
+type TypeA = {
+  x: number
+}
+
+type TypeB = {
+  y: string
 }
 
 type Clone<T> = {
   [K in keyof T]: T[K]
 }
 
-// {prop1: string, prop2: number, prop3: boolean, prop4: () => void}
-type TypeB = Clone<TypeA>
+// {x: number}
+type TypeAClone = Clone<TypeA>
+// {y: string}
+type TypeBClone = Clone<TypeB>
 ```
 
-> Ref: ?
+> Ref: [+/- modifier with readonly/optional](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers)
 
-使用 `-readonly` 可以将只读属性改为可写属性：
+`+readonly` 表示将属性设置为 `readonly`；`-readonly` 表示移除属性的 `readonly`：
 
 ```ts
-interface TypeA {
-  prop1: string
-  readonly prop2: boolean
+type TypeA = {
+  readonly x: number
 }
 
-// {prop1: string, prop2: boolean}
+// {readonly x: number}
 type TypeB = {
+  +readonly [K in keyof TypeA]: TypeA[K]
+}
+
+// {x: number}
+type TypeC = {
   -readonly [K in keyof TypeA]: TypeA[K]
 }
 ```
 
-使用 `-?` 可以将可选属性改为必须属性：
+`+?` 表示将属性设置为可选项；`-?` 表示将属性设置为必填项：
 
 ```ts
-interface TypeA {
-  prop1: string
-  prop2?: boolean
+type TypeA = {
+  x?: number
 }
 
-// {prop1: string, prop2: boolean}
+// {x?: number}
 type TypeB = {
+  [K in keyof TypeA]+?: TypeA[K]
+}
+
+// {x: number}
+type TypeC = {
   [K in keyof TypeA]-?: TypeA[K]
 }
+```
+
+> [mapped type + as + Capitalize](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as)
+
+映射类型结合 `as` 与 `Capitalize` 可以修改属性类型名：
+
+```ts
+type Person = {
+  name: string
+  age: number
+}
+
+// {
+//  getName: () => Person["name"],
+//  getAge: () => Person["age"]
+// }
+type PersonGetter = {
+  [K in keyof Person as `get${Capitalize<string & K>}`]: () => Person[K]
+}
+```
+
+> Ref: [mapped type + as + Exclude](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as:~:text=You%20can%20filter%20out%20keys%20by%20producing%20never%20via%20a%20conditional%20type)
+
+映射类型结合 `as` 与 `Exclude` 可以删除属性类型名：
+
+```ts
+type Person = {
+  name: string
+  age: number
+}
+
+// {age: number}
+type RemoveAgeField = {
+  [K in keyof Person as Exclude<K, 'name'>]: Person[K]
+}
+```
+
+> Ref: [mapped type + as + conditional type](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#further-exploration)
+
+映射类型结合 `as` 与条件类型可以做条件判断：
+
+```ts
+type TypeA = {
+  x: string
+  y: string
+}
+
+type TypeB = {
+  y: string
+  z: string
+}
+
+type TypeC<T> = {
+  [K in keyof T]: T extends { x: string } ? true : false
+}
+
+// { x: true, y: true }
+type TypeATest = TypeC<TypeA>
+
+// { y: false, z: false }
+type TypeBTest = TypeC<TypeB>
 ```
