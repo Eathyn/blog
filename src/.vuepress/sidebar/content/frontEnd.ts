@@ -86,6 +86,7 @@ const frontEnd = {
         'module',
         'tsconfig',
         'extends',
+        'structural_typing',
       ],
     },
     'exclude_extract_vs_omit_pick.md',
