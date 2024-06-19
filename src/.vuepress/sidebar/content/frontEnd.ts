@@ -87,6 +87,7 @@ const frontEnd = {
         'tsconfig',
         'extends',
         'structural_typing',
+        'type-hierarchy',
       ],
     },
     'exclude_extract_vs_omit_pick.md',
