@@ -88,6 +88,7 @@ const frontEnd = {
         'extends',
         'structural_typing',
         'type-hierarchy',
+        'conditional-type',
       ],
     },
     'exclude_extract_vs_omit_pick.md',
