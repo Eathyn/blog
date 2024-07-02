@@ -24,6 +24,8 @@ type FactoryWithBoolean = Factory<boolean>
 
 ## Union and Intersection Type
 
+### Union Type
+
 > Ref: [TypeScript 全面进阶指南](https://juejin.cn/book/7086408430491172901?scrollMenuIndex=1): 第七章
 
 联合类型（union type）表示只需要符合联合类型中的一个类型。例如 A | B 只需要实现 A 或 B 即可：
@@ -33,6 +35,18 @@ type Type = number | string
 let a: Type = 1
 let b: Type = ''
 ```
+
+> Ref: ChatGPT
+
+在联合类型中，never 类型会被忽略，因为在联合类型中 never 代表没有值或空集：
+
+```ts
+type TypeA = string | never // string
+type TypeB = unknown | never // unknown
+type TypeC = any | never // any
+```
+
+### Intersection Type
 
 交叉类型（intersection type）表示需要符合交叉类型中的所有类型。例如 A & B 需要同时实现 A 和 B：
 
